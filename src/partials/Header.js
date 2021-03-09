@@ -99,7 +99,7 @@ function Header() {
             </ul>
 
             {/* Desktop lights switch */}
-            <div className="form-switch focus-within:outline-blue flex flex-col justify-center ml-3">
+            {/*<div className="form-switch focus-within:outline-blue flex flex-col justify-center ml-3">
               <input type="checkbox" name="light-switch" id="light-switch-desktop" className="light-switch sr-only" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
               <label className="relative" htmlFor="light-switch-desktop">
                 <span className="relative bg-gradient-to-t from-gray-100 to-white dark:from-gray-800 dark:to-gray-700 shadow-sm z-10" aria-hidden="true"></span>
@@ -113,14 +113,14 @@ function Header() {
                 </svg>
                 <span className="sr-only">Switch to light / dark version</span>
               </label>
-            </div>            
+            </div>       */}      
 
             {/* Desktop CTA on the right */}
-            <ul className="flex justify-end flex-wrap items-center">
+            {/*<ul className="flex justify-end flex-wrap items-center">
               <li>
                 <Link to="/contact" className="btn-sm text-white bg-teal-500 hover:bg-teal-400 ml-6">Request code</Link>
               </li>
-            </ul>
+            </ul>*/}
 
           </nav>
 

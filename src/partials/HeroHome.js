@@ -67,7 +67,7 @@ function HeroHome() {
                   </defs>
                 </svg>
                 {/* Image inside mockup size: 290x624px (or 580x1248px for Retina devices) */}
-                <img src={require('../images/mockup-image-01.png')} width="290" height="624" style={{ maxWidth: '94.33%' }} alt="Features illustration" />
+                <img src={require('../images/mockup-image-01.png')} width="290" height="624" style={{ maxWidth: '100%' }} alt="Features illustration" />
               </div>
 
             </div>

@@ -10,8 +10,11 @@ import Process from '../partials/Process';
 import PricingTables from '../partials/PricingTables';
 import TestimonialsBlocks from '../partials/TestimonialsBlocks';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
+import FeaturesGallery from '../partials/FeaturesGallery';
+
 import Cta from '../partials/Cta';
 import Footer from '../partials/Footer';
+import FeaturesAnimation from '../partials/FeaturesAnimation';
 
 function Home() {
   return (
@@ -36,8 +39,11 @@ function Home() {
         <Process />
         <PricingTables />
         <TestimonialsBlocks />
+        <FeaturesAnimation /> */}
         <FeaturesBlocks />
-         <Cta /> */}
+        {/* <FeaturesGallery /> */}
+
+        {/* <Cta /> */}
 
       </main>
 
