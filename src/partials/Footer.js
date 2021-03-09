@@ -133,7 +133,7 @@ function Footer() {
             {/* Bottom area */}
             <div className="md:flex md:items-center md:justify-between">
 
-                {/* Social links */}
+                {/* Social links 
                 <ul className="flex mb-4 md:order-2 md:ml-4 md:mb-0">
                     <li>
                         <a className="flex justify-center items-center text-white bg-teal-500 dark:text-teal-500 dark:bg-gray-800 hover:underline hover:bg-teal-600 rounded-full transition duration-150 ease-in-out" href="#0" aria-label="Twitter">
@@ -172,7 +172,7 @@ function Footer() {
                             </svg>
                         </a>
                     </li>
-                </ul>
+                </ul> */}
 
                 {/* Middle links */}
                 <div className="text-sm md:order-1 text-gray-700 mb-2 md:mb-0">
@@ -180,7 +180,7 @@ function Footer() {
                 </div>
 
                 {/* Copyrights note */}
-                <div className="text-gray-600 dark:text-gray-400 text-sm mr-4">&copy; 2020 Appy. All rights reserved.</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm mr-4">&copy; 2021 BridgeDefi. All rights reserved.</div>
 
             </div>
 
