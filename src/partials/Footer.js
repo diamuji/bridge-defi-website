@@ -51,15 +51,7 @@ function Footer() {
                     <div className="text-sm">
                         <h6 className="font-medium uppercase mb-2">Products</h6>
                         <ul>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Drag And Drop</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Visual Studio X</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Easy Content</Link>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -67,21 +59,7 @@ function Footer() {
                     <div className="text-sm">
                         <h6 className="font-medium uppercase mb-2">Resources</h6>
                         <ul>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Industries and tools</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Use cases</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Blog</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Online events</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Nostrud exercitation</Link>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -89,21 +67,7 @@ function Footer() {
                     <div className="text-sm">
                         <h6 className="font-medium uppercase mb-2">Company</h6>
                         <ul>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Diversity & inclusion</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">About us</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Press</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Customer stories</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Online communities</Link>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -112,16 +76,7 @@ function Footer() {
                         <h6 className="font-medium uppercase mb-2">Support</h6>
                         <ul>
                             <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Documentation</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Tutorials & guides</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Webinars</Link>
-                            </li>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Open-source</Link>
+                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="/help">FAQs</Link>
                             </li>
                         </ul>
                     </div>
