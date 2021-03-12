@@ -11,11 +11,6 @@ import AOS from 'aos';
 import { focusHandling } from 'cruip-js-toolkit';
 
 import Home from './pages/Home';
-import Testimonials from './pages/Testimonials';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import About from './pages/About';
-import Contact from './pages/Contact';
 import Help from './pages/Help';
 import PageNotFound from './pages/PageNotFound';
 
