@@ -187,7 +187,7 @@ function Header() {
                   </svg>
                   {/* Links */}
                   <ul>
-                    <li>
+                    {/*<li>
                       <Link to="/about" className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2">About</Link>
                     </li>
                     <li>
@@ -195,21 +195,21 @@ function Header() {
                     </li>
                     <li>
                       <Link to="/testimonials" className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2">Testimonials</Link>
-                    </li>
+                    </li>*/}
                     <li className="py-2 my-2 border-t border-b border-gray-200 dark:border-gray-800">
                       <span className="flex text-gray-600 dark:text-gray-400 py-2">Resources</span>
                       <ul className="pl-4">
                         <li>
                           <Link to="/help" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 py-2">Help center</Link>
                         </li>
-                        <li>
+                        {/*<li>
                           <Link to="/404" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 py-2">404</Link>
-                        </li>
+                        </li>*/}
                       </ul>
                     </li>
-                    <li>
+                    {/*<li>
                       <Link to="/contact" className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded text-white bg-teal-500 hover:bg-teal-400 transition duration-150 ease-in-out">Request code</Link>
-                    </li>
+                    </li>*/}
                   </ul>
                 </div>
               </nav>
