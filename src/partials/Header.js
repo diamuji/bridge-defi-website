@@ -129,7 +129,7 @@ function Header() {
           {/* Mobile menu */}
           <div className="inline-flex md:hidden">
 
-            {/* Mobile lights switch */}
+            {/* Mobile lights switch
             <div className="form-switch focus-within:outline-blue flex flex-col justify-center mr-6 -mt-0.5">
               <input type="checkbox" name="light-switch" id="light-switch-mobile" className="light-switch sr-only" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
               <label className="relative" htmlFor="light-switch-mobile">
@@ -144,7 +144,7 @@ function Header() {
                 </svg>
                 <span className="sr-only">Switch to light / dark version</span>
               </label>
-            </div>
+            </div> */}
 
             {/* Hamburger button */}
             <button className={`hamburger ${mobileNavOpen && 'active'}`} aria-controls="mobile-nav" aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
