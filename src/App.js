@@ -45,21 +45,6 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/testimonials">
-          <Testimonials />
-        </Route>
-        <Route path="/blog">
-          <Blog />
-        </Route>
-        <Route path="/blog-post">
-          <BlogPost />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
         <Route path="/help">
           <Help />
         </Route>
