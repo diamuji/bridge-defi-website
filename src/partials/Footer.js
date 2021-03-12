@@ -49,26 +49,26 @@ function Footer() {
 
                     {/* 2nd block */}
                     <div className="text-sm">
-                        <h6 className="font-medium uppercase mb-2">Products</h6>
+                        {/*<h6 className="font-medium uppercase mb-2">Products</h6>
                         <ul>
 
-                        </ul>
+                        </ul>*/}
                     </div>
 
                     {/* 3rd block */}
                     <div className="text-sm">
-                        <h6 className="font-medium uppercase mb-2">Resources</h6>
+                        {/*<h6 className="font-medium uppercase mb-2">Resources</h6>
                         <ul>
 
-                        </ul>
+                        </ul>*/}
                     </div>
 
                     {/* 4th block */}
                     <div className="text-sm">
-                        <h6 className="font-medium uppercase mb-2">Company</h6>
+                        {/*<h6 className="font-medium uppercase mb-2">Company</h6>
                         <ul>
 
-                        </ul>
+                        </ul>*/}
                     </div>
 
                     {/* 5th block */}
