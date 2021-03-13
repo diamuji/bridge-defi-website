@@ -4,6 +4,8 @@ import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import HeroHome from '../partials/HeroHome';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
+import FeaturesHome from '../partials/FeaturesHome';
+
 
 import Footer from '../partials/Footer';
 
@@ -32,6 +34,7 @@ function Home() {
         <TestimonialsBlocks />
         <FeaturesAnimation /> */}
         <FeaturesBlocks />
+        <FeaturesHome />
 
         {/* <Cta /> */}
 
