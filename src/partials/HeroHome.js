@@ -1,9 +1,33 @@
 import React, { useState } from 'react';
 import Modal from '../utils/Modal';
+const validator = require('validator')
+
 
 function HeroHome() {
 
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [showResults, setShowResults] = React.useState(false)
+  let [email, setEmail] = React.useState(false)
+
+  const onSubmit = () => {
+    const receivedEmail = String(email)
+    console.log(receivedEmail)
+    if(validator.isEmail(receivedEmail)){
+      setShowResults(true)
+    }
+  }
+
+  const handleEmailChange = function(e) {
+    console.log('updating email', e.target.value)
+    email = e.target.value
+  }
+
+  const Results = () => (
+    <div id="subscription-success" className="search-results">
+      <p className="text-center md:text-left mt-2 opacity-75 text-sm"><b>Thanks for subscribing!</b></p>
+    </div>
+                    
+
+  )
 
   return (
     <section>
@@ -19,31 +43,31 @@ function HeroHome() {
               <p className="text-xl text-gray-600 dark:text-gray-400" data-aos="fade-down" data-aos-delay="150">Invest fiat money in financial products of decentralized finance (DeFi), without the complexities and costs of managing exchanges and multiple wallets</p>
               {/* CTA form */}
               <form className="mt-8" data-aos="fade-down" data-aos-delay="300">
-                <div className="flex flex-col sm:flex-row justify-center max-w-sm mx-auto sm:max-w-md md:mx-0">
-                  <input type="tel" className="form-input w-full mb-2 sm:mb-0 sm:mr-2" placeholder="Email address" aria-label="Email address" />
-                  <a className="btn text-white bg-teal-500 hover:bg-teal-400 flex-shrink-0" href="#0">Register</a>
+                <div className="flex flex-col sm:flex-row justify-center md:mx-0">
+                  <input type="email" onChange={handleEmailChange} className="form-input w-full mb-2 sm:mb-0 sm:mr-2" placeholder="Email address" aria-label="Email address" />
+                  <a className="btn text-white bg-teal-500 hover:bg-teal-400 flex-shrink-0" onClick={onSubmit} href="#0">Keep me updated</a>
                 </div>
                 {/* Success message */}
-                {/* <p className="text-center md:text-left mt-2 opacity-75 text-sm">Thanks for subscribing!</p> */}
+                { showResults ? <Results /> : null }
               </form>
               <ul className="max-w-sm sm:max-w-md mx-auto md:max-w-none text-gray-600 dark:text-gray-400 mt-8 -mb-2" data-aos="fade-down" data-aos-delay="450">
                 <li className="flex items-center mb-2">
                   <svg className="w-3 h-3 fill-current text-teal-400 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                   </svg>
-                  <span>Start earning with one transaction.</span>
+                  <span>Start earning with one transaction</span>
                 </li>
                 <li className="flex items-center mb-2">
                   <svg className="w-3 h-3 fill-current text-teal-400 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                   </svg>
-                  <span>Access to attractive yields.</span>
+                  <span>Access to attractive yields</span>
                 </li>
                 <li className="flex items-center mb-2">
                   <svg className="w-3 h-3 fill-current text-teal-400 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                   </svg>
-                  <span>Earn continuously and withdraw at any time.</span>
+                  <span>Earn continuously and withdraw at any time</span>
                 </li>
               </ul>
             </div>

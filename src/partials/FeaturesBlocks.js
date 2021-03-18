@@ -7,9 +7,9 @@ function FeaturesBlocks() {
         <div className="py-12 md:py-20 border-t border-gray-800">
 
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">Bridge makes investing in DeFi simple.</h2>
-            <p className="text-xl text-gray-400">The complexities of DeFi investing are removed. Start earning now. </p>
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-12">
+            <h2 className="h2 mb-4">Bridge makes investing in DeFi simple</h2>
+            <p className="text-xl text-gray-400">Join the Financial Revolution. Start earning now.</p>
           </div>
 
           {/* Items */}
@@ -23,7 +23,7 @@ function FeaturesBlocks() {
                 <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
               </svg>
               <h4 className="h4 mb-2">1. Subscribe & Deposit</h4>
-              <p className="text-lg text-gray-400">We accept major currencies. Card, bank transfer</p>            
+              <p className="text-lg text-gray-400">Major currencies and payment methods are supported.</p>            
               </div>
 
             {/* 2nd item */}
@@ -33,12 +33,8 @@ function FeaturesBlocks() {
                 <path className="stroke-current text-purple-100" strokeWidth="2" strokeLinecap="square" d="M21 23h22v18H21z" fill="none" fillRule="evenodd" />
                 <path className="stroke-current text-purple-300" d="M26 28h12M26 32h12M26 36h5" strokeWidth="2" strokeLinecap="square" />
               </svg>
-              <h4 className="h4 mb-2">2. Select investment pool</h4>
-              <p className="text-lg text-gray-400">Participate in the decentralized finance</p>
-              <p className="text-lg text-gray-400">Select our investment pools. Bridge takes care </p>
-
-              <p className="text-lg text-gray-400">Earn without the up and downs of cryptocurrencies like BTC and ETH</p>
-
+              <h4 className="h4 mb-2">2. Invest</h4>
+              <p className="text-lg text-gray-400">Select among the most trusted and liquid DeFi investment pools.</p>
             </div>
 
             {/* 3rd item */}
@@ -52,8 +48,7 @@ function FeaturesBlocks() {
                 </g>
               </svg>
               <h4 className="h4 mb-2">3. Earn</h4>
-              <p className="text-lg text-gray-400">Earn continuously. Second by second, even during weekends</p>
-              <p className="text-lg text-gray-400">Withdraw at any time (after a 30 days lock-up period)</p>
+              <p className="text-lg text-gray-400">Earn continuously, second by second. Even during weekends. Withdraw at any time.</p>
             </div>
 
           </div>

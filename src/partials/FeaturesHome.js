@@ -31,7 +31,7 @@ function FeaturesHome() {
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
             <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                 <h3 className="h3 mb-3">Why Bridge</h3>
-                <p className="text-xl text-gray-400">Bridge helps you interacting with the decentralized finance applications by taking care of all the steps and transactions required.</p>
+                <p className="text-xl text-gray-400">Bridge provides an easy and secure way to select investments and get exposure to DeFi new opportunities</p>
               </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
@@ -41,9 +41,9 @@ function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(1); }}
                 >
                   <div>
-                    <div className="font-bold text-gray-800 leading-snug tracking-tight mb-1">Simplicity and security</div>
-                    <div className="text-gray-600">No need to interact with exchanges, wallets, seed phrase
-                                                No hacks or scam
+                    <div className="font-bold text-gray-800 leading-snug tracking-tight mb-1">Fast and Flexible</div>
+                    <div className="text-gray-600">
+                    DeFi simplified and accessible to non-expert users
                     </div>
                   </div>
                 </a>
@@ -53,12 +53,9 @@ function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(2); }}
                 >
                   <div>
-                    <div className="font-bold text-gray-800 leading-snug tracking-tight mb-1">Transparency</div>
+                    <div className="font-bold text-gray-800 leading-snug tracking-tight mb-1">Transparent</div>
                     <div className="text-gray-600">
-                    Monitor your investments in real time
-                    Know where your money are
-                    Withdraw euro or tokens
-
+                    Select investments and monitor your balance in real time
                     </div>
                   </div>
                 </a>
@@ -68,9 +65,9 @@ function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(3); }}
                 >
                   <div>
-                    <div className="font-bold text-gray-800 leading-snug tracking-tight mb-1">Cheap</div>
+                    <div className="font-bold text-gray-800 leading-snug tracking-tight mb-1">Low-priced</div>
                     <div className="text-gray-600">
-                    We manage orders and liquidity in order to optimize blockchain costs, to make DeFi convenient for everyone
+                    Transaction costs are optimized in order to make DeFi convenient for everyone
                     </div>
                   </div>
                 </a>
