@@ -1,94 +1,134 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-<footer className="relative">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <footer className="relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-16 border-t border-gray-200 dark:border-gray-800 -mt-px">
-            
-            {/* Footer illustration */}
-            <div className="pointer-events-none -z-1" aria-hidden="true">
-                <svg className="absolute bottom-0 left-0 transform -translate-x-1/2 ml-24 dark:opacity-40" width="800" height="264" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="400" cy="400" r="400" fill="url(#footerglow_paint0_radial)" fillOpacity=".4" />
-                    <defs>
-                        <radialGradient id="footerglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 0 400) scale(315.089)">
-                            <stop stopColor="#3ABAB4" />
-                            <stop offset="1" stopColor="#3ABAB4" stopOpacity=".01" />
-                        </radialGradient>
-                    </defs>
+          {/* Footer illustration */}
+          <div className="pointer-events-none -z-1" aria-hidden="true">
+            <svg
+              className="absolute bottom-0 left-0 transform -translate-x-1/2 ml-24 dark:opacity-40"
+              width="800"
+              height="264"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="400"
+                cy="400"
+                r="400"
+                fill="url(#footerglow_paint0_radial)"
+                fillOpacity=".4"
+              />
+              <defs>
+                <radialGradient
+                  id="footerglow_paint0_radial"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="rotate(90 0 400) scale(315.089)"
+                >
+                  <stop stopColor="#3ABAB4" />
+                  <stop offset="1" stopColor="#3ABAB4" stopOpacity=".01" />
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+
+          {/* Top area: Blocks */}
+          <div className="grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12">
+            {/* 1st block */}
+            <div className="md:col-span-2 lg:col-span-3">
+              {/* Logo */}
+              <Link className="inline-block" to="/" aria-label="Cruip">
+                <svg
+                  className="w-8 h-8"
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient
+                      x1="26%"
+                      y1="100%"
+                      x2="100%"
+                      y2="100%"
+                      id="flogo_a"
+                    >
+                      <stop stopColor="#3ABAB4" offset="0%" />
+                      <stop stopColor="#7F9CF5" offset="100%" />
+                    </linearGradient>
+                    <linearGradient
+                      x1="26%"
+                      y1="100%"
+                      x2="100%"
+                      y2="100%"
+                      id="flogo_b"
+                    >
+                      <stop stopColor="#3ABAB4" offset="0%" />
+                      <stop stopColor="#3ABAB4" stopOpacity="0" offset="100%" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M32 16h-8a8 8 0 10-16 0H0C0 7.163 7.163 0 16 0s16 7.163 16 16z"
+                    fill="url(#flogo_a)"
+                  />
+                  <path
+                    d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16h8a8 8 0 1016 0h8z"
+                    fill="url(#flogo_b)"
+                  />
                 </svg>
+              </Link>
             </div>
 
-            {/* Top area: Blocks */}
-            <div className="grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12">
+            {/* 2nd, 3rd, 4th and 5th blocks */}
+            <div className="md:col-span-10 lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
+              {/* 2nd block */}
+              <div className="text-sm">
+                {/*<h6 className="font-medium uppercase mb-2">Products</h6>
+                        <ul>
 
-                {/* 1st block */}
-                <div className="md:col-span-2 lg:col-span-3">
-                    {/* Logo */}
-                    <Link className="inline-block" to="/" aria-label="Cruip">
-                        <svg className="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient x1="26%" y1="100%" x2="100%" y2="100%" id="flogo_a">
-                                    <stop stopColor="#3ABAB4" offset="0%" />
-                                    <stop stopColor="#7F9CF5" offset="100%" />
-                                </linearGradient>
-                                <linearGradient x1="26%" y1="100%" x2="100%" y2="100%" id="flogo_b">
-                                    <stop stopColor="#3ABAB4" offset="0%" />
-                                    <stop stopColor="#3ABAB4" stopOpacity="0" offset="100%" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M32 16h-8a8 8 0 10-16 0H0C0 7.163 7.163 0 16 0s16 7.163 16 16z" fill="url(#flogo_a)" />
-                            <path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16h8a8 8 0 1016 0h8z" fill="url(#flogo_b)" />
-                        </svg>
+                        </ul>*/}
+              </div>
+
+              {/* 3rd block */}
+              <div className="text-sm">
+                {/*<h6 className="font-medium uppercase mb-2">Resources</h6>
+                        <ul>
+
+                        </ul>*/}
+              </div>
+
+              {/* 4th block */}
+              <div className="text-sm">
+                {/*<h6 className="font-medium uppercase mb-2">Company</h6>
+                        <ul>
+
+                        </ul>*/}
+              </div>
+
+              {/* 5th block */}
+              <div className="text-sm">
+                <h6 className="font-medium uppercase mb-2">Support</h6>
+                <ul>
+                  <li className="mb-1">
+                    <Link
+                      className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+                      to="/help"
+                    >
+                      FAQs
                     </Link>
-                </div>
-                
-                {/* 2nd, 3rd, 4th and 5th blocks */}
-                <div className="md:col-span-10 lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
-
-                    {/* 2nd block */}
-                    <div className="text-sm">
-                        {/*<h6 className="font-medium uppercase mb-2">Products</h6>
-                        <ul>
-
-                        </ul>*/}
-                    </div>
-
-                    {/* 3rd block */}
-                    <div className="text-sm">
-                        {/*<h6 className="font-medium uppercase mb-2">Resources</h6>
-                        <ul>
-
-                        </ul>*/}
-                    </div>
-
-                    {/* 4th block */}
-                    <div className="text-sm">
-                        {/*<h6 className="font-medium uppercase mb-2">Company</h6>
-                        <ul>
-
-                        </ul>*/}
-                    </div>
-
-                    {/* 5th block */}
-                    <div className="text-sm">
-                        <h6 className="font-medium uppercase mb-2">Support</h6>
-                        <ul>
-                            <li className="mb-1">
-                                <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="/help">FAQs</Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
 
-            {/* Bottom area */}
-            <div className="md:flex md:items-center md:justify-between">
-
-                {/* Social links 
+          {/* Bottom area */}
+          <div className="md:flex md:items-center md:justify-between">
+            {/* Social links 
                 <ul className="flex mb-4 md:order-2 md:ml-4 md:mb-0">
                     <li>
                         <a className="flex justify-center items-center text-white bg-teal-500 dark:text-teal-500 dark:bg-gray-800 hover:underline hover:bg-teal-600 rounded-full transition duration-150 ease-in-out" href="#0" aria-label="Twitter">
@@ -129,19 +169,77 @@ function Footer() {
                     </li>
                 </ul> */}
 
-                {/* Middle links */}
-                <div className="text-sm md:order-1 text-gray-700 mb-2 md:mb-0">
-                    <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Terms</Link> · <Link className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out" to="#">Privacy Policy</Link>
-                </div>
-
-                {/* Copyrights note */}
-                <div className="text-gray-600 dark:text-gray-400 text-sm mr-4">&copy; 2021 BridgeDefi. All rights reserved.</div>
-
+            {/* Middle links */}
+            <div className="text-sm md:order-1 text-gray-700 mb-2 md:mb-0">
+              <Link
+                className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+                to="#"
+              >
+                Terms
+              </Link>{" "}
+              ·{" "}
+              <Link
+                className="text-gray-600 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+                to="#"
+              >
+                Privacy Policy
+              </Link>
             </div>
 
+            {/* Copyrights note */}
+            <div className="text-gray-600 dark:text-gray-400 text-sm mr-4">
+              &copy; 2021 BridgeDefi. All rights reserved.
+            </div>
+          </div>
+
+          {/* Section content */}
+          <div className="md:grid md:grid-cols-12 md:gap-6">
+            {/* Content */}
+            <div
+              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6"
+              data-aos="fade-right"
+            >
+              <div className="md:pr-4 lg:pr-4 xl:pr-4 mb-8">
+                <p className="text-sm text-gray-400">
+                  Disclaimer: Bridge does not provide legal, tax, or investment
+                  advice, nor the information provided by the Site should be
+                  considered as contractual proposals. Any form of guarantee,
+                  direct or indirect, on the return on investment is excluded.
+                  The investment is subject to market variables and is
+                  characterised by entrepreneurial risk. The potential investor
+                  is solely responsible for the research activity, evaluation
+                  and investment through the Platform. Each investor is asked to
+                  contact their experts and consultants in order to determine
+                  with reference to their specific position any consequences
+                  arising from the investment.
+                </p>
+              </div>
+            </div>
+
+            {/* Tabs items */}
+            <div
+              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mt-6 md:mb-0 md:order-1"
+              data-aos="zoom-y-out"
+            >
+              <div className="mb-8">
+                <p className="text-sm text-gray-400">
+                  Holdings of cryptocurrencies and other digital assets are
+                  speculative and involve a substantial degree of risk,
+                  including the risk of complete loss. There can be no assurance
+                  that any cryptocurrency, token, coin, or other crypto asset
+                  will be viable, liquid, or solvent. No Bridge communication is
+                  intended to imply that any digital asset services are low-risk
+                  or risk-free. Bridge works hard to provide accurate
+                  information on this website, but cannot guarantee all content
+                  is correct, complete, or updated. Digital assets held in
+                  custody are not guaranteed by Bridge and are not insured.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
   );
 }
 
