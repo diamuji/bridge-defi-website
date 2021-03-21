@@ -12,6 +12,7 @@ import { focusHandling } from 'cruip-js-toolkit';
 
 import Home from './pages/Home';
 import Help from './pages/Help';
+import SignUp from './pages/SignUp';
 import PageNotFound from './pages/PageNotFound';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route path="/help">
           <Help />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
         <Route path="*">
           <PageNotFound />
