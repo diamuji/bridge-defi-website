@@ -12,7 +12,7 @@ import { focusHandling } from 'cruip-js-toolkit';
 
 import Home from './pages/Home';
 import Help from './pages/Help';
-import SignUp from './pages/SignUp';
+import SignUp from './pages/SignUp/SignUp';
 import PageNotFound from './pages/PageNotFound';
 
 function App() {

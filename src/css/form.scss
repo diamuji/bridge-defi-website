@@ -1,0 +1,6 @@
+.form-input, button {
+    &:focus {
+        outline: none !important;
+        box-shadow: 0 0 5px theme('colors.purple.600') !important;
+    }
+}

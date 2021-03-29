@@ -30,7 +30,7 @@ function Header() {
   });
 
   // Handle light modes
-  const [darkMode, setDarkMode] = useState(() => {
+  const [darkMode] = useState(() => {
     const dark = localStorage.getItem('dark-mode');
     if (dark === null) {
       return true;

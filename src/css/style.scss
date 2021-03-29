@@ -26,3 +26,6 @@
 // AOS styles
 $aos-distance: 16px;
 @import 'node_modules/aos/src/sass/aos.scss';
+
+// site specific
+@import './form.scss';
