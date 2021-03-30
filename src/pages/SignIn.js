@@ -1,0 +1,117 @@
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import Header from '../partials/Header';
+import PageIllustration from '../partials/PageIllustration';
+import { FormInput } from '../utils/FormInput';
+import { EMAIL_REGEX, http, redirect } from '../utils/utils';
+import { useForm } from 'react-hook-form';
+
+function SignIn() {
+    const form = useForm();
+    const { errors, handleSubmit } = form;
+
+    const onSubmit = async ({ email, password }) => {
+        const result = await http({
+            method: 'POST',
+            url: '/users/login',
+            form: {
+                email,
+                password,
+            }
+        });
+        console.log(result);
+        redirect('/app');
+    }
+
+    return (
+        <div className="flex flex-col min-h-screen overflow-hidden">
+
+            {/*  Site header */}
+            <Header />
+
+            {/*  Page content */}
+            <main className="flex-grow">
+
+                {/*  Page illustration */}
+                <div className="relative max-w-6xl mx-auto h-0 pointer-events-none" aria-hidden="true">
+                    <PageIllustration />
+                </div>
+
+                <section className="relative">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+                        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+                            <div className="max-w-sm mx-auto">
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+                                        <h1 className="h3">
+                                            Welcome back
+                                        </h1>
+                                        <p>Enter your credentials</p>
+                                    </div>
+                                    
+                                    <FormInput
+                                        label="E-mail"
+                                        name="email"
+                                        form={form}
+                                        errors={errors}
+                                        validation={{
+                                            required: true,
+                                            pattern: EMAIL_REGEX
+                                        }}
+                                        render={({ name, className, ref, label }) => (
+                                            <input
+                                                ref={ref}
+                                                name={name}
+                                                className={className}
+                                                placeholder={label}
+                                                type="email"
+                                                autoFocus
+                                            />
+                                        )}
+                                    />
+                                    <FormInput
+                                        label="Password"
+                                        name="password"
+                                        form={form}
+                                        errors={errors}
+                                        validation={{
+                                            required: { value: true, message: 'You must enter a password' },
+                                            minLength: { value: 6, message: 'Password must be at least 6 characters' }
+                                        }}
+                                        render={({ name, className, ref, label }) => (
+                                            <input
+                                                ref={ref}
+                                                name={name}
+                                                className={className}
+                                                placeholder={label}
+                                                type="password"
+                                            />
+                                        )}
+                                    />
+                                    
+                                    <div className="flex flex-wrap mt-6">
+                                        <button type="submit" className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <div className="text-gray-400 text-center mt-6">
+                                    Don't have a Bridge DeFi account?&nbsp;
+                                    <Link
+                                        to="/signup"
+                                        className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
+                                    >
+                                        Sign up
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
+}
+
+export default withRouter(SignIn);

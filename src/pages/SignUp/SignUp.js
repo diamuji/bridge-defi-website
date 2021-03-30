@@ -66,7 +66,7 @@ class SignUp extends React.Component {
                                         <div className="text-gray-400 text-center mt-6">
                                             Already registered to Bridge DeFi?&nbsp;
                                             <Link
-                                                to="signin"
+                                                to="/signin"
                                                 className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
                                             >
                                                 Sign in

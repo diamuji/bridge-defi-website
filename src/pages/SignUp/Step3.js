@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FormInput } from '../../utils/FormInput';
+import { EMAIL_REGEX } from '../../utils/utils';
 
 export function Step3({ onSubmit }) {
     const form = useForm();
@@ -15,6 +16,26 @@ export function Step3({ onSubmit }) {
                 </h1>
             </div>
             
+            <FormInput
+                label="E-mail"
+                name="email"
+                form={form}
+                errors={errors}
+                validation={{
+                    required: true,
+                    pattern: EMAIL_REGEX
+                }}
+                render={({ name, className, ref, label }) => (
+                    <input
+                        ref={ref}
+                        name={name}
+                        className={className}
+                        placeholder={label}
+                        type="email"
+                        autoFocus
+                    />
+                )}
+            />
             <FormInput
                 label="Password"
                 name="password"
@@ -31,7 +52,6 @@ export function Step3({ onSubmit }) {
                         className={className}
                         placeholder={label}
                         type="password"
-                        autoFocus
                     />
                 )}
             />

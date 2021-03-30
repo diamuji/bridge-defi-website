@@ -14,3 +14,5 @@ export function http({ method, url, form }) {
 export function redirect(url) {
     this.props.history.push(url);
 }
+
+export const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
