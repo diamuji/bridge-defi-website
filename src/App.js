@@ -5,6 +5,7 @@ import './css/style.scss';
 
 import AOS from 'aos';
 import { focusHandling } from 'cruip-js-toolkit';
+import { Toaster } from 'react-hot-toast';
 
 import Home from './pages/Home';
 import Help from './pages/Help';
@@ -13,7 +14,6 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
 
 function App() {
-
     const location = useLocation();
 
     useEffect(() => {
@@ -51,6 +51,8 @@ function App() {
                     <PageNotFound />
                 </Route>
             </Switch>
+
+            <Toaster />
         </>
     );
 }

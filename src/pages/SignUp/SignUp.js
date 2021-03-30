@@ -7,6 +7,7 @@ import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 import { Step3 } from './Step3';
 import { ThankYou } from './ThankYou';
+import toast from 'react-hot-toast';
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -22,19 +23,23 @@ class SignUp extends React.Component {
     }
 
     async submit() {
-        const result = await http({
-            method: 'POST',
-            url: '/users',
-            form: {
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                phone: this.state.phone,
-                email: this.state.email,
-                password: this.state.password,
-            }
-        });
-        console.log(result);
-        redirect('/confirmation');
+        try {
+            const result = await http({
+                method: 'POST',
+                url: '/users',
+                form: {
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    phone: this.state.phone,
+                    email: this.state.email,
+                    password: this.state.password,
+                }
+            });
+            console.log(result);
+            redirect('/confirmation');
+        } catch (e) {
+            toast.error(`${e}`);
+        }
     }
 
     render() {
@@ -42,7 +47,6 @@ class SignUp extends React.Component {
 
         return (
             <div className="flex flex-col min-h-screen overflow-hidden">
-
                 {/*  Site header */}
                 <Header />
 

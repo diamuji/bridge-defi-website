@@ -5,27 +5,31 @@ import PageIllustration from '../partials/PageIllustration';
 import { FormInput } from '../utils/FormInput';
 import { EMAIL_REGEX, http, redirect } from '../utils/utils';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 function SignIn() {
     const form = useForm();
     const { errors, handleSubmit } = form;
 
     const onSubmit = async ({ email, password }) => {
-        const result = await http({
-            method: 'POST',
-            url: '/users/login',
-            form: {
-                email,
-                password,
-            }
-        });
-        console.log(result);
-        redirect('/app');
+        try {
+            const result = await http({
+                method: 'POST',
+                url: '/users/login',
+                form: {
+                    email,
+                    password,
+                }
+            });
+            console.log(result);
+            redirect('/app');
+        } catch (e) {
+            toast.error(`${e}`);
+        }
     }
 
     return (
         <div className="flex flex-col min-h-screen overflow-hidden">
-
             {/*  Site header */}
             <Header />
 

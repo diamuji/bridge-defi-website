@@ -1,14 +1,15 @@
 const BASE_URL = process.env.API_URL || '';
 
-export function http({ method, url, form }) {
-    return fetch(BASE_URL + url, {
+export async function http({ method, url, form }) {
+    const res = await fetch(BASE_URL + url, {
         method: method || 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(form)
-    }).then(res => res.json());
+    });
+    return res.json();
 }
 
 export function redirect(url) {
