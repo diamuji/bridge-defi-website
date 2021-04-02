@@ -1,19 +1,20 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import { FormInput } from '../utils/FormInput';
-import { EMAIL_REGEX, http, redirect } from '../utils/utils';
+import { EMAIL_REGEX, http } from '../utils/utils';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 function SignIn() {
     const form = useForm();
     const { errors, handleSubmit } = form;
+    const history = useHistory();
 
     const onSubmit = async ({ email, password }) => {
         try {
-            const result = await http({
+            await http({
                 method: 'POST',
                 url: '/users/login',
                 form: {
@@ -21,8 +22,7 @@ function SignIn() {
                     password,
                 }
             });
-            console.log(result);
-            redirect('/app');
+            history.push('/app');
         } catch (e) {
             toast.error(`${e}`);
         }
