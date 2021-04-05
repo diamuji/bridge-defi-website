@@ -12,6 +12,7 @@ import Help from './pages/Help';
 import PageNotFound from './pages/PageNotFound';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
+import { UserProvider } from './utils/UserProvider';
 
 function App() {
     const location = useLocation();
@@ -33,7 +34,7 @@ function App() {
     }, [location.pathname]); // triggered on route change
 
     return (
-        <>
+        <UserProvider>
             <Switch>
                 <Route exact path="/">
                     <Home />
@@ -53,7 +54,7 @@ function App() {
             </Switch>
 
             <Toaster />
-        </>
+        </UserProvider>
     );
 }
 

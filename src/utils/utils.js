@@ -1,12 +1,16 @@
+import user from "./user";
+
 const BASE_URL = process.env.REACT_APP_API_URL || '';
 
-export async function http({ method, url, form }) {
+export async function http({ method, url, form, json }) {
     const fullUrl = url.indexOf('http') === 0 ? url : BASE_URL + url;
+    const contentTypeHeader = json !== false ? { 'Content-Type': 'application/json' } : {};
+    const authHeader = user.getAuthHeader();
     const res = await fetch(fullUrl, {
         method: method || 'GET',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            ...contentTypeHeader,
+            ...authHeader,
         },
         body: JSON.stringify(form)
     });
