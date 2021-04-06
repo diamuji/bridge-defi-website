@@ -1,12 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import CookieConsent from "react-cookie-consent";
+import CookieConsent from 'react-cookie-consent';
 import Transition from '../utils/Transition.js';
 import Logo from './Logo.js';
+import { UserContext } from '../utils/UserProvider.js';
 
 function Header() {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const mobileNav = useRef(null);
+    const userContext = useContext(UserContext);
 
     // close the mobile menu on click outside
     useEffect(() => {
@@ -28,25 +30,6 @@ function Header() {
         return () => document.removeEventListener('keydown', keyHandler);
     });
 
-    // Handle light modes
-    const [darkMode] = useState(() => {
-        const dark = localStorage.getItem('dark-mode');
-        if (dark === null) {
-            return true;
-        } else {
-            return dark === 'true';
-        }
-    });
-
-    useEffect(() => {
-        localStorage.setItem('dark-mode', darkMode)
-        if (darkMode) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    }, [darkMode]);
-
     return (
         <header className="absolute w-full z-30">
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -64,95 +47,47 @@ function Header() {
 
                     {/* Desktop navigation */}
                     <nav className="hidden md:flex md:flex-grow">
-
-                        {/* Desktop menu links */}
-                        {/* <ul className="flex flex-grow flex-wrap items-center font-medium">
-                            <li>
-                                <Link to="/about" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out">About</Link>
-                            </li>
-                            <li>
-                                <Link to="/blog" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out">Blog</Link>
-                            </li>
-                            <li>
-                                <Link to="/testimonials" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out">Testimonials</Link>
-                            </li>
-                            <Dropdown title="Resources">
-                                <li>
-                                    <Link to="/help" className="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-500 flex py-2 px-4 leading-tight">Help center</Link>
-                                </li>
-                                <li>
-                                    <Link to="/404" className="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-500 flex py-2 px-4 leading-tight">404</Link>
-                                </li>
-                            </Dropdown>
-                        </ul> */}
-
-                        {/* Desktop lights switch */}
-                        {/* <div className="form-switch focus-within:outline-blue flex flex-col justify-center ml-3">
-                            <input type="checkbox" name="light-switch" id="light-switch-desktop" className="light-switch sr-only" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-                            <label className="relative" htmlFor="light-switch-desktop">
-                                <span className="relative bg-gradient-to-t from-gray-100 to-white dark:from-gray-800 dark:to-gray-700 shadow-sm z-10" aria-hidden="true"></span>
-                                <svg className="absolute inset-0" width="44" height="24" viewBox="0 0 44 24" xmlns="http://www.w3.org/2000/svg">
-                                    <g className="fill-current text-white" fillRule="nonzero" opacity=".88">
-                                        <path d="M32 8a.5.5 0 00.5-.5v-1a.5.5 0 10-1 0v1a.5.5 0 00.5.5zM35.182 9.318a.5.5 0 00.354-.147l.707-.707a.5.5 0 00-.707-.707l-.707.707a.5.5 0 00.353.854zM37.5 11.5h-1a.5.5 0 100 1h1a.5.5 0 100-1zM35.536 14.829a.5.5 0 00-.707.707l.707.707a.5.5 0 00.707-.707l-.707-.707zM32 16a.5.5 0 00-.5.5v1a.5.5 0 101 0v-1a.5.5 0 00-.5-.5zM28.464 14.829l-.707.707a.5.5 0 00.707.707l.707-.707a.5.5 0 00-.707-.707zM28 12a.5.5 0 00-.5-.5h-1a.5.5 0 100 1h1a.5.5 0 00.5-.5zM28.464 9.171a.5.5 0 00.707-.707l-.707-.707a.5.5 0 00-.707.707l.707.707z" />
-                                        <circle cx="32" cy="12" r="3" />
-                                        <circle fillOpacity=".4" cx="12" cy="12" r="6" />
-                                        <circle fillOpacity=".88" cx="12" cy="12" r="3" />
-                                    </g>
-                                </svg>
-                                <span className="sr-only">Switch to light / dark version</span>
-                            </label>
-                        </div> */}
-
-                        {/* Desktop CTA on the right */}
-                        {/* <ul className="flex justify-end flex-wrap items-center">
-                            <li>
-                                <Link to="/contact" className="btn-sm text-white bg-teal-500 hover:bg-teal-400 ml-6">Request code</Link>
-                            </li>
-                        </ul> */}
-
-
                         {/* Desktop sign in links */}
                         <ul className="flex flex-grow justify-end flex-wrap items-center">
-                            <li>
-                                <Link
-                                    to="/signin"
-                                    className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                                >
-                                    Sign in
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/signup"
-                                    className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
-                                >
-                                    Sign up
-                                </Link>
-                            </li>
+                            {userContext.me
+                                ? (
+                                    <>
+                                        <li>
+                                            <Link
+                                                to="/signout"
+                                                className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                                            >
+                                                Sign out
+                                            </Link>
+                                        </li>
+                                    </>
+                                )
+                                : (
+                                    <>
+                                        <li>
+                                            <Link
+                                                to="/signin"
+                                                className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                                            >
+                                                Sign in
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/signup"
+                                                className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
+                                            >
+                                                Sign up
+                                            </Link>
+                                        </li>
+                                    </>
+                                )
+                            }
                         </ul>
-
                     </nav>
 
                     {/* Mobile menu */}
                     <div className="inline-flex md:hidden">
-
-                        {/* Mobile lights switch */}
-                        {/* <div className="form-switch focus-within:outline-blue flex flex-col justify-center mr-6 -mt-0.5">
-                            <input type="checkbox" name="light-switch" id="light-switch-mobile" className="light-switch sr-only" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-                            <label className="relative" htmlFor="light-switch-mobile">
-                                <span className="relative bg-gradient-to-t from-gray-100 to-white dark:from-gray-800 dark:to-gray-700 shadow-sm z-10" aria-hidden="true"></span>
-                                <svg className="absolute inset-0" width="44" height="24" viewBox="0 0 44 24" xmlns="http://www.w3.org/2000/svg">
-                                    <g className="fill-current text-white" fillRule="nonzero" opacity=".88">
-                                        <path d="M32 8a.5.5 0 00.5-.5v-1a.5.5 0 10-1 0v1a.5.5 0 00.5.5zM35.182 9.318a.5.5 0 00.354-.147l.707-.707a.5.5 0 00-.707-.707l-.707.707a.5.5 0 00.353.854zM37.5 11.5h-1a.5.5 0 100 1h1a.5.5 0 100-1zM35.536 14.829a.5.5 0 00-.707.707l.707.707a.5.5 0 00.707-.707l-.707-.707zM32 16a.5.5 0 00-.5.5v1a.5.5 0 101 0v-1a.5.5 0 00-.5-.5zM28.464 14.829l-.707.707a.5.5 0 00.707.707l.707-.707a.5.5 0 00-.707-.707zM28 12a.5.5 0 00-.5-.5h-1a.5.5 0 100 1h1a.5.5 0 00.5-.5zM28.464 9.171a.5.5 0 00.707-.707l-.707-.707a.5.5 0 00-.707.707l.707.707z" />
-                                        <circle cx="32" cy="12" r="3" />
-                                        <circle fillOpacity=".4" cx="12" cy="12" r="6" />
-                                        <circle fillOpacity=".88" cx="12" cy="12" r="3" />
-                                    </g>
-                                </svg>
-                                <span className="sr-only">Switch to light / dark version</span>
-                            </label>
-                        </div> */}
-
                         {/* Hamburger button */}
                         <button className={`hamburger ${mobileNavOpen && 'active'}`} aria-controls="mobile-nav" aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
                             <span className="sr-only">Menu</span>
@@ -206,9 +141,6 @@ function Header() {
                                                 Sign in
                                             </Link>
                                         </li>
-                                        {/* <li>
-                                            <Link to="/contact" className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded text-white bg-teal-500 hover:bg-teal-400 transition duration-150 ease-in-out">Request code</Link>
-                                        </li> */}
                                     </ul>
                                 </div>
                             </nav>

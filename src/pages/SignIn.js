@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
@@ -6,16 +6,17 @@ import { FormInput } from '../utils/FormInput';
 import { EMAIL_REGEX } from '../utils/utils';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import user from '../utils/user';
+import { UserContext } from '../utils/UserProvider';
 
 function SignIn() {
     const form = useForm();
     const { formState, errors, handleSubmit } = form;
     const history = useHistory();
+    const userContext = useContext(UserContext);
 
     const onSubmit = async ({ email, password }) => {
         try {
-            await user.login(email, password);
+            await userContext.login(email, password);
             history.push('/app');
         } catch (e) {
             console.error(e);

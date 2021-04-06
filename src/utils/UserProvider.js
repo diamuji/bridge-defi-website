@@ -7,24 +7,34 @@ export class UserProvider extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userInfo: null,
+            me: null,
         };
     }
 
     async componentDidMount() {
-        console.log('componentDidMount:getInfo')
-        const userInfo = await user.getInfo();
-        if (userInfo) {
-            this.setState({ userInfo });
+        const me = await user.getInfo();
+        if (me) {
+            this.setState({ me });
         }
+    }
+
+    login = async (email, password) => {
+        const me = await user.login(email, password);
+        this.setState({ me });
+    }
+
+    logout = () => {
+        this.setState({ me: undefined });
+        user.logout();
     }
 
     render() {
         return (
             <UserContext.Provider
                 value={{
-                    state: this.state,
-                    setUserInfo: userInfo => this.setState({ userInfo }),
+                    me: this.state.me,
+                    login: this.login,
+                    logout: this.logout,
                 }}
             >
                 {this.props.children}

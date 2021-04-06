@@ -6,13 +6,14 @@ import './css/style.scss';
 import AOS from 'aos';
 import { focusHandling } from 'cruip-js-toolkit';
 import { Toaster } from 'react-hot-toast';
+import { UserProvider } from './utils/UserProvider';
 
 import Home from './pages/Home';
 import Help from './pages/Help';
 import PageNotFound from './pages/PageNotFound';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
-import { UserProvider } from './utils/UserProvider';
+import SignOut from './pages/SignOut';
 
 function App() {
     const location = useLocation();
@@ -47,6 +48,9 @@ function App() {
                 </Route>
                 <Route path="/signin">
                     <SignIn />
+                </Route>
+                <Route path="/signout">
+                    <SignOut />
                 </Route>
                 <Route path="*">
                     <PageNotFound />

@@ -20,7 +20,7 @@ class User {
     async getInfo() {
         if (this.authToken && !this.me) {
             await this.fetchInfo();
-            if (!this.me) this.cookies.remove(AUTH_COOKIE_VAR);
+            if (!this.me) this.logout();
         }
         return this.me;
     }
@@ -40,6 +40,12 @@ class User {
         });
         this.me = res.user;
         this.cookies.set(AUTH_COOKIE_VAR, res.token);
+        return this.me;
+    }
+
+    logout() {
+        this.me = undefined;
+        this.cookies.remove(AUTH_COOKIE_VAR);
     }
 }
 
