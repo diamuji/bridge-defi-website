@@ -5,10 +5,11 @@ import Transition from '../utils/Transition.js';
 import Logo from './Logo.js';
 import { UserContext } from '../utils/UserProvider.js';
 
-function Header() {
+function Header(props) {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const mobileNav = useRef(null);
     const userContext = useContext(UserContext);
+    const { absolute } = props;
 
     // close the mobile menu on click outside
     useEffect(() => {
@@ -31,7 +32,7 @@ function Header() {
     });
 
     return (
-        <header className="absolute w-full z-30">
+        <header className={"w-full " + (absolute === false ? "" : "absolute")}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <div className="flex items-center justify-between h-20">
 
@@ -49,40 +50,39 @@ function Header() {
                     <nav className="hidden md:flex md:flex-grow">
                         {/* Desktop sign in links */}
                         <ul className="flex flex-grow justify-end flex-wrap items-center">
-                            {userContext.me
-                                ? (
-                                    <>
-                                        <li>
-                                            <Link
-                                                to="/signout"
-                                                className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                                            >
-                                                Sign out
-                                            </Link>
-                                        </li>
-                                    </>
-                                )
-                                : (
-                                    <>
-                                        <li>
-                                            <Link
-                                                to="/signin"
-                                                className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                                            >
-                                                Sign in
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                to="/signup"
-                                                className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
-                                            >
-                                                Sign up
-                                            </Link>
-                                        </li>
-                                    </>
-                                )
-                            }
+                            {!userContext.fetching && userContext.me && (
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/signout"
+                                            replace={true}
+                                            className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                                        >
+                                            Sign out
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
+                            {!userContext.fetching && !userContext.me && (
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/signin"
+                                            className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                                        >
+                                            Sign in
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/signup"
+                                            className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
+                                        >
+                                            Sign up
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                     </nav>
 

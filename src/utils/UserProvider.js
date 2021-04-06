@@ -8,13 +8,15 @@ export class UserProvider extends React.Component {
         super(props);
         this.state = {
             me: null,
+            fetching: true,
         };
     }
 
     async componentDidMount() {
+        this.setState({ fetching: true });
         const me = await user.getInfo();
         if (me) {
-            this.setState({ me });
+            this.setState({ me, fetching: false });
         }
     }
 
@@ -33,6 +35,7 @@ export class UserProvider extends React.Component {
             <UserContext.Provider
                 value={{
                     me: this.state.me,
+                    fetching: this.state.fetching,
                     login: this.login,
                     logout: this.logout,
                 }}

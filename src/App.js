@@ -14,8 +14,9 @@ import PageNotFound from './pages/PageNotFound';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
 import SignOut from './pages/SignOut';
+import App from './pages/App';
 
-function App() {
+export default function AppRoot() {
     const location = useLocation();
 
     useEffect(() => {
@@ -40,6 +41,9 @@ function App() {
                 <Route exact path="/">
                     <Home />
                 </Route>
+                <Route path="/app">
+                    <App />
+                </Route>
                 <Route path="/help">
                     <Help />
                 </Route>
@@ -61,5 +65,3 @@ function App() {
         </UserProvider>
     );
 }
-
-export default App;

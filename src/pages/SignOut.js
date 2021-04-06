@@ -8,7 +8,7 @@ function SignOut() {
 
     useEffect(() => {
         userContext.logout();
-        history.push('/');
+        history.replace('/');
     }, [userContext, history]);
 
     return null;

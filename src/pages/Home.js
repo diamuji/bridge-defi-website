@@ -26,7 +26,7 @@ function Home() {
 
         {/*  Page sections */}
         <HeroHome />
-         {/*<Stats />
+        {/*<Stats />
         <Carousel />
         <Tabs />
         <Process />
