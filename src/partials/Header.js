@@ -10,6 +10,7 @@ function Header(props) {
     const mobileNav = useRef(null);
     const userContext = useContext(UserContext);
     const { absolute } = props;
+    const loggedIn = !userContext.fetching && userContext.me;
 
     // close the mobile menu on click outside
     useEffect(() => {
@@ -32,7 +33,7 @@ function Header(props) {
     });
 
     return (
-        <header className={"w-full " + (absolute === false ? "" : "absolute")}>
+        <header className={"w-full " + (absolute === false ? "" : "absolute z-30")}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <div className="flex items-center justify-between h-20">
 
@@ -41,7 +42,7 @@ function Header(props) {
                     {/* Site branding */}
                     <div className="flex-shrink-0 mr-5">
                         {/* Logo */}
-                        <Link to="/" className="block" aria-label="Cruip">
+                        <Link to={loggedIn ? '/app' : '/'} className="block" aria-label="Cruip">
                             <Logo className="w-8 h-8" />
                         </Link>
                     </div>
@@ -50,7 +51,7 @@ function Header(props) {
                     <nav className="hidden md:flex md:flex-grow">
                         {/* Desktop sign in links */}
                         <ul className="flex flex-grow justify-end flex-wrap items-center">
-                            {!userContext.fetching && userContext.me && (
+                            {loggedIn && (
                                 <>
                                     <li>
                                         <Link

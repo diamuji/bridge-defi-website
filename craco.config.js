@@ -3,8 +3,13 @@ module.exports = {
     postcss: {
       plugins: [
         require('tailwindcss')('./tailwind.config.js'),
-        require('autoprefixer')
+        require('autoprefixer'),
       ],
     },
+  },
+  babel: {
+    plugins: [
+      ["@babel/plugin-proposal-decorators", { legacy: true }]
+    ]
   },
 };

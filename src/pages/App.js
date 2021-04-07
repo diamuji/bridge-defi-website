@@ -9,6 +9,7 @@ function App() {
 
     useEffect(() => {
         if (!userContext.fetching && !userContext.me) {
+            console.log(userContext)
             history.push('/');
         }
     }, [userContext, history]);

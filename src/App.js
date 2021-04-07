@@ -15,6 +15,19 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
 import SignOut from './pages/SignOut';
 import App from './pages/App';
+import Confirmation from './pages/Confirmation';
+import { PathProvider } from './utils/PathProvider';
+
+const routes = {
+    '/': { component: Home, exact: true },
+    '/app': { component: App },
+    '/help': { component: Help },
+    '/signup': { component: SignUp },
+    '/signin': { component: SignIn },
+    '/signout': { component: SignOut },
+    '/confirmation': { component: Confirmation },
+    '*': { component: PageNotFound },
+};
 
 export default function AppRoot() {
     const location = useLocation();
@@ -29,39 +42,29 @@ export default function AppRoot() {
     });
 
     useEffect(() => {
-        document.querySelector('html').style.scrollBehavior = 'auto'
-        window.scroll({ top: 0 })
-        document.querySelector('html').style.scrollBehavior = ''
+        document.querySelector('html').style.scrollBehavior = 'auto';
+        window.scroll({ top: 0 });
+        document.querySelector('html').style.scrollBehavior = '';
         focusHandling('outline');
     }, [location.pathname]); // triggered on route change
 
     return (
-        <UserProvider>
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/app">
-                    <App />
-                </Route>
-                <Route path="/help">
-                    <Help />
-                </Route>
-                <Route path="/signup">
-                    <SignUp />
-                </Route>
-                <Route path="/signin">
-                    <SignIn />
-                </Route>
-                <Route path="/signout">
-                    <SignOut />
-                </Route>
-                <Route path="*">
-                    <PageNotFound />
-                </Route>
-            </Switch>
-
-            <Toaster />
-        </UserProvider>
+        <PathProvider>
+            <UserProvider>
+                <Switch>
+                    {Object.keys(routes).map((path, key) => {
+                        const route = routes[path];
+                        return (
+                            <Route
+                                key={key}
+                                path={path}
+                                {...route}
+                            />
+                        );
+                    })}
+                </Switch>
+                <Toaster />
+            </UserProvider>
+        </PathProvider>
     );
 }

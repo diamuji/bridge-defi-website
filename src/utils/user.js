@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie';
 import { http } from './utils';
+import toast from 'react-hot-toast';
 
 const AUTH_COOKIE_VAR = 'auth';
 
@@ -46,6 +47,14 @@ class User {
     logout() {
         this.me = undefined;
         this.cookies.remove(AUTH_COOKIE_VAR);
+    }
+
+    async confirm(id) {
+        await http({
+            method: 'POST',
+            url: `/users/confirm/${id}`,
+        });
+        toast.success('E-mail address confirmed successfully');
     }
 }
 

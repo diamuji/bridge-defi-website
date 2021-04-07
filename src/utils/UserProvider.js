@@ -15,9 +15,8 @@ export class UserProvider extends React.Component {
     async componentDidMount() {
         this.setState({ fetching: true });
         const me = await user.getInfo();
-        if (me) {
-            this.setState({ me, fetching: false });
-        }
+        if (me) this.setState({ me });
+        this.setState({ fetching: false });
     }
 
     login = async (email, password) => {
@@ -36,6 +35,7 @@ export class UserProvider extends React.Component {
                 value={{
                     me: this.state.me,
                     fetching: this.state.fetching,
+                    confirm: user.confirm.bind(user),
                     login: this.login,
                     logout: this.logout,
                 }}
