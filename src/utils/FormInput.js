@@ -1,11 +1,11 @@
 import React from 'react';
 
-export function FormInput({ label, name, form, validation, errors, render }) {
+export function FormInput({ label, name, form, validation, errors, render, className }) {
     const { register } = form;
     const ref = register(validation);
     
     return (
-        <div className="flex flex-wrap mb-4">
+        <div className={`mb-4 ${className}`}>
             {label && (
                 <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="first-name">
                     {label}
