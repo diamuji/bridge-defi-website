@@ -27,13 +27,14 @@ export default function PersonalData() {
             // transform
             personalInfo.birthday = new Date(personalInfo.birthDate.split('/').reverse());
             // send data
-            await http({
+            const me = await http({
                 method: 'POST',
                 url: '/verification/personal-info',
                 form: {
                     personalInfo
                 }
             });
+            userContext.update(me);
             toast.success('Information updated successfully');
         } catch (e) {
             console.error(e);
@@ -50,7 +51,7 @@ export default function PersonalData() {
 
                 <div className="flex flex-wrap -m-2">
                     <FormInput
-                        className="w-1/2 p-2"
+                        className="w-full md:w-1/2 p-2"
                         label="Birth date"
                         name="birthDate"
                         form={form}
@@ -64,7 +65,7 @@ export default function PersonalData() {
                         )}
                     />
                     <FormInput
-                        className="w-1/2 p-2"
+                        className="w-full md:w-1/2 p-2"
                         label="Gender"
                         name="gender"
                         form={form}
@@ -80,7 +81,7 @@ export default function PersonalData() {
                         )}
                     />
                     <FormInput
-                        className="w-1/2 p-2"
+                        className="w-full md:w-1/2 p-2"
                         label="Purpose of use"
                         name="purposeOfUse"
                         form={form}
@@ -96,7 +97,7 @@ export default function PersonalData() {
                         )}
                     />
                     <FormInput
-                        className="w-1/2 p-2"
+                        className="w-full md:w-1/2 p-2"
                         label="Birth place"
                         name="townOfBirth"
                         form={form}

@@ -12,7 +12,9 @@ export async function http({ method, url, form, json }) {
             ...contentTypeHeader,
             ...authHeader,
         },
-        body: JSON.stringify(form)
+        body: !form ? undefined : (
+            form instanceof FormData ? form : JSON.stringify(form)
+        )
     });
     let jsonRes = {};
     try {

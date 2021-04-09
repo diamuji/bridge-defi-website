@@ -6,26 +6,27 @@ import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
 import countries from '../../refdata/countries.json';
 
-export default function ResidenceAddress() {
+export default function SettlementAddress() {
     const userContext = useContext(UserContext);
-    const residenceAddress = userContext.me?.verification?.residenceAddress;
-    const form = useForm({ defaultValues: residenceAddress });
+    const settlementAddress = userContext.me?.verification?.settlementAddress;
+    const form = useForm({ defaultValues: settlementAddress });
     const { formState, handleSubmit, errors, setValue } = form;
     
     userContext.getCountry();
     useEffect(() => {
-        if (userContext.country && !residenceAddress) {
+        console.log(userContext.country, settlementAddress);
+        if (userContext.country && !settlementAddress) {
             setValue('country', userContext.country.name);
         }
-    }, [setValue, residenceAddress, userContext.country]);
+    }, [setValue, settlementAddress, userContext.country]);
 
-    const onSubmit = async (residenceAddress) => {
+    const onSubmit = async (settlementAddress) => {
         try {
             const me = await http({
                 method: 'POST',
-                url: '/verification/residence-address',
+                url: '/verification/settlement-address',
                 form: {
-                    residenceAddress
+                    settlementAddress
                 }
             });
             userContext.update(me);
@@ -40,7 +41,7 @@ export default function ResidenceAddress() {
         <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset disabled={formState.isSubmitting}>
                 <div className="mb-8">
-                    <h2 className="h4 mb-4">Residence address</h2>
+                    <h2 className="h4 mb-4">Settlement address</h2>
                 </div>
 
                 <div className="flex flex-wrap -m-2">

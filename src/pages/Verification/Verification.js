@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import LoggedPage from '../../partials/LoggedPage';
+import { UserContext } from '../../utils/UserProvider';
 import PersonalData from './PersonalData';
 import ResidenceAddress from './ResidenceAddress';
+import SettlementAddress from './SettlementAddress';
+import Document from './Document';
 
 const pages = {
-    1: { title: 'Personal data', component: PersonalData },
-    2: { title: 'Residence address', component: ResidenceAddress },
-    3: { title: 'Living address', component: PersonalData },
-    4: { title: 'Verify your document', component: PersonalData },
+    1: { title: 'Personal data', component: PersonalData, section: 'personalInfo' },
+    2: { title: 'Residence address', component: ResidenceAddress, section: 'residenceAddress' },
+    3: { title: 'Settlement address', component: SettlementAddress, section: 'settlementAddress' },
+    4: { title: 'Verify your document', component: Document, section: 'document' },
 };
 
 function Verification() {
     const [page, setPage] = useState(1);
+    const userContext = useContext(UserContext);
+    const verification = userContext?.me?.verification || {};
 
     return (
         <LoggedPage>
@@ -28,7 +33,12 @@ function Verification() {
                                         onClick={() => setPage(parseInt(pageId))}
                                     >
                                         {pages[pageId].title}
-                                        <svg className="w-3 h-3 fill-current flex-shrink-0 ml-2 opacity-0 group-hover:opacity-100 group-hover:text-purple-600 group-hover:translate-x-1 transition duration-150 ease-in-out transform" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        {verification[pages[pageId].section] && (
+                                            <svg className="ml-2 h-4 text-green-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentcolor" />
+                                            </svg>
+                                        )}
+                                        <svg className="ml-2 w-3 h-3 fill-current flex-shrink-0 opacity-0 group-hover:opacity-100 group-hover:text-purple-600 group-hover:translate-x-1 transition duration-150 ease-in-out transform" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" />
                                         </svg>
                                     </div>

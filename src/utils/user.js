@@ -56,6 +56,10 @@ class User {
         });
         toast.success('E-mail address confirmed successfully');
     }
+
+    update(me) {
+        this.me = me;
+    }
 }
 
 export default new User();
