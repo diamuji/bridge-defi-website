@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Header from './Header';
+import Header from './Header/Header';
 import { UserContext } from '../utils/UserProvider';
 
 export default function LoggedPage(props) {

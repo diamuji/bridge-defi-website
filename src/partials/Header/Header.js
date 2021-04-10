@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CookieConsent from 'react-cookie-consent';
-import Transition from '../utils/Transition.js';
-import Logo from './Logo.js';
-import { UserContext } from '../utils/UserProvider.js';
+import Transition from '../../utils/Transition.js';
+import Logo from '../Logo.js';
+import { UserContext } from '../../utils/UserProvider.js';
+import NonLoggedUserMenu from './NonLoggedUserMenu.js';
+import LoggedUserMenu from './LoggedUserMenu.js';
 
 function Header(props) {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -51,39 +53,8 @@ function Header(props) {
                     <nav className="hidden md:flex md:flex-grow">
                         {/* Desktop sign in links */}
                         <ul className="flex flex-grow justify-end flex-wrap items-center">
-                            {loggedIn && (
-                                <>
-                                    <li>
-                                        <Link
-                                            to="/signout"
-                                            replace={true}
-                                            className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                                        >
-                                            Sign out
-                                        </Link>
-                                    </li>
-                                </>
-                            )}
-                            {!userContext.fetching && !userContext.me && (
-                                <>
-                                    <li>
-                                        <Link
-                                            to="/signin"
-                                            className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                                        >
-                                            Sign in
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            to="/signup"
-                                            className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
-                                        >
-                                            Sign up
-                                        </Link>
-                                    </li>
-                                </>
-                            )}
+                            {loggedIn && <LoggedUserMenu />}
+                            {!userContext.fetching && !userContext.me && <NonLoggedUserMenu />}
                         </ul>
                     </nav>
 

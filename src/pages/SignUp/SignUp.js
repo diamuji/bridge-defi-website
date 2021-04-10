@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Header from '../../partials/Header';
+import Header from '../../partials/Header/Header';
 import PageIllustration from '../../partials/PageIllustration';
 import { Step1 } from './Step1';
 import { Step2 } from './Step2';

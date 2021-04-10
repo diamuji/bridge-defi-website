@@ -13,11 +13,12 @@ import Home from './pages/Home';
 import Help from './pages/Help';
 import PageNotFound from './pages/PageNotFound';
 import SignUp from './pages/SignUp/SignUp';
-import SignIn from './pages/SignIn';
+import SignIn from './pages/Signin';
 import SignOut from './pages/SignOut';
 import Confirmation from './pages/Confirmation';
 import App from './pages/App';
 import Verification from './pages/Verification/Verification';
+import Users from './pages/Users';
 
 const routes = {
     '/': { component: Home, },
@@ -28,6 +29,7 @@ const routes = {
     '/confirmation': { component: Confirmation },
     '/app': { component: App },
     '/verification': { component: Verification },
+    '/users': { component: Users },
     '*': { component: PageNotFound },
 };
 

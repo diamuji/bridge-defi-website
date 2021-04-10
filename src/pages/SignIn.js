@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useHistory, withRouter } from 'react-router-dom';
-import Header from '../partials/Header';
+import Header from '../partials/Header/Header';
 import PageIllustration from '../partials/PageIllustration';
 import { FormInput } from '../utils/FormInput';
 import { EMAIL_REGEX } from '../utils/utils';
