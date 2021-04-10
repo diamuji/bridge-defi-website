@@ -35,7 +35,7 @@ export class UserProvider extends React.Component {
 
     update = (me) => {
         user.update(me);
-        this.setState({ me });
+        this.setState({ me: { ...this.state.me, ...me } });
     }
 
     getCountry = () => {

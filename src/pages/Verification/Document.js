@@ -23,7 +23,6 @@ export default function PersonalData() {
                     }
                 }
             });
-            console.log(document)
             if (document.frontUpload.length > 0) {
                 const frontFormData = new FormData();
                 frontFormData.append('front', document.frontUpload[0]);
@@ -94,7 +93,7 @@ export default function PersonalData() {
                             <>
                                 <input type="file" ref={ref} name={name} className={className} />
                                 {document.front && (
-                                    <img src={`data:image/png;base64,${document.front}`} className="mt-3 w-full" alt={label} />
+                                    <img src={`data:image;base64,${document.front}`} className="mt-3 w-full" alt={label} />
                                 )}
                             </>
                         )}
@@ -112,7 +111,7 @@ export default function PersonalData() {
                             <>
                                 <input type="file" ref={ref} name={name} className={className} />
                                 {document.retro && (
-                                    <img src={`data:image/png;base64,${document.retro}`} className="mt-3 w-full" alt={label} />
+                                    <img src={`data:image;base64,${document.retro}`} className="mt-3 w-full" alt={label} />
                                 )}
                             </>
                         )}
