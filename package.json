@@ -6,7 +6,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "serve": "serve -s build"
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.13.5",
@@ -30,6 +31,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
     "react-transition-group": "^4.4.1",
+    "serve": "^11.3.2",
     "swiper": "^6.4.1",
     "tailwindcss": "^2.0.2",
     "universal-cookie": "^4.0.4",
