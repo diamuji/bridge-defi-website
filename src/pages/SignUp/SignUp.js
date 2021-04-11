@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Header from '../../partials/Header/Header';
-import PageIllustration from '../../partials/PageIllustration';
 import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 import { Step3 } from './Step3';
@@ -24,12 +23,6 @@ function SignUp() {
 
             {/*  Page content */}
             <main className="flex-grow">
-
-                {/*  Page illustration */}
-                <div className="relative max-w-6xl mx-auto h-0 pointer-events-none" aria-hidden="true">
-                    <PageIllustration />
-                </div>
-
                 <section className="relative">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="pt-32 pb-12 md:pt-40 md:pb-20">

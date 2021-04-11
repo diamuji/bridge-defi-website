@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import Header from '../partials/Header/Header';
-import PageIllustration from '../partials/PageIllustration';
 import { FormInput } from '../utils/FormInput';
 import { EMAIL_REGEX } from '../utils/utils';
 import { useForm } from 'react-hook-form';
@@ -31,12 +30,6 @@ function SignIn() {
 
             {/*  Page content */}
             <main className="flex-grow">
-
-                {/*  Page illustration */}
-                <div className="relative max-w-6xl mx-auto h-0 pointer-events-none" aria-hidden="true">
-                    <PageIllustration />
-                </div>
-
                 <section className="relative">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="pt-32 pb-12 md:pt-40 md:pb-20">

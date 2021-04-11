@@ -10,18 +10,22 @@ function App() {
         && user.verification.personalInfo
         && user.verification.residenceAddress
         && user.verification.settlementAddress
-        && user.verification.document;
+        && user.verification.document
+        && user.verification.document.documentType
+        && user.verification.document.front
+        && user.verification.document.retro
+        && user.verification.document.profilePic;
 
     return (
         <LoggedPage>
-            {!verified && <Link to="/verification" className="block mb-5">
-                <div class="max-w-md mx-auto bg-gray-800 text-gray-300 hover:text-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-                    <div class="px-8 py-6 flex flex-row items-center justify-between ">
-                            <div>
-                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+            {!verified && (
+                <Link to="/verification" className="block mb-5 max-w-md mx-auto bg-gray-800 text-gray-300 hover:text-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                    <div className="px-8 py-6 flex flex-row items-center justify-between ">
+                        <div>
+                            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
                                 Verification
                             </div>
-                            <div class="block mt-1 text-lg leading-tight font-medium">
+                            <div className="block mt-1 text-lg leading-tight font-medium">
                                 Verify your account.
                             </div>
                         </div>
@@ -29,8 +33,8 @@ function App() {
                             <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                         </svg>
                     </div>
-                </div>
-            </Link>}
+                </Link>
+            )}
 
             {verified && (
                 <div className="flex flex-row items-center">

@@ -10,7 +10,7 @@ function SignOut() {
 
     useEffect(() => {
         userContext.logout();
-        history.replace(pathContext.current);
+        history.replace(pathContext.current ?? '/');
     }, [userContext, history, pathContext]);
 
     return null;

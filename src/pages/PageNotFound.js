@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../partials/Header/Header';
-import PageIllustration from '../partials/PageIllustration';
 import Footer from '../partials/Footer';
 
 function PageNotFound() {
@@ -14,11 +13,6 @@ function PageNotFound() {
 
       {/*  Page content */}
       <main className="flex-grow">
-
-        {/*  Page illustration */}
-        <div className="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1" aria-hidden="true">
-          <PageIllustration />
-        </div>
 
         <section className="relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">

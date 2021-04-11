@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Header from '../partials/Header/Header';
-import PageIllustration from '../partials/PageIllustration';
 import HeroHome from '../partials/HeroHome';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
 import FeaturesHome from '../partials/FeaturesHome';
@@ -18,11 +17,6 @@ function Home() {
 
       {/*  Page content */}
       <main className="flex-grow">
-
-        {/*  Page illustration */}
-        <div className="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1" aria-hidden="true">
-          <PageIllustration />
-        </div>
 
         {/*  Page sections */}
         <HeroHome />
