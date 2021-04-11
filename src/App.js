@@ -19,6 +19,7 @@ import Confirmation from './pages/Confirmation';
 import App from './pages/App';
 import Verification from './pages/Verification/Verification';
 import Users from './pages/Users/Users';
+import ForgotPassword from './pages/ForgotPassword';
 
 const routes = {
     '/': { component: Home, },
@@ -27,6 +28,7 @@ const routes = {
     '/signin': { component: SignIn },
     '/signout': { component: SignOut },
     '/confirmation': { component: Confirmation },
+    '/forgotPassword': { component: ForgotPassword },
     '/app': { component: App },
     '/verification': { component: Verification },
     '/users': { component: Users },

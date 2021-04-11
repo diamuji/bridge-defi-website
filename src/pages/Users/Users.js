@@ -7,7 +7,7 @@ import User from './User';
 const USERS_PER_PAGE = 15;
 
 function Users() {
-    const [page, setPage] = useState(0);
+    const [page] = useState(0);
     const [users, setUsers] = useState([]);
     const [selectedUserId, setSelectedUserId] = useState();
 
