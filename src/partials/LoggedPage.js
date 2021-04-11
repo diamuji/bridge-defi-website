@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from './Header/Header';
 import { UserContext } from '../utils/UserProvider';
-import PageIllustration from './PageIllustration';
 
 export default function LoggedPage(props) {
     const history = useHistory();

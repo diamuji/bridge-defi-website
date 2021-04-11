@@ -18,7 +18,7 @@ import SignOut from './pages/SignOut';
 import Confirmation from './pages/Confirmation';
 import App from './pages/App';
 import Verification from './pages/Verification/Verification';
-import Users from './pages/Users';
+import Users from './pages/Users/Users';
 
 const routes = {
     '/': { component: Home, },
