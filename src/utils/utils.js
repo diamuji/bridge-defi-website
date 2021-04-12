@@ -4,7 +4,7 @@ const BASE_URL = process.env.REACT_APP_API_URL || '';
 
 export async function http({ method, url, form, json, text }) {
     const fullUrl = url.indexOf('http') === 0 ? url : BASE_URL + url;
-    const contentTypeHeader = !text && json !== false ? { 'Content-Type': 'application/json' } : {};
+    const contentTypeHeader = !text && json !== false && !(form && form instanceof FormData) ? { 'Content-Type': 'application/json' } : {};
     const authHeader = user.getAuthHeader();
     const res = await fetch(fullUrl, {
         method: method || 'GET',

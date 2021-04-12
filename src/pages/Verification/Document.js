@@ -30,7 +30,6 @@ export default function PersonalData() {
                     method: 'POST',
                     url: '/verification/document/front',
                     form: frontFormData,
-                    json: false,
                 });
             }
             if (document.retroUpload.length > 0) {
@@ -40,7 +39,6 @@ export default function PersonalData() {
                     method: 'POST',
                     url: '/verification/document/retro',
                     form: retroFormData,
-                    json: false,
                 });
             }
             const me = { ...document, ...res1, ...res2, ...res3 };
