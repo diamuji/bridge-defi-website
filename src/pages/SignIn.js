@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import Header from '../partials/Header/Header';
+import Body from '../partials/Body';
 import { FormInput } from '../utils/FormInput';
 import { EMAIL_REGEX } from '../utils/utils';
 import { useForm } from 'react-hook-form';
@@ -29,7 +30,7 @@ function SignIn() {
             <Header />
 
             {/*  Page content */}
-            <main className="flex-grow">
+            <Body className="flex-grow">
                 <section className="relative">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -42,7 +43,7 @@ function SignIn() {
                                             </h1>
                                             <p>Enter your credentials</p>
                                         </div>
-                                        
+
                                         <FormInput
                                             label="E-mail"
                                             name="email"
@@ -87,7 +88,7 @@ function SignIn() {
                                                 Forgot password?
                                             </Link>
                                         </div>
-                                        
+
                                         <div className="flex flex-wrap mt-6">
                                             <button type="submit" className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">
                                                 Login
@@ -109,7 +110,7 @@ function SignIn() {
                         </div>
                     </div>
                 </section>
-            </main>
+            </Body>
         </div>
     );
 }

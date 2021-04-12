@@ -5,6 +5,7 @@ import { FormInput } from '../utils/FormInput';
 import { EMAIL_REGEX, http } from '../utils/utils';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import Body from '../partials/Body';
 
 function ForgotPassword() {
     const form = useForm();
@@ -31,7 +32,7 @@ function ForgotPassword() {
             <Header />
 
             {/*  Page content */}
-            <main className="flex-grow">
+            <Body className="flex-grow">
                 <section className="relative">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -72,25 +73,25 @@ function ForgotPassword() {
                                         <div className="flex flex-wrap mt-6">
                                             <button type="submit" className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">
                                                 Continue
-                                        </button>
+                                            </button>
                                         </div>
                                     </fieldset>
                                 </form>
 
                                 <div className="text-gray-400 text-center mt-6">
                                     Don't have a Bridge DeFi account?&nbsp;
-                                <Link
+                                    <Link
                                         to="/signup"
                                         className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
                                     >
                                         Sign up
-                                </Link>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-            </main>
+            </Body>
         </div>
     );
 }

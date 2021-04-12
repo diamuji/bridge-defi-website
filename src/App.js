@@ -27,7 +27,7 @@ const routes = {
     '/signup': { component: SignUp },
     '/signin': { component: SignIn },
     '/signout': { component: SignOut },
-    '/confirmation': { component: Confirmation },
+    '/confirm/:id': { component: Confirmation },
     '/forgotPassword': { component: ForgotPassword },
     '/app': { component: App },
     '/verification': { component: Verification },

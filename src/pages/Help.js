@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Header from '../partials/Header/Header';
 import Footer from '../partials/Footer';
+import Body from '../partials/Body';
 
 function Help() {
 
@@ -14,7 +15,7 @@ function Help() {
       <Header />
 
       {/*  Page content */}
-      <main className="flex-grow">
+      <Body className="flex-grow">
 
         {/*  Page sections */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -228,7 +229,7 @@ function Help() {
             </div>
           </div>
         </div>
-      </main>
+      </Body>
 
       {/*  Site footer */}
       <Footer />

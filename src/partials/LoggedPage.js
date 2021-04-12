@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from './Header/Header';
 import { UserContext } from '../utils/UserProvider';
+import Body from './Body';
 
 export default function LoggedPage(props) {
     const history = useHistory();
@@ -25,9 +26,9 @@ export default function LoggedPage(props) {
     return (
         <div className="flex flex-col min-h-screen overflow-hidden pb-5 mb-6">
             <Header absolute={false} />
-            <div className="mt-5 max-w-6xl mx-auto px-4 sm:px-6 w-full">
+            <Body className="mt-5 max-w-6xl mx-auto px-4 sm:px-6 w-full">
                 {props.children}
-            </div>
+            </Body>
         </div>
     );
 }
