@@ -106,7 +106,7 @@ export default function SettlementAddress() {
                 </div>
 
                 <div className="flex flex-wrap mt-6">
-                    <button type="submit" className="btn text-white bg-purple-600 hover:bg-purple-700 px-6">
+                    <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 px-6">
                         Continue
                     </button>
                 </div>

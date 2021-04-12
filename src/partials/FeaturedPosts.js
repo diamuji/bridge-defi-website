@@ -33,7 +33,7 @@ function FeaturedPosts() {
             <article className="relative group px-6 py-4 sm:py-8" data-aos="fade-up" data-aos-anchor="[data-aos-id-featposts]" data-aos-delay="200">
               <figure>
                 <img className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-75 transition duration-700 ease-out" src={require('../images/related-post-04.jpg')} width="258" height="154" alt="Related post 04" />
-                <div className="absolute inset-0 bg-purple-500 opacity-75 group-hover:opacity-50 transition duration-700 ease-out" aria-hidden="true"></div>
+                <div className="absolute inset-0 bg-teal-500 opacity-75 group-hover:opacity-50 transition duration-700 ease-out" aria-hidden="true"></div>
               </figure>
               <div className="relative flex flex-col h-full text-white">
                 <header className="flex-grow">

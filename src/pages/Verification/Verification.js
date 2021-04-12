@@ -38,7 +38,7 @@ function Verification() {
                                 return (
                                     <li key={key} className="border-b border-gray-800">
                                         <div
-                                            className={`cursor-pointer flex items-center py-2 px-3 group text-gray-400 hover:text-purple-600 transition duration-150 ease-in-out ${page === parseInt(pageId) && 'text-purple-600'}`}
+                                            className={`cursor-pointer flex items-center py-2 px-3 group text-gray-400 hover:text-teal-500 transition duration-150 ease-in-out ${page === parseInt(pageId) && 'text-teal-500'}`}
                                             onClick={() => setPage(parseInt(pageId))}
                                         >
                                             {pages[pageId].title}
@@ -47,7 +47,7 @@ function Verification() {
                                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentcolor" />
                                                 </svg>
                                             )}
-                                            <svg className="ml-2 w-3 h-3 fill-current flex-shrink-0 opacity-0 group-hover:opacity-100 group-hover:text-purple-600 group-hover:translate-x-1 transition duration-150 ease-in-out transform" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className="ml-2 w-3 h-3 fill-current flex-shrink-0 opacity-0 group-hover:opacity-100 group-hover:text-teal-500 group-hover:translate-x-1 transition duration-150 ease-in-out transform" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" />
                                             </svg>
                                         </div>

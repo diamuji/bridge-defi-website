@@ -7,7 +7,7 @@ export default function NonLoggedUserMenu() {
             <li>
                 <Link
                     to="/signin"
-                    className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                    className="font-medium text-teal-500 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                 >
                     Sign in
             </Link>
@@ -15,7 +15,7 @@ export default function NonLoggedUserMenu() {
             <li>
                 <Link
                     to="/signup"
-                    className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
+                    className="btn-sm text-white bg-teal-500 hover:bg-teal-600 ml-3"
                 >
                     Sign up
             </Link>

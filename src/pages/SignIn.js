@@ -84,13 +84,13 @@ function SignIn() {
                                             )}
                                         />
                                         <div className="text-right">
-                                            <Link to="/forgotPassword">
+                                            <Link to="/forgotPassword" className="text-teal-500">
                                                 Forgot password?
                                             </Link>
                                         </div>
 
                                         <div className="flex flex-wrap mt-6">
-                                            <button type="submit" className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">
+                                            <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 w-full">
                                                 Login
                                             </button>
                                         </div>
@@ -101,7 +101,7 @@ function SignIn() {
                                     Don't have a Bridge DeFi account?&nbsp;
                                     <Link
                                         to="/signup"
-                                        className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
+                                        className="text-teal-500 hover:text-gray-200 transition duration-150 ease-in-out"
                                     >
                                         Sign up
                                     </Link>

@@ -7,7 +7,7 @@ export default function AdminMenu() {
             <li>
                 <Link
                     to="/users"
-                    className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                    className="font-medium text-teal-500 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                 >
                     Users
                 </Link>

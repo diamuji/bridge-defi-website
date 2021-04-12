@@ -4,7 +4,7 @@ import LoggedPage from '../../partials/LoggedPage';
 import { http } from '../../utils/utils';
 import User from './User';
 
-const USERS_PER_PAGE = 15;
+const USERS_PER_PAGE = 5;
 
 function Users() {
     const [page] = useState(0);
@@ -29,7 +29,7 @@ function Users() {
                             {users.map((user, key) => (
                                 <li key={key} className="border-b border-gray-800">
                                     <div
-                                        className={`cursor-pointer py-2 px-3 group text-gray-400 leading-4 hover:text-purple-600 ${selectedUserId === user._id && 'text-purple-600'}`}
+                                        className={`cursor-pointer py-2 px-3 group text-gray-400 leading-4 ${selectedUserId === user._id ? 'text-teal-500' : 'hover:text-gray-100'}`}
                                         onClick={() => setSelectedUserId(user._id)}
                                     >
                                         {user.firstName} {user.lastName}

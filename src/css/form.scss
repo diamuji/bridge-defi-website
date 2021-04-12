@@ -1,7 +1,7 @@
 .form-input, .form-checkbox, button {
     &:focus {
         outline: none !important;
-        box-shadow: 0 0 5px theme('colors.purple.600') !important;
+        box-shadow: 0 0 5px theme('colors.teal.500') !important;
     }
     &:disabled {
         opacity: 0.5;

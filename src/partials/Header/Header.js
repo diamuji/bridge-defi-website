@@ -44,7 +44,7 @@ function Header(props) {
 
                         <CookieConsent location="top">
                             This website uses cookies to enhance the user experience.
-                    </CookieConsent>
+                        </CookieConsent>
 
                         {/* Site branding */}
                         <div className="flex-shrink-0 mr-5">
