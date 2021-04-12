@@ -10,8 +10,12 @@ export function Step2({ formData, onSubmit }) {
 
     useEffect(() => {
         const setDefaultCountry = async () => {
-            const res = await http({ url: 'http://ip-api.com/json' });
-            const isoCode = countries.filter(country => country.code === res.countryCode)[0]?.isoCode;
+            const res = await http({
+                text: true,
+                url: 'https://www.cloudflare.com/cdn-cgi/trace',
+            });
+            const countryCode = res.split('\n').map(line => line.split('=')).filter(item => item[0] === 'loc')[0][1];
+            const isoCode = countries.filter(country => country.code === countryCode)[0]?.isoCode;
             setValue('country', isoCode);
         };
         setDefaultCountry();

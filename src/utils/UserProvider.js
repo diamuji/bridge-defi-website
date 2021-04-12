@@ -44,8 +44,12 @@ export class UserProvider extends React.Component {
         if (!this.fetchingCountry) {
             const fetchCountry = async () => {
                 this.fetchingCountry = true;
-                const res = await http({ url: 'http://ip-api.com/json' });
-                const country = countries.filter(country => country.code === res.countryCode)[0];
+                const res = await http({
+                    text: true,
+                    url: 'https://www.cloudflare.com/cdn-cgi/trace',
+                });
+                const countryCode = res.split('\n').map(line => line.split('=')).filter(item => item[0] === 'loc')[0][1];
+                const country = countries.filter(country => country.code === countryCode)[0];
                 this.fetchingCountry = false;
                 this.setState({ country });
             };

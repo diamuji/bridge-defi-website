@@ -22,7 +22,7 @@ function App() {
                 <Link to="/verification" className="block mb-5 max-w-md mx-auto bg-gray-800 text-gray-300 hover:text-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                     <div className="px-8 py-6 flex flex-row items-center justify-between ">
                         <div>
-                            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                            <div className="uppercase tracking-wide text-sm text-teal-400 font-semibold">
                                 Verification
                             </div>
                             <div className="block mt-1 text-lg leading-tight font-medium">

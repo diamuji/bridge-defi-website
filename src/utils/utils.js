@@ -2,9 +2,9 @@ import user from "./user";
 
 const BASE_URL = process.env.REACT_APP_API_URL || '';
 
-export async function http({ method, url, form, json }) {
+export async function http({ method, url, form, json, text }) {
     const fullUrl = url.indexOf('http') === 0 ? url : BASE_URL + url;
-    const contentTypeHeader = json !== false ? { 'Content-Type': 'application/json' } : {};
+    const contentTypeHeader = json !== false || !text ? { 'Content-Type': 'application/json' } : {};
     const authHeader = user.getAuthHeader();
     const res = await fetch(fullUrl, {
         method: method || 'GET',
@@ -16,19 +16,27 @@ export async function http({ method, url, form, json }) {
             form instanceof FormData ? form : JSON.stringify(form)
         )
     });
-    let jsonRes = {};
-    try {
-        jsonRes = await res.json();
-    } catch (e) {
+    let content = {};
+    if (json) {
+        try {
+            content = await res.json();
+        } catch (e) {
+        }
+    }
+    if (text) {
+        try {
+            content = await res.text();
+        } catch (e) {
+        }
     }
     if (!res.ok) {
         // eslint-disable-next-line
         throw {
             code: res.status,
-            reason: jsonRes?.errmsg || res.statusText || 'Error'
+            reason: (content || {})?.errmsg || res.statusText || 'Error'
         };
     } else {
-        return jsonRes;
+        return content;
     }
 }
 
