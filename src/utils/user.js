@@ -40,12 +40,14 @@ class User {
             }
         });
         this.me = res.user;
+        this.authToken = res.token;
         this.cookies.set(AUTH_COOKIE_VAR, res.token);
         return this.me;
     }
 
     logout() {
         this.me = undefined;
+        this.authToken = undefined;
         this.cookies.remove(AUTH_COOKIE_VAR);
     }
 

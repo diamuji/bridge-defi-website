@@ -17,7 +17,7 @@ export async function http({ method, url, form, json, text }) {
         )
     });
     let content = {};
-    if (json) {
+    if (json !== false) {
         try {
             content = await res.json();
         } catch (e) {
