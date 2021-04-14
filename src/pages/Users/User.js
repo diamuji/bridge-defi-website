@@ -6,8 +6,7 @@ import { http } from '../../utils/utils';
 export default function User(props) {
     const { id } = props;
     const [user, setUser] = useState();
-    const [makeAdminDisabled, setMakeAdminDisabled] = useState(false);
-    const [confirmDisabled, setConfirmDisabled] = useState(false);
+    const [toggleAdminDisabled, setToggleAdminDisabled] = useState(false);
     const [verifyDisabled, setVerifyDisabled] = useState(false);
     const [profilePicVisible, setProfilePicVisible] = useState(false);
     const [documentFrontVisible, setDocumentFrontVisible] = useState(false);
@@ -15,7 +14,7 @@ export default function User(props) {
 
     useEffect(() => {
         setUser();
-        setMakeAdminDisabled(false);
+        setToggleAdminDisabled(false);
         const fetchUser = async () => {
             const user = await http({ url: `/admin/users/${id}` });
             setUser(user);
@@ -23,41 +22,35 @@ export default function User(props) {
         fetchUser();
     }, [id]);
 
-    const makeAdmin = async () => {
-        setMakeAdminDisabled(true);
+    const toggleAdmin = async () => {
+        setToggleAdminDisabled(true);
         try {
-            await http({
+            const newUserData = await http({
                 method: 'PATCH',
-                url: `/admin/make-admin/${id}`
+                url: `/admin/make-admin/${id}`,
+                form: {
+                    isAdmin: !user.isAdmin
+                }
             });
+            setUser({ ...user, ...newUserData });
         } catch (e) {
             console.error(e);
             toast.error(e?.reason || `${e}`);
         }
-        setMakeAdminDisabled(false);
-    };
-
-    const confirm = async () => {
-        setConfirmDisabled(true);
-        try {
-            await http({
-                method: 'PUT',
-                url: `/users/${id}/confirm`
-            });
-        } catch (e) {
-            console.error(e);
-            toast.error(e?.reason || `${e}`);
-        }
-        setConfirmDisabled(false);
+        setToggleAdminDisabled(false);
     };
 
     const verify = async () => {
         setVerifyDisabled(true);
         try {
-            await http({
-                method: 'PUT',
-                url: `/users/${id}/verify`
+            const newUserData = await http({
+                method: 'PATCH',
+                url: `/admin/enable-user/${id}`,
+                form: {
+                    enabled: !user.enabled
+                }
             });
+            setUser({ ...user, ...newUserData });
         } catch (e) {
             console.error(e);
             toast.error(e?.reason || `${e}`);
@@ -87,42 +80,28 @@ export default function User(props) {
             <div className="grid grid-cols-4 gap-4">
                 <div>
                     <label className="block text-gray-500 text-sm">E-mail confirmed</label>
-                    {user.confirmed ? 'true' : 'false'}
-                    {!user.confirmed && (
-                        <button
-                            className="btn text-white bg-teal-500 hover:bg-teal-400 py-2 px-3 text-xs uppercase ml-4 font-bold"
-                            onClick={() => confirm()}
-                            disabled={confirmDisabled}
-                        >
-                            Confirm
-                        </button>
-                    )}
+                    <span className={!user.confirmed && 'text-red-500'}>{user.confirmed ? 'true' : 'false'}</span>
                 </div>
                 <div>
                     <label className="block text-gray-500 text-sm">Admin rights</label>
                     {user.isAdmin ? 'true' : 'false'}
-                    {!user.isAdmin && (
-                        <button
-                            className="btn text-white bg-teal-500 hover:bg-teal-400 py-2 px-3 text-xs uppercase ml-4 font-bold"
-                            onClick={() => makeAdmin()}
-                            disabled={makeAdminDisabled}
-                        >
-                            Make admin
-                        </button>
-                    )}
+                    <span
+                        className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${toggleAdminDisabled && 'opacity-50'}`}
+                        onClick={() => !toggleAdminDisabled && toggleAdmin()}
+                    >
+                        {user.isAdmin ? 'Remove' : 'Grant'}
+                        
+                    </span>
                 </div>
                 <div>
-                    <label className="block text-gray-500 text-sm">Verified</label>
-                    {user.verified ? 'true' : 'false'}
-                    {!user.verified && (
-                        <button
-                            className="btn text-white bg-teal-500 hover:bg-teal-400 py-2 px-3 text-xs uppercase ml-4 font-bold"
-                            onClick={() => verify()}
-                            disabled={verifyDisabled}
-                        >
-                            Verify
-                        </button>
-                    )}
+                    <label className="block text-gray-500 text-sm">Enabled</label>
+                    <span className={!user.enabled && 'text-red-500'}>{user.enabled ? 'true' : 'false'}</span>
+                    <span
+                        className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${verifyDisabled && 'opacity-50'}`}
+                        onClick={() => !verifyDisabled && verify()}
+                    >
+                        {user.enabled ? 'Disable' : 'Enable'}
+                    </span>
                 </div>
                 <div></div>
                 <div>
@@ -168,7 +147,8 @@ export default function User(props) {
                                 <div className="cursor-pointer text-teal-500" onClick={() => setProfilePicVisible(!profilePicVisible)}>
                                     Hide
                                 </div>
-                                {document.profilePic ? <img src={`data:image;base64,${document.profilePic}`} /> : '-'}
+                                {/* eslint-disable-next-line */}
+                                {document.profilePic ? <img src={`data:image;base64,${document.profilePic}`} alt="Profile picture" /> : '-'}
                             </div>
                         )
                     }
@@ -186,7 +166,7 @@ export default function User(props) {
                                 <div className="cursor-pointer text-teal-500" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
                                     Hide
                                 </div>
-                                {document.front ? <img src={`data:image;base64,${document.front}`} /> : '-'}
+                                {document.front ? <img src={`data:image;base64,${document.front}`} alt="Document front" /> : '-'}
                             </div>
                         )
                     }
@@ -204,7 +184,7 @@ export default function User(props) {
                                 <div className="cursor-pointer text-teal-500" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
                                     Hide
                                 </div>
-                                {document.retro ? <img src={`data:image;base64,${document.retro}`} /> : '-'}
+                                {document.retro ? <img src={`data:image;base64,${document.retro}`} alt="Document back" /> : '-'}
                             </div>
                         )
                     }
