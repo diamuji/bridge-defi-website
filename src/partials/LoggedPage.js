@@ -12,6 +12,9 @@ export default function LoggedPage(props) {
         if (!userContext.fetching && !userContext.me) {
             history.push('/');
         }
+        if (props.admin === true && !userContext?.me?.isAdmin) {
+            history.push('/');
+        }
     }, [userContext, history]);
 
     if (userContext.fetching) {
