@@ -9,13 +9,12 @@ export default function LoggedPage(props) {
     const userContext = useContext(UserContext);
 
     useEffect(() => {
-        if (!userContext.fetching && !userContext.me) {
-            history.push('/');
+        if (!userContext.fetching) {
+            if (!userContext.me || (props.admin === true && !userContext.me.isAdmin)) {
+                history.push('/');
+            }
         }
-        if (props.admin === true && !userContext?.me?.isAdmin) {
-            history.push('/');
-        }
-    }, [userContext, history]);
+    }, [userContext, history, props.admin]);
 
     if (userContext.fetching) {
         return (

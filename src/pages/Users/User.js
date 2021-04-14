@@ -80,7 +80,7 @@ export default function User(props) {
             <div className="grid grid-cols-4 gap-4">
                 <div>
                     <label className="block text-gray-500 text-sm">E-mail confirmed</label>
-                    <span className={!user.confirmed && 'text-red-500'}>{user.confirmed ? 'true' : 'false'}</span>
+                    <span className={!user.confirmed ? 'text-red-500' : ''}>{user.confirmed ? 'true' : 'false'}</span>
                 </div>
                 <div>
                     <label className="block text-gray-500 text-sm">Admin rights</label>
@@ -95,7 +95,7 @@ export default function User(props) {
                 </div>
                 <div>
                     <label className="block text-gray-500 text-sm">Enabled</label>
-                    <span className={!user.enabled && 'text-red-500'}>{user.enabled ? 'true' : 'false'}</span>
+                    <span className={!user.enabled ? 'text-red-500' : ''}>{user.enabled ? 'true' : 'false'}</span>
                     <span
                         className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${verifyDisabled && 'opacity-50'}`}
                         onClick={() => !verifyDisabled && verify()}

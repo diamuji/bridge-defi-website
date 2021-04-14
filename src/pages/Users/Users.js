@@ -25,7 +25,7 @@ function Users() {
                 <aside className="md:w-1/3 mb-16 md:mb-0 md:mr-10 md:flex-shrink-0" data-aos="fade-up" data-aos-delay="200">
                     <h4 className="text-lg font-medium px-3 pb-3 border-b border-gray-800">Users</h4>
                     <nav>
-                        <ul>
+                        <ul className="overflow-auto h-96">
                             {users.map((user, key) => (
                                 <li key={key} className="border-b border-gray-800">
                                     <div
