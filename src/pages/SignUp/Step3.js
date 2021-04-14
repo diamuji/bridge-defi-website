@@ -73,7 +73,7 @@ export function Step3({ formData, onSubmit: onDone }) {
                     )}
                 />
                 <FormInput
-                    label="Ripeti password"
+                    label="Repeat password"
                     name="repeatPassword"
                     form={form}
                     errors={errors}

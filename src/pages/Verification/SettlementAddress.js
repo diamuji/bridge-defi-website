@@ -14,7 +14,6 @@ export default function SettlementAddress() {
     
     userContext.getCountry();
     useEffect(() => {
-        console.log(userContext.country, settlementAddress);
         if (userContext.country && !settlementAddress) {
             setValue('country', userContext.country.name);
         }

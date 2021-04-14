@@ -11,7 +11,7 @@ export default function PersonalData() {
     const form = useForm({
         defaultValues: {
             ...personalInfo,
-            birthDate: personalInfo
+            birthDate: personalInfo?.birthday
                 ? [
                     new Date(personalInfo.birthday).getDate(),
                     new Date(personalInfo.birthday).getMonth() + 1,

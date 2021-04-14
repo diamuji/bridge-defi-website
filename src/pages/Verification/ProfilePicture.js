@@ -7,7 +7,7 @@ import { http } from '../../utils/utils';
 
 export default function ProfilePicture() {
     const userContext = useContext(UserContext);
-    const document = userContext.me?.verification?.document;
+    const document = userContext.me?.verification?.document || {};
     const form = useForm({ defaultValues: document });
     const { formState, handleSubmit, errors } = form;
 
