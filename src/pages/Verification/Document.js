@@ -98,7 +98,7 @@ export default function PersonalData() {
                     />
                     <FormInput
                         className="w-full md:w-1/2 p-2"
-                        label="Retro"
+                        label="Back"
                         name="retroUpload"
                         form={form}
                         errors={errors}
