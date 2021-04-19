@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import LoggedPage from '../partials/LoggedPage';
 import { UserContext } from '../utils/UserProvider';
 
-function App() {
+function Dashboard() {
     const userContext = useContext(UserContext);
     const user = userContext?.me || {};
     const verified = user.verification
@@ -48,4 +48,4 @@ function App() {
     );
 }
 
-export default withRouter(App);
+export default withRouter(Dashboard);

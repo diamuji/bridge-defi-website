@@ -133,6 +133,7 @@ module.exports = {
       opacity: ['dark'],
       rotate: ['group-hover'],
       translate: ['group-hover'],
+      padding: ['first', 'last'],
     },
   },
   plugins: [

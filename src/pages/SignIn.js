@@ -17,7 +17,7 @@ function SignIn() {
     const onSubmit = async ({ email, password }) => {
         try {
             await userContext.login(email, password);
-            history.push('/app');
+            history.push('/dashboard');
         } catch (e) {
             console.error(e);
             toast.error(e?.reason || `${e}`);

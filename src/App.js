@@ -16,7 +16,7 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
 import SignOut from './pages/SignOut';
 import Confirmation from './pages/Confirmation';
-import App from './pages/App';
+import Dashboard from './pages/Dashboard';
 import Verification from './pages/Verification/Verification';
 import Users from './pages/Users/Users';
 import ForgotPassword from './pages/ForgotPassword';
@@ -29,7 +29,7 @@ const routes = {
     '/signout': { component: SignOut },
     '/confirm/:id': { component: Confirmation },
     '/forgotPassword': { component: ForgotPassword },
-    '/app': { component: App },
+    '/dashboard': { component: Dashboard },
     '/verification': { component: Verification },
     '/users': { component: Users },
     '*': { component: PageNotFound },
