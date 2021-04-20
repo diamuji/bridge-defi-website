@@ -4,7 +4,6 @@ import LoggedPage from '../../partials/LoggedPage';
 import Table from '../../partials/Table/Table';
 import TableBody from '../../partials/Table/TableBody';
 import TableCell from '../../partials/Table/TableCell';
-import TableCustomers from '../../partials/Table/TableCustomers';
 import TableHead from '../../partials/Table/TableHead';
 import TableRow from '../../partials/Table/TableRow';
 import { http } from '../../utils/utils';
@@ -73,13 +72,6 @@ function Users() {
                     </TableBody>
                 </Table>
 
-                {/* Table */}
-                <TableCustomers />
-
-                {/* Pagination */}
-                <div className="mt-8">
-                    {/* <%= require('html-loader!./partials/pagination-classic.html') %> */}
-                </div>
                 {/* <div className="flex flex-col md:flex-row">
                     <aside className="md:w-1/3 mb-16 md:mb-0 md:mr-10 md:flex-shrink-0" data-aos="fade-up" data-aos-delay="200">
                         <h4 className="text-lg font-medium px-3 pb-3 border-b border-gray-800">Users</h4>

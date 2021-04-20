@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from './Header/Header';
 import { UserContext } from '../utils/UserProvider';
-import Body from './Body';
 import Sidebar from './Sidebar/Sidebar';
 import DashboardHeader from './Header/DashboardHeader';
 
