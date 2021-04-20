@@ -60,8 +60,13 @@ export default function Sidebar(props) {
                         {MENU.map((item, key) => (
                             <li key={key} className="rounded-sm mb-0.5 last:mb-0">
                                 <Link
-                                    className={`block px-3 py-2 text-gray-200 hover:text-white transition duration-150 flex items-center justify-between ${page === item.url && 'bg-gray-900 hover:text-gray-200'}`}
+                                    className={`block px-3 py-2 text-gray-200 hover:text-white transition duration-150 flex items-center justify-between ${page === item.url && 'bg-gray-900 hover:text-gray-200'} ${item.disabled && 'opacity-60 cursor-default'}`}
                                     to={item.url}
+                                    onClick={e => {
+                                        if (item.disabled) {
+                                            e.preventDefault();
+                                        }
+                                    }}
                                 >
                                     <span className={`flex flex-grow ${page === item.url && 'text-indigo-500'}`}>
                                         {item.icon(page === item.url)}

@@ -23,6 +23,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/orders',
         label: 'Orders',
         icon: active => (
@@ -41,6 +42,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/campaigns',
         label: 'Campaigns',
         icon: active => (
@@ -51,6 +53,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/team',
         label: 'Team',
         icon: active => (
@@ -61,6 +64,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/messages',
         label: 'Messages',
         icon: active => (
@@ -71,6 +75,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/tasks',
         label: 'Tasks',
         icon: active => (
@@ -82,6 +87,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/applications',
         label: 'Applications',
         icon: active => (
@@ -94,6 +100,7 @@ export default [
         )
     },
     {
+        disabled: true,
         url: '/settings',
         label: 'Settings',
         icon: active => (
