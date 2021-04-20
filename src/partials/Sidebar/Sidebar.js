@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { UserContext } from '../../utils/UserProvider';
 import MENU from './MENU';
 
 export default function Sidebar(props) {
@@ -7,6 +8,8 @@ export default function Sidebar(props) {
     const toggleSidebar = props.toggle;
     const location = useLocation();
     const page = location.pathname;
+    const userContext = useContext(UserContext);
+    const isAdmin = userContext.me?.isAdmin;
 
     return (
         <div className="lg:w-64">
@@ -57,7 +60,7 @@ export default function Sidebar(props) {
                 <div>
                     <h3 className="text-xs uppercase text-gray-500 font-semibold pl-3">Pages</h3>
                     <ul className="mt-3">
-                        {MENU.map((item, key) => (
+                        {MENU.filter(item => !item.admin || isAdmin).map((item, key) => (
                             <li key={key} className="rounded-sm mb-0.5 last:mb-0">
                                 <Link
                                     className={`block px-3 py-2 text-gray-200 hover:text-white transition duration-150 flex items-center justify-between ${page === item.url && 'bg-gray-900 hover:text-gray-200'} ${item.disabled && 'opacity-60 cursor-default'}`}
