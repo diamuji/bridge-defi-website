@@ -39,7 +39,7 @@ function HeroHome() {
                 Your bridge to DeFi yields
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-400" data-aos="fade-down" data-aos-delay="150">
-                Invest fiat money in financial products of decentralized finance (DeFi), without the complexities and
+                Invest fiat money in crypto-activities of decentralized finance (DeFi), without the complexities and
                 costs of managing exchanges and multiple wallets
               </p>
               {/* CTA form */}
