@@ -20,6 +20,7 @@ import Dashboard from './pages/Dashboard';
 import Verification from './pages/Verification/Verification';
 import Users from './pages/Users/Users';
 import ForgotPassword from './pages/ForgotPassword';
+import User from './pages/Users/User';
 
 const routes = {
     '/': { component: Home, },
@@ -32,6 +33,7 @@ const routes = {
     '/dashboard': { component: Dashboard },
     '/verification': { component: Verification },
     '/users': { component: Users },
+    '/users/:id': { component: User },
     '*': { component: PageNotFound },
 };
 
@@ -52,6 +54,7 @@ export default function AppRoot() {
         window.scroll({ top: 0 });
         document.querySelector('html').style.scrollBehavior = '';
         focusHandling('outline');
+        document.documentElement.classList.add('dark');
     }, [location.pathname]); // triggered on route change
 
     return (

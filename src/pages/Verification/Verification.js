@@ -25,7 +25,7 @@ function Verification() {
         <LoggedPage>
             <div className="flex flex-col md:flex-row">
                 <aside className="md:w-64 mb-16 md:mb-0 md:mr-10 md:flex-shrink-0" data-aos="fade-up" data-aos-delay="200">
-                    <h4 className="text-lg font-medium px-3 pb-3 border-b border-gray-800">Complete your profile</h4>
+                    <h4 className="text-lg font-medium px-3 pb-3 border-b border-gray-400">Complete your profile</h4>
                     <nav>
                         <ul>
                             {Object.keys(pages).map((pageId, key) => {
@@ -36,9 +36,9 @@ function Verification() {
                                         }).length === pages[pageId].subsections.length;
                                 
                                 return (
-                                    <li key={key} className="border-b border-gray-800">
+                                    <li key={key} className="border-b border-gray-400">
                                         <div
-                                            className={`cursor-pointer flex items-center py-2 px-3 group text-gray-400 hover:text-teal-500 transition duration-150 ease-in-out ${page === parseInt(pageId) && 'text-teal-500'}`}
+                                            className={`cursor-pointer flex items-center py-2 px-3 group text-gray-600 hover:text-teal-500 transition duration-150 ease-in-out ${page === parseInt(pageId) && 'text-teal-500'}`}
                                             onClick={() => setPage(parseInt(pageId))}
                                         >
                                             {pages[pageId].title}

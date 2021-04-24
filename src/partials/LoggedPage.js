@@ -11,6 +11,12 @@ export default function LoggedPage(props) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
+        setTimeout(() => {
+            document.documentElement.classList.remove('dark');
+        });
+    }, []);
+
+    useEffect(() => {
         if (!userContext.fetching) {
             if (!userContext.me || (props.admin === true && !userContext.me.isAdmin)) {
                 history.push('/');
@@ -40,13 +46,6 @@ export default function LoggedPage(props) {
                     {props.children}
                 </div>
             </div>
-
-            {/* <div className="flex flex-col min-h-screen overflow-hidden pb-5 mb-6">
-                <Header absolute={false} />
-                <Body className="mt-5 max-w-6xl mx-auto px-4 sm:px-6 w-full">
-                    {props.children}
-                </Body>
-            </div> */}
         </div>
     );
 }

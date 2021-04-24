@@ -7,7 +7,7 @@ export function FormInput({ label, name, form, validation, errors, render, class
     return (
         <div className={`mb-4 ${className}`}>
             {label && (
-                <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="first-name">
+                <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="first-name">
                     {label}
                     {validation.required && (
                         <>
@@ -21,7 +21,7 @@ export function FormInput({ label, name, form, validation, errors, render, class
                 ref,
                 name,
                 label,
-                className: 'form-input w-full text-gray-300'
+                className: 'form-input w-full'
             })}
 
             {errors && errors[name] && (

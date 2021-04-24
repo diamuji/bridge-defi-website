@@ -21,7 +21,10 @@ export default function Sidebar(props) {
             </div>
             
             {/* Sidebar */}
-            <div className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-gray-800 p-4 transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}>
+            <div
+                className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 p-4 transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}
+                style={{ background: 'rgb(30,44,59)'}}
+            >
                 {/* Sidebar header */}
                 <div className="flex justify-between mb-10 pr-3 sm:px-2">
                     {/* Close button */}
@@ -61,9 +64,9 @@ export default function Sidebar(props) {
                     <h3 className="text-xs uppercase text-gray-500 font-semibold pl-3">Pages</h3>
                     <ul className="mt-3">
                         {MENU.filter(item => !item.admin || isAdmin).map((item, key) => (
-                            <li key={key} className="rounded-sm mb-0.5 last:mb-0">
+                            <li key={key} className="mb-0.5 last:mb-0">
                                 <Link
-                                    className={`block px-3 py-2 text-gray-200 hover:text-white transition duration-150 flex items-center justify-between ${page === item.url && 'bg-gray-900 hover:text-gray-200'} ${item.disabled && 'opacity-60 cursor-default'}`}
+                                    className={`block px-3 py-2 text-gray-200 rounded hover:text-white transition duration-150 flex items-center justify-between ${page.indexOf(item.url) === 0 && 'bg-gray-900 hover:text-gray-200'} ${item.disabled && 'opacity-60 cursor-default'}`}
                                     to={item.url}
                                     onClick={e => {
                                         if (item.disabled) {
@@ -71,8 +74,8 @@ export default function Sidebar(props) {
                                         }
                                     }}
                                 >
-                                    <span className={`flex flex-grow ${page === item.url && 'text-indigo-500'}`}>
-                                        {item.icon(page === item.url)}
+                                    <span className={`flex flex-grow ${page.indexOf(item.url) === 0 && 'text-teal-500'}`}>
+                                        {item.icon(page.indexOf(item.url) === 0)}
                                         <span className="text-sm font-medium">{item.label}</span>
                                     </span>
                                     {item.badge}
@@ -86,8 +89,8 @@ export default function Sidebar(props) {
                                 <div className="flex items-center justify-between">
                                     <div className="flex flex-grow">
                                         <svg className="flex-shrink-0 h-6 w-6 mr-3" viewBox="0 0 24 24">
-                                            <path className={`fill-current text-gray-600 ${page.startsWith('team-') && 'text-indigo-500'}`} d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
-                                            <path className={`fill-current text-gray-400 ${page.startsWith('team-') && 'text-indigo-300'}`} d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
+                                            <path className={`fill-current text-gray-600 ${page.startsWith('team-') && 'text-teal-500'}`} d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
+                                            <path className={`fill-current text-gray-400 ${page.startsWith('team-') && 'text-teal-300'}`} d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
                                         </svg>
                                         <span className="text-sm font-medium">Team</span>
                                     </div>
@@ -103,12 +106,12 @@ export default function Sidebar(props) {
                                 // x-cloak
                             >
                                 <li className="mb-1 last:mb-0">
-                                    <Link className={`block text-gray-200 hover:text-white transition duration-150 ${page === '/team-tabs' && 'text-indigo-400 hover:text-indigo-400'}`} to="team-tabs.html">
+                                    <Link className={`block text-gray-200 hover:text-white transition duration-150 ${page === '/team-tabs' && 'text-teal-400 hover:text-teal-400'}`} to="team-tabs.html">
                                         <span className="text-sm font-medium">Team - Tabs</span>
                                     </Link>
                                 </li>
                                 <li className="mb-1 last:mb-0">
-                                    <Link className={`block text-gray-200 hover:text-white transition duration-150 ${page === '/team-tiles' && 'text-indigo-400 hover:text-indigo-400'}`} to="team-tiles.html">
+                                    <Link className={`block text-gray-200 hover:text-white transition duration-150 ${page === '/team-tiles' && 'text-teal-400 hover:text-teal-400'}`} to="team-tiles.html">
                                         <span className="text-sm font-medium">Team - Tiles</span>
                                     </Link>
                                 </li>
