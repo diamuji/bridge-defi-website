@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from "react-hook-form";
 import toast from 'react-hot-toast';
-import LogoETH from '../../../partials/currencies/LogoETH';
 import { FormInput } from '../../../utils/FormInput';
 import { http } from '../../../utils/utils';
 import IBAN from 'iban';
-
-const CURRENCIES = [
-    {
-        image: () => <LogoETH className="mr-4" width="2.5rem" />,
-        name: 'Ethereum',
-        symbol: 'ETH',
-    }
-];
+import { CURRENCIES } from '../../../utils/currencies';
 
 export default function Deposit() {
     const form = useForm();

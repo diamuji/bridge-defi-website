@@ -32,7 +32,6 @@ export default [
                 <path className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} d="M18 7v10h5l-6 7-6-7h5V7z" />
             </svg>
         ),
-        disabled: true,
     },
     {
         url: '/campaigns',
