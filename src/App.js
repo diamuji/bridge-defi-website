@@ -16,11 +16,12 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn';
 import SignOut from './pages/SignOut';
 import Confirmation from './pages/Confirmation';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Verification from './pages/Verification/Verification';
 import Users from './pages/Users/Users';
 import ForgotPassword from './pages/ForgotPassword';
 import User from './pages/Users/User';
+import Transactions from './pages/Transactions';
 
 const routes = {
     '/': { component: Home, },
@@ -34,6 +35,7 @@ const routes = {
     '/verification': { component: Verification },
     '/users': { component: Users },
     '/users/:id': { component: User },
+    '/transactions': { component: Transactions },
     '*': { component: PageNotFound },
 };
 

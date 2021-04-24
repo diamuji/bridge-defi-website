@@ -7,9 +7,9 @@ export function FormInput({ label, name, form, validation, errors, render, class
     return (
         <div className={`mb-4 ${className}`}>
             {label && (
-                <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="first-name">
+                <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor={name}>
                     {label}
-                    {validation.required && (
+                    {validation?.required && (
                         <>
                             &nbsp;<span className="text-red-600">*</span>
                         </>
