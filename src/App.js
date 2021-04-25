@@ -21,7 +21,7 @@ import Verification from './pages/Verification/Verification';
 import Users from './pages/Users/Users';
 import ForgotPassword from './pages/ForgotPassword';
 import User from './pages/Users/User';
-import Transactions from './pages/Transactions';
+import Transactions from './pages/Transactions/Transactions';
 
 const routes = {
     '/': { component: Home, },

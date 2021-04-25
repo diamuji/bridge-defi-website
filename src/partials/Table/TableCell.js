@@ -5,13 +5,13 @@ export default function TableCell(props) {
 
     if (props.header) {
         return (
-            <th className={`text-left ${className}`}>
+            <th className={`text-left ${className}`} style={props.style} colSpan={props.colSpan}>
                 {props.children}
             </th>
         );
     } else {
         return (
-            <td className={className}>
+            <td className={className} style={props.style} colSpan={props.colSpan}>
                 {props.children}
             </td>
         );
