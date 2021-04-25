@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function LogoETH(props) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width={props.width} height={props.height} className={props.className}>
+        <svg viewBox="0 0 32 32" width={props.width} height={props.height} className={props.className}>
             <g fill="none" fillRule="evenodd">
                 <circle cx="16" cy="16" r="16" fill="#627EEA" />
                 <g fill="#FFF" fillRule="nonzero">

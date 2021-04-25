@@ -3,7 +3,7 @@ import Checkmark from '../../partials/icons/Checkmark';
 import Clear from '../../partials/icons/Clear';
 import TableCell from '../../partials/Table/TableCell';
 import TableRow from '../../partials/Table/TableRow';
-import { CURRENCIES } from '../../utils/currencies';
+import { CRYPTO_CURRENCIES } from '../../partials/currencies/currencies';
 
 export default function TransactionRow(props) {
     const { transaction, isAdmin, updateStatus } = props;
@@ -24,7 +24,7 @@ export default function TransactionRow(props) {
                         <b>{transaction.amount}</b>
                     </div>
                     <div className="text-xs">
-                        {CURRENCIES.filter(currency => currency.symbol === transaction.amountType)[0].name}
+                        {CRYPTO_CURRENCIES.filter(currency => currency.symbol === transaction.amountType)[0].name}
                     </div>
                 </div>
             </TableCell>

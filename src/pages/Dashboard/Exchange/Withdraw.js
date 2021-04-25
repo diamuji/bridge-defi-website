@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { FormInput } from '../../../utils/FormInput';
 import { http } from '../../../utils/utils';
 import IBAN from 'iban';
-import { CURRENCIES } from '../../../utils/currencies';
+import { REGULAR_CURRENCIES } from '../../../partials/currencies/currencies';
 
 export default function Withdraw() {
     const form = useForm();
@@ -12,7 +12,7 @@ export default function Withdraw() {
     const [sent, setSent] = useState(false);
 
     useEffect(() => {
-        setValue('amountType', CURRENCIES[0].symbol);
+        setValue('amountType', REGULAR_CURRENCIES[0].symbol);
     }, [setValue]);
 
     const onSubmit = async (formData) => {
@@ -73,7 +73,7 @@ export default function Withdraw() {
                             rules={{
                                 required: { value: true, message: 'You must select a amountType' },
                             }}
-                            render={(field) => CURRENCIES.map(({ image, name, symbol }, key) => (
+                            render={(field) => REGULAR_CURRENCIES.map(({ image, name, symbol }, key) => (
                                 <label key={key} className={`flex flex-row border first:rounded-t last:rounded-b py-2 px-4 hover:bg-gray-100 cursor-pointer relative ${field?.value === symbol && 'border-teal-500 bg-gray-100'}`}>
                                     {image()}
                                     <div className="leading-5">
