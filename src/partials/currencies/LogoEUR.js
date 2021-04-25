@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LogoETH(props) {
+export default function LogoEUR(props) {
     return (
         <svg viewBox="0 0 32 32" width={props.width} height={props.height} className={props.className}>
             <circle cx="16" cy="16" fill="#0f8ff8" r="16" />

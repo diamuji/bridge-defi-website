@@ -1,6 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import { CRYPTO_CURRENCIES, REGULAR_CURRENCIES } from '../../partials/currencies/currencies';
 import Loading from '../../partials/Loading';
 import LoggedPage from '../../partials/LoggedPage';
 import Table from '../../partials/Table/Table';
@@ -75,7 +74,9 @@ function Transactions() {
                                 )}
                                 {(deposits || []).map(deposit => (
                                     <TransactionRow
+                                        key={deposit._id}
                                         transaction={deposit}
+                                        transactionType="deposit"
                                         isAdmin={isAdmin}
                                         updateStatus={updateStatus}
                                     />
@@ -106,7 +107,9 @@ function Transactions() {
                                 )}
                                 {(withdrawals || []).map(withdraw => (
                                     <TransactionRow
+                                        key={withdraw._id}
                                         transaction={withdraw}
+                                        transactionType="withdrawal"
                                         isAdmin={isAdmin}
                                         updateStatus={updateStatus}
                                     />

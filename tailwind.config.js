@@ -134,6 +134,7 @@ module.exports = {
       rotate: ['group-hover'],
       translate: ['group-hover'],
       padding: ['first', 'last'],
+      borderWidth: ['first', 'last'],
       borderRadius: ['first', 'last'],
     },
   },

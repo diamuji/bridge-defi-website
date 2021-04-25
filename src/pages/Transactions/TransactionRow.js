@@ -3,13 +3,13 @@ import Checkmark from '../../partials/icons/Checkmark';
 import Clear from '../../partials/icons/Clear';
 import TableCell from '../../partials/Table/TableCell';
 import TableRow from '../../partials/Table/TableRow';
-import { CRYPTO_CURRENCIES } from '../../partials/currencies/currencies';
+import { CURRENCIES } from '../../partials/currencies/currencies';
 
 export default function TransactionRow(props) {
-    const { transaction, isAdmin, updateStatus } = props;
+    const { transaction, transactionType, isAdmin, updateStatus } = props;
 
     return (
-        <TableRow key={transaction._id}>
+        <TableRow>
             {isAdmin && (
                 <TableCell style={{ maxWidth: '3rem' }}>
                     <div className="truncate" title={transaction.user}>
@@ -24,12 +24,12 @@ export default function TransactionRow(props) {
                         <b>{transaction.amount}</b>
                     </div>
                     <div className="text-xs">
-                        {CRYPTO_CURRENCIES.filter(currency => currency.symbol === transaction.amountType)[0].name}
+                        {CURRENCIES.filter(currency => currency.symbol === transaction.amountType)[0].name}
                     </div>
                 </div>
             </TableCell>
             <TableCell className="text-center">
-                {transaction.iban}
+                {transaction.source || transaction.destination || transaction.iban}
             </TableCell>
             <TableCell className="text-center">
                 {transaction.status !== 'approved' && transaction.status !== 'rejected' && 'open'}
@@ -37,10 +37,10 @@ export default function TransactionRow(props) {
                 {transaction.status === 'rejected' && <span className="text-red-500">rejected</span>}
                 {isAdmin && transaction.status === 'open' && (
                     <div>
-                        <a href="#0" onClick={updateStatus('transaction', 'approve', transaction._id)}>
+                        <a href="#0" onClick={updateStatus(transactionType, 'approve', transaction._id)}>
                             <Checkmark className="text-teal-500" />
                         </a>
-                        <a href="#0" onClick={updateStatus('transaction', 'reject', transaction._id)}>
+                        <a href="#0" onClick={updateStatus(transactionType, 'reject', transaction._id)}>
                             <Clear className="text-red-500" />
                         </a>
                     </div>
