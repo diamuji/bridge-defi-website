@@ -33,7 +33,7 @@ export async function http({ method, url, form, json, text }) {
         // eslint-disable-next-line
         throw {
             code: res.status,
-            reason: (content || {})?.errmsg || res.statusText || 'Error'
+            reason: (content || {})?.errmsg || content || res.statusText || 'Error'
         };
     } else {
         return content;

@@ -6,7 +6,7 @@ import { http } from '../../../utils/utils';
 import IBAN from 'iban';
 import { CURRENCIES } from '../../../utils/currencies';
 
-export default function Deposit() {
+export default function Withdraw() {
     const form = useForm();
     const { formState, handleSubmit, errors, control, setValue } = form;
     const [sent, setSent] = useState(false);
@@ -19,7 +19,7 @@ export default function Deposit() {
         try {
             await http({
                 method: 'POST',
-                url: '/deposit',
+                url: '/withdrawal',
                 form: {
                     amountType: formData.amountType,
                     amount: formData.amount,
@@ -29,7 +29,7 @@ export default function Deposit() {
             setSent(true);
         } catch (e) {
             console.error(e);
-            toast.error(e?.reason || `${e}`);
+            toast.error(e?.reason?.error || `${e}`);
         }
     };
 
@@ -40,7 +40,9 @@ export default function Deposit() {
                     <path d="M21.29 5.89l-10 10a.996.996 0 0 1-1.41 0l-2.83-2.83a.996.996 0 1 1 1.41-1.41l2.12 2.12l9.29-9.29a.996.996 0 0 1 1.41 0c.4.39.4 1.02.01 1.41zm-5.52-3.15c-1.69-.69-3.61-.93-5.61-.57c-4.07.73-7.32 4.01-8.01 8.08a10.009 10.009 0 0 0 11.19 11.66c3.96-.51 7.28-3.46 8.32-7.31c.4-1.47.44-2.89.21-4.22c-.13-.8-1.12-1.11-1.7-.54c-.23.23-.33.57-.27.89c.22 1.33.12 2.75-.52 4.26c-1.16 2.71-3.68 4.7-6.61 4.97c-5.1.47-9.33-3.85-8.7-8.98c.43-3.54 3.28-6.42 6.81-6.91c1.73-.24 3.37.09 4.77.81a1.003 1.003 0 0 0 .93-1.78c-.27-.12-.54-.25-.81-.36z" className="fill-current text-green-600" />
                 </svg>
                 <div className="mt-3">
-                    <div className="text-lg">Bonifico registrato correttamente</div>
+                    <div className="text-lg">
+                        Request registered successfully
+                    </div>
                     <a
                         href="#0"
                         className="text-teal-600"
@@ -49,7 +51,7 @@ export default function Deposit() {
                             setSent(false);
                         }}
                     >
-                        Inserisci un altro
+                        New withdrawal
                     </a>
                 </div>
             </div>
@@ -115,7 +117,7 @@ export default function Deposit() {
                 </div>
 
                 <FormInput
-                    label="Please enter the IBAN address from which you are sending the amount"
+                    label="Please enter the IBAN address you want to receive the amount to"
                     name="iban"
                     form={form}
                     errors={errors}

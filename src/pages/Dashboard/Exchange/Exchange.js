@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Deposit from './Desposit';
+import Deposit from './Deposit';
+import Withdraw from './Withdraw';
 
 export default function Exchange() {
     const [verb, setVerb] = useState('deposit');
@@ -29,6 +30,7 @@ export default function Exchange() {
             </div>
 
             {verb === 'deposit' && <Deposit />}
+            {verb === 'withdraw' && <Withdraw />}
         </div>
     );
 }
