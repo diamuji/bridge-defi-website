@@ -4,7 +4,7 @@ import Loading from '../../partials/Loading';
 import { http } from '../../utils/utils';
 
 export default function Portfolio(props) {
-    const [portfolio, setPortfolio] = useState();
+    const [portfolio, setPortfolio] = useState({});
     const myPortfolio = portfolio.portfolio || {};
 
     useEffect(() => {
