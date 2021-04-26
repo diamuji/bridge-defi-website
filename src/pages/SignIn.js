@@ -20,7 +20,7 @@ function SignIn() {
             history.push('/dashboard');
         } catch (e) {
             console.error(e);
-            toast.error(e?.reason || `${e}`);
+            toast.error(e?.reason?.error || 'Username or password not correct');
         }
     };
 
