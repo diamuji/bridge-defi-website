@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useHistory, useParams, withRouter } from 'react-router';
 import LoggedPage from '../../partials/LoggedPage';
 import { http } from '../../utils/utils';
+import Portfolio from '../Dashboard/Portfolio';
 
 function User() {
     const { id } = useParams();
@@ -96,118 +97,124 @@ function User() {
                         <p className="text-gray-400">{user.email}</p>
                     </div>
                 </div>
-                <div className="bg-white shadow-lg rounded-sm border border-gray-200 text-gray-600 p-5">
-                    <div className="grid grid-cols-4 gap-4">
-                        <div>
-                            <label className="block text-gray-500 text-sm">E-mail confirmed</label>
-                            <span className={!user.confirmed ? 'text-red-500' : ''}>{user.confirmed ? 'true' : 'false'}</span>
-                        </div>
-                        <div>
-                            <label className="block text-gray-500 text-sm">Admin rights</label>
-                            {user.isAdmin ? 'true' : 'false'}
-                            <span
-                                className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${toggleAdminDisabled && 'opacity-50'}`}
-                                onClick={() => !toggleAdminDisabled && toggleAdmin()}
-                            >
-                                {user.isAdmin ? 'Remove' : 'Grant'}
 
-                            </span>
-                        </div>
-                        <div>
-                            <label className="block text-gray-500 text-sm">Enabled</label>
-                            <span className={!user.enabled ? 'text-red-500' : ''}>{user.enabled ? 'true' : 'false'}</span>
-                            <span
-                                className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${verifyDisabled && 'opacity-50'}`}
-                                onClick={() => !verifyDisabled && verify()}
-                            >
-                                {user.enabled ? 'Disable' : 'Enable'}
-                            </span>
-                        </div>
-                        <div></div>
-                        <div>
-                            <label className="block text-gray-500 text-sm">Gender</label>
-                            {personalInfo.gender || '-'}
-                        </div>
-                        <div>
-                            <label className="block text-gray-500 text-sm">Birth date</label>
-                            {personalInfo.birthday ? moment(personalInfo.birthday).format('LL') : '-'}
-                        </div>
-                        <div>
-                            <label className="block text-gray-500 text-sm">Birth place</label>
-                            {personalInfo.townOfBirth || '-'}
-                        </div>
-                        <div>
-                            <label className="block text-gray-500 text-sm">Purpose of use</label>
-                            {personalInfo.purposeOfUse || '-'}
-                        </div>
-                        <div className="col-span-2">
-                            <label className="block text-gray-500 text-sm">Residence address</label>
-                            {[residenceAddress.street, residenceAddress.houseNumber].filter(v => v).join(',') || '-'}<br />
-                            {[residenceAddress.postcode, residenceAddress.country].filter(v => v).join(' ') || '-'}
-                        </div>
-                        <div className="col-span-2">
-                            <label className="block text-gray-500 text-sm">Settlement address</label>
-                            {[settlementAddress.street, settlementAddress.houseNumber].filter(v => v).join(',') || '-'}<br />
-                            {[settlementAddress.postcode, settlementAddress.country].filter(v => v).join(' ') || '-'}
-                        </div>
-                        <div className="col-span-2">
-                            <label className="block text-gray-500 text-sm">Document type</label>
-                            {document.documentType || '-'}
-                        </div>
-                        <div className="col-span-2">
-                            <label className="block text-gray-500 text-sm">Profile picture</label>
-                            {!profilePicVisible
-                                ? (
-                                    <div className="cursor-pointer text-teal-500" onClick={() => setProfilePicVisible(!profilePicVisible)}>
-                                        Show
-                                    </div>
-                                )
-                                : (
-                                    <div>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+                    <div className="bg-white shadow-lg rounded border border-gray-200 text-gray-600 p-5">
+                        <Portfolio user={id} />
+                    </div>
+                    <div className="col-span-3 bg-white shadow-lg rounded border border-gray-200 text-gray-600 p-5">
+                        <div className="grid grid-cols-4 gap-4">
+                            <div>
+                                <label className="block text-gray-500 text-sm">E-mail confirmed</label>
+                                <span className={!user.confirmed ? 'text-red-500' : ''}>{user.confirmed ? 'true' : 'false'}</span>
+                            </div>
+                            <div>
+                                <label className="block text-gray-500 text-sm">Admin rights</label>
+                                {user.isAdmin ? 'true' : 'false'}
+                                <span
+                                    className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${toggleAdminDisabled && 'opacity-50'}`}
+                                    onClick={() => !toggleAdminDisabled && toggleAdmin()}
+                                >
+                                    {user.isAdmin ? 'Remove' : 'Grant'}
+
+                                </span>
+                            </div>
+                            <div>
+                                <label className="block text-gray-500 text-sm">Enabled</label>
+                                <span className={!user.enabled ? 'text-red-500' : ''}>{user.enabled ? 'true' : 'false'}</span>
+                                <span
+                                    className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${verifyDisabled && 'opacity-50'}`}
+                                    onClick={() => !verifyDisabled && verify()}
+                                >
+                                    {user.enabled ? 'Disable' : 'Enable'}
+                                </span>
+                            </div>
+                            <div></div>
+                            <div>
+                                <label className="block text-gray-500 text-sm">Gender</label>
+                                {personalInfo.gender || '-'}
+                            </div>
+                            <div>
+                                <label className="block text-gray-500 text-sm">Birth date</label>
+                                {personalInfo.birthday ? moment(personalInfo.birthday).format('LL') : '-'}
+                            </div>
+                            <div>
+                                <label className="block text-gray-500 text-sm">Birth place</label>
+                                {personalInfo.townOfBirth || '-'}
+                            </div>
+                            <div>
+                                <label className="block text-gray-500 text-sm">Purpose of use</label>
+                                {personalInfo.purposeOfUse || '-'}
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-gray-500 text-sm">Residence address</label>
+                                {[residenceAddress.street, residenceAddress.houseNumber].filter(v => v).join(',') || '-'}<br />
+                                {[residenceAddress.postcode, residenceAddress.country].filter(v => v).join(' ') || '-'}
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-gray-500 text-sm">Settlement address</label>
+                                {[settlementAddress.street, settlementAddress.houseNumber].filter(v => v).join(',') || '-'}<br />
+                                {[settlementAddress.postcode, settlementAddress.country].filter(v => v).join(' ') || '-'}
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-gray-500 text-sm">Document type</label>
+                                {document.documentType || '-'}
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-gray-500 text-sm">Profile picture</label>
+                                {!profilePicVisible
+                                    ? (
                                         <div className="cursor-pointer text-teal-500" onClick={() => setProfilePicVisible(!profilePicVisible)}>
-                                            Hide
+                                            Show
                                         </div>
-                                        {/* eslint-disable-next-line */}
-                                        {document.profilePic ? <img src={`data:image;base64,${document.profilePic}`} alt="Profile picture" /> : '-'}
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <div className="col-span-2">
-                            <label className="block text-gray-500 text-sm">Document front</label>
-                            {!documentFrontVisible
-                                ? (
-                                    <div className="cursor-pointer text-teal-500" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
-                                        Show
-                                    </div>
-                                )
-                                : (
-                                    <div>
+                                    )
+                                    : (
+                                        <div>
+                                            <div className="cursor-pointer text-teal-500" onClick={() => setProfilePicVisible(!profilePicVisible)}>
+                                                Hide
+                                            </div>
+                                            {/* eslint-disable-next-line */}
+                                            {document.profilePic ? <img src={`data:image;base64,${document.profilePic}`} alt="Profile picture" /> : '-'}
+                                        </div>
+                                    )
+                                }
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-gray-500 text-sm">Document front</label>
+                                {!documentFrontVisible
+                                    ? (
                                         <div className="cursor-pointer text-teal-500" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
-                                            Hide
+                                            Show
                                         </div>
-                                        {document.front ? <img src={`data:image;base64,${document.front}`} alt="Document front" /> : '-'}
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <div className="col-span-2">
-                            <label className="block text-gray-500 text-sm">Document Retro</label>
-                            {!documentRetroVisible
-                                ? (
-                                    <div className="cursor-pointer text-teal-500" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
-                                        Show
-                                    </div>
-                                )
-                                : (
-                                    <div>
+                                    )
+                                    : (
+                                        <div>
+                                            <div className="cursor-pointer text-teal-500" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
+                                                Hide
+                                            </div>
+                                            {document.front ? <img src={`data:image;base64,${document.front}`} alt="Document front" /> : '-'}
+                                        </div>
+                                    )
+                                }
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-gray-500 text-sm">Document Retro</label>
+                                {!documentRetroVisible
+                                    ? (
                                         <div className="cursor-pointer text-teal-500" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
-                                            Hide
+                                            Show
                                         </div>
-                                        {document.retro ? <img src={`data:image;base64,${document.retro}`} alt="Document back" /> : '-'}
-                                    </div>
-                                )
-                            }
+                                    )
+                                    : (
+                                        <div>
+                                            <div className="cursor-pointer text-teal-500" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
+                                                Hide
+                                            </div>
+                                            {document.retro ? <img src={`data:image;base64,${document.retro}`} alt="Document back" /> : '-'}
+                                        </div>
+                                    )
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

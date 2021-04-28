@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CURRENCIES } from '../../partials/currencies/currencies';
 import Loading from '../../partials/Loading';
+import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
 
 export default function Portfolio(props) {
+    const userId = props.user;
     const [portfolio, setPortfolio] = useState();
     const myPortfolio = portfolio?.portfolio || {};
+    const userContext = useContext(UserContext);
+    const isAdmin = userContext.me?.isAdmin;
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await http({
                 method: 'GET',
-                url: '/portfolio/me'
+                url: isAdmin && userId
+                    ? `/admin/portfolio/${userId}`
+                    : '/portfolio/me'
             });
             setPortfolio(result);
         };
         fetchData();
-    }, []);
+    }, [isAdmin, userId]);
 
     return (
         <div className={`w-full ${props.className}`} style={{ maxWidth: 300 }}>
