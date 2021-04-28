@@ -60,7 +60,7 @@ function Transactions() {
                                 <TableRow>
                                     {isAdmin && <TableCell header>User</TableCell>}
                                     <TableCell header>Amount</TableCell>
-                                    <TableCell header className="text-center w-24">IBAN</TableCell>
+                                    <TableCell header className="w-24">Source</TableCell>
                                     <TableCell header className="text-center w-24">Status</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -93,7 +93,7 @@ function Transactions() {
                                 <TableRow>
                                     {isAdmin && <TableCell header>User</TableCell>}
                                     <TableCell header>Amount</TableCell>
-                                    <TableCell header className="text-center w-24">IBAN</TableCell>
+                                    <TableCell header className="w-24">Destiantion</TableCell>
                                     <TableCell header className="text-center w-24">Status</TableCell>
                                 </TableRow>
                             </TableHead>

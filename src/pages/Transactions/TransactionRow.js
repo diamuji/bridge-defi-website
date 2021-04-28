@@ -4,6 +4,7 @@ import Clear from '../../partials/icons/Clear';
 import TableCell from '../../partials/Table/TableCell';
 import TableRow from '../../partials/Table/TableRow';
 import { CURRENCIES } from '../../partials/currencies/currencies';
+import moment from 'moment';
 
 export default function TransactionRow(props) {
     const { transaction, transactionType, isAdmin, updateStatus } = props;
@@ -28,8 +29,11 @@ export default function TransactionRow(props) {
                     </div>
                 </div>
             </TableCell>
-            <TableCell className="text-center">
+            <TableCell className="overflow-clip small">
                 {transaction.source || transaction.destination || transaction.iban}
+                <div className="text-xs text-gray-500">
+                    {transaction.createdAt ? moment(transaction.createdAt).format('LL') : '-'}
+                </div>
             </TableCell>
             <TableCell className="text-center">
                 {transaction.status !== 'approved' && transaction.status !== 'rejected' && 'open'}

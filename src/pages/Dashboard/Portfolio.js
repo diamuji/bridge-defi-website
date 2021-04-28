@@ -4,8 +4,8 @@ import Loading from '../../partials/Loading';
 import { http } from '../../utils/utils';
 
 export default function Portfolio(props) {
-    const [portfolio, setPortfolio] = useState({});
-    const myPortfolio = portfolio.portfolio || {};
+    const [portfolio, setPortfolio] = useState();
+    const myPortfolio = portfolio?.portfolio || {};
 
     useEffect(() => {
         const fetchData = async () => {
