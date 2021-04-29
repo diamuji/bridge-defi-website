@@ -22,6 +22,7 @@ import Users from './pages/Users/Users';
 import ForgotPassword from './pages/ForgotPassword';
 import User from './pages/Users/User';
 import Transactions from './pages/Transactions/Transactions';
+import Events from './pages/Events';
 
 const routes = {
     '/': { component: Home, },
@@ -36,6 +37,7 @@ const routes = {
     '/users': { component: Users },
     '/users/:id': { component: User },
     '/transactions': { component: Transactions },
+    '/events': { component: Events },
     '*': { component: PageNotFound },
 };
 

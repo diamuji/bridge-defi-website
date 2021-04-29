@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropdownMenu from './DropdownMenu';
-import SearchDialog from './SearchDialog';
 
 export default function DashboardHeader(props) {
     return (
