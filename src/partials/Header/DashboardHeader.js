@@ -27,16 +27,16 @@ export default function DashboardHeader(props) {
                     {/* Header: Right side */}
                     <div className="flex items-center">
                         {/* Search button */}
-                        <SearchDialog>
+                        {/* <SearchDialog>
                             <span className="sr-only">Search</span>
                             <svg className="w-4 h-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 <path className="fill-current text-gray-500" d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
                                 <path className="fill-current text-gray-400" d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z" />
                             </svg>
-                        </SearchDialog>
+                        </SearchDialog> */}
 
                         {/* Notifications button */}
-                        <DropdownMenu
+                        {/* <DropdownMenu
                             button={(
                                 <>
                                     <span className="sr-only">Notifications</span>
@@ -87,10 +87,10 @@ export default function DashboardHeader(props) {
                                     </a>
                                 </li>
                             </ul>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
 
                         {/* Info button */}
-                        <DropdownMenu
+                        {/* <DropdownMenu
                             button={(
                                 <>
                                     <span className="sr-only">Info</span>
@@ -146,41 +146,26 @@ export default function DashboardHeader(props) {
                                     </a>
                                 </li>
                             </ul>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
 
                         {/* Divider */}
-                        <hr className="w-px h-6 bg-gray-200 mx-3" />
+                        {/* <hr className="w-px h-6 bg-gray-200 mx-3" /> */}
 
                         {/* User button */}
                         <DropdownMenu
                             button={
                                 <>
-                                    <img className="w-8 h-8 rounded-full" src="../images/user-avatar-32.png" width="32" height="32" alt="User" />
-                                    <div className="flex items-center truncate">
-                                        <span className="truncate ml-2 text-sm font-medium group-hover:text-gray-800">Acme Inc.</span>
-                                        <svg className="w-3 h-3 flex-shrink-0 ml-1 fill-current text-gray-400" viewBox="0 0 12 12">
-                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                                        </svg>
-                                    </div>
+                                    <span className="sr-only">User</span>
+                                    <svg className="w-4 h-4" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path className="fill-current text-gray-500" d="M256,31C131.7,31,31,131.7,31,256s100.7,225,225,225s225-100.7,225-225S380.3,31,256,31z M256,118.1
+                                            c44.1,0,79.8,35.7,79.8,79.8s-35.7,79.8-79.8,79.8s-79.8-35.7-79.8-79.8S211.9,118.1,256,118.1z M256,430.2
+                                            c-53.3,0-101-24.1-132.9-61.9c17.1-32.1,50.4-54.3,89.4-54.3c2.2,0,4.4,0.4,6.4,1c11.8,3.8,24.1,6.3,37.1,6.3s25.4-2.4,37.1-6.3
+                                            c2.1-0.6,4.3-1,6.4-1c38.9,0,72.3,22.1,89.4,54.3C357,406.1,309.3,430.2,256,430.2z"/>
+                                    </svg>
                                 </>
                             }
                         >
-                            <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-gray-200">
-                                <div className="font-medium text-gray-800">Acme Inc.</div>
-                                <div className="text-xs text-gray-500 italic">Administrator</div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a
-                                        className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                                        href="settings.html"
-                                        // @click="open = false"
-                                        // @focus="open = true"
-                                        // @focusout="open = false"
-                                    >
-                                        Settings
-                                    </a>
-                                </li>
+                            <ul style={{ minWidth: 120 }}>
                                 <li>
                                     <Link
                                         className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
