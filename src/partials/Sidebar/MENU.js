@@ -34,13 +34,14 @@ export default [
         ),
     },
     {
-        url: '/events',
-        label: 'Events',
+        url: '/pools',
+        label: 'Pools',
         icon: active => (
             <svg className="flex-shrink-0 h-6 w-6 mr-3" viewBox="0 0 24 24">
-                <path className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} d="M8 1v2H3v19h18V3h-5V1h7v23H1V1z" />
-                <path className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} d="M1 1h22v23H1z" />
-                <path className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
+                <circle className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} cx="18.5" cy="5.5" r="4.5" />
+                <circle className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} cx="5.5" cy="5.5" r="4.5" />
+                <circle className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} cx="18.5" cy="18.5" r="4.5" />
+                <circle className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} cx="5.5" cy="18.5" r="4.5" />
             </svg>
         ),
         admin: true,
@@ -88,19 +89,6 @@ export default [
     //     disabled: true,
     // },
     // {
-    //     url: '/applications',
-    //     label: 'Applications',
-    //     icon: active => (
-    //         <svg className="flex-shrink-0 h-6 w-6 mr-3" viewBox="0 0 24 24">
-    //             <circle className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} cx="18.5" cy="5.5" r="4.5" />
-    //             <circle className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} cx="5.5" cy="5.5" r="4.5" />
-    //             <circle className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} cx="18.5" cy="18.5" r="4.5" />
-    //             <circle className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} cx="5.5" cy="18.5" r="4.5" />
-    //         </svg>
-    //     ),
-    //     disabled: true,
-    // },
-    // {
     //     url: '/settings',
     //     label: 'Settings',
     //     icon: active => (
@@ -113,4 +101,16 @@ export default [
     //     ),
     //     disabled: true,
     // },
+    {
+        url: '/events',
+        label: 'Events',
+        icon: active => (
+            <svg className="flex-shrink-0 h-6 w-6 mr-3" viewBox="0 0 24 24">
+                <path className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} d="M8 1v2H3v19h18V3h-5V1h7v23H1V1z" />
+                <path className={`fill-current ${!active ? 'text-gray-600' : 'text-teal-500'}`} d="M1 1h22v23H1z" />
+                <path className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
+            </svg>
+        ),
+        admin: true,
+    },
 ];

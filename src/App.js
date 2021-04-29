@@ -23,6 +23,8 @@ import ForgotPassword from './pages/ForgotPassword';
 import User from './pages/Users/User';
 import Transactions from './pages/Transactions/Transactions';
 import Events from './pages/Events';
+import Pools from './pages/Pools/Pools';
+import CreatePool from './pages/Pools/CreatePool';
 
 const routes = {
     '/': { component: Home, },
@@ -38,6 +40,8 @@ const routes = {
     '/users/:id': { component: User },
     '/transactions': { component: Transactions },
     '/events': { component: Events },
+    '/pools': { component: Pools },
+    '/pools/create': { component: CreatePool },
     '*': { component: PageNotFound },
 };
 
