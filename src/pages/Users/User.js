@@ -98,9 +98,11 @@ function User() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
-                    <div className="bg-white shadow-lg rounded border border-gray-200 text-gray-600 p-5">
-                        <Portfolio user={id} />
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5">
+                    <div>
+                        <div className="bg-white shadow-lg rounded border border-gray-200 text-gray-600 p-5">
+                            <Portfolio user={id} />
+                        </div>
                     </div>
                     <div className="col-span-3 bg-white shadow-lg rounded border border-gray-200 text-gray-600 p-5">
                         <div className="grid grid-cols-4 gap-4">
