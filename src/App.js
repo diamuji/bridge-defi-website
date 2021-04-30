@@ -24,7 +24,7 @@ import User from './pages/Users/User';
 import Transactions from './pages/Transactions/Transactions';
 import Events from './pages/Events';
 import Pools from './pages/Pools/Pools';
-import CreatePool from './pages/Pools/CreatePool';
+import Pool from './pages/Pools/Pool';
 
 const routes = {
     '/': { component: Home, },
@@ -41,7 +41,8 @@ const routes = {
     '/transactions': { component: Transactions },
     '/events': { component: Events },
     '/pools': { component: Pools },
-    '/pools/create': { component: CreatePool },
+    '/pools/create': { component: Pool },
+    '/pools/:id': { component: Pool },
     '*': { component: PageNotFound },
 };
 

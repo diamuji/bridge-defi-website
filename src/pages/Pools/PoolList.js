@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import Loading from '../../partials/Loading';
 import Table from '../../partials/Table/Table';
 import TableBody from '../../partials/Table/TableBody';
@@ -9,6 +10,7 @@ import { http } from '../../utils/utils';
 
 export default function PoolList() {
     const [pools, setPools] = useState();
+    const history = useHistory();
 
     const fetchPools = useCallback(async () => {
         const pools = await http({
@@ -28,8 +30,8 @@ export default function PoolList() {
                 <TableHead>
                     <TableRow>
                         <TableCell header>Name</TableCell>
-                        <TableCell header>APY Monthly</TableCell>
                         <TableCell header>APY Yearly</TableCell>
+                        <TableCell header>APY Monthly</TableCell>
                         <TableCell header>Available</TableCell>
                         <TableCell header>Sold</TableCell>
                     </TableRow>
@@ -43,15 +45,15 @@ export default function PoolList() {
                         </TableRow>
                     )}
                     {(pools || []).map(pool => (
-                        <TableRow key={pool._id}>
+                        <TableRow key={pool._id} className="cursor-pointer hover:bg-gray-100" onClick={() => history.push(`/pools/${pool._id}`)}>
                             <TableCell>
                                 {pool.name}
                                 <div className={`text-xs ${pool.active ? 'text-green-500' : 'text-red-500'}`}>
                                     {pool.active ? 'active' : 'not active'}
                                 </div>
                             </TableCell>
-                            <TableCell>{pool.apyMonthly}</TableCell>
                             <TableCell>{pool.apyYearly}</TableCell>
+                            <TableCell>{pool.apyMonthly}</TableCell>
                             <TableCell>{pool.balanceAvailable}</TableCell>
                             <TableCell>{pool.balanceSold}</TableCell>
                         </TableRow>
