@@ -90,7 +90,7 @@ export default function Pool() {
                             </a>
                             <div className="mb-4 sm:mb-0">
                                 <h1 className="text-2xl text-gray-800 font-bold">
-                                    Create pool
+                                    {id ? 'Create pool' : 'Pool'}
                                 </h1>
                             </div>
                         </div>
