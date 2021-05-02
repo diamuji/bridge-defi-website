@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Loading from '../../partials/Loading';
 import Table from '../../partials/Table/Table';
@@ -6,19 +6,24 @@ import TableBody from '../../partials/Table/TableBody';
 import TableCell from '../../partials/Table/TableCell';
 import TableHead from '../../partials/Table/TableHead';
 import TableRow from '../../partials/Table/TableRow';
+import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
 
 export default function PoolList() {
     const [pools, setPools] = useState();
     const history = useHistory();
+    const userContext = useContext(UserContext);
+    const isAdmin = userContext.me?.isAdmin;
 
     const fetchPools = useCallback(async () => {
-        const pools = await http({
-            method: 'GET',
-            url: '/pool',
-        });
+        const pools = await http({ url: '/pool' });
         setPools(pools || []);
     }, []);
+    const onPoolClick = (pool) => () => {
+        if (isAdmin) {
+            history.push(`/pools/${pool._id}`);
+        }
+    };
 
     useEffect(() => {
         fetchPools();
@@ -45,7 +50,7 @@ export default function PoolList() {
                         </TableRow>
                     )}
                     {(pools || []).map(pool => (
-                        <TableRow key={pool._id} className="cursor-pointer hover:bg-gray-100" onClick={() => history.push(`/pools/${pool._id}`)}>
+                        <TableRow key={pool._id} className={isAdmin ? `cursor-pointer hover:bg-gray-100` : ''} onClick={onPoolClick(pool)}>
                             <TableCell>
                                 {pool.name}
                                 <div className={`text-xs ${pool.active ? 'text-green-500' : 'text-red-500'}`}>

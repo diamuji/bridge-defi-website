@@ -78,7 +78,7 @@ export default function Pool() {
     }, [id, reset]);
 
     return (
-        <LoggedPage>
+        <LoggedPage admin>
             <Loading if={!ready}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <fieldset disabled={formState.isSubmitting}>

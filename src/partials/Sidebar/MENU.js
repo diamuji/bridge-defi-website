@@ -44,7 +44,6 @@ export default [
                 <circle className={`fill-current ${!active ? 'text-gray-400' : 'text-teal-300'}`} cx="5.5" cy="18.5" r="4.5" />
             </svg>
         ),
-        admin: true,
     },
     // {
     //     url: '/team',

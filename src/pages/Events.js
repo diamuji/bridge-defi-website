@@ -34,7 +34,7 @@ function Events() {
     }, []);
 
     return (
-        <LoggedPage>
+        <LoggedPage admin>
             <div className="sm:flex sm:justify-between sm:items-center mb-8">
                 <div className="mb-4 sm:mb-0">
                     <h1 className="text-2xl text-gray-800 font-bold">
