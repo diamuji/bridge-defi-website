@@ -11,9 +11,12 @@ export default function LoggedPage(props) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             document.documentElement.classList.remove('dark');
         });
+        return () => {
+            clearTimeout(timeout);
+        };
     }, []);
 
     useEffect(() => {
