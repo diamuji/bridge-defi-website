@@ -78,7 +78,7 @@ function Events() {
                                                     {event.name}
                                                 </div>
                                                 <div className="text-xs">
-                                                    {event.createdAt ? moment(event.createdAt).format('LL') : '-'}
+                                                    {event.createdAt ? moment(event.createdAt).format('LLL') : '-'}
                                                 </div>
                                             </div>
                                         </TableCell>
