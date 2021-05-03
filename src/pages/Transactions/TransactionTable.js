@@ -58,7 +58,6 @@ export default function TransactionsTable(props) {
                         <TransactionRow
                             key={row._id}
                             transaction={row}
-                            transactionType={what}
                             isAdmin={isAdmin}
                             updateStatus={updateStatus}
                         />

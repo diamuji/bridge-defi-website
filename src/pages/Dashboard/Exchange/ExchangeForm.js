@@ -136,7 +136,7 @@ export default function ExchangeForm(props) {
                     errors={errors}
                     validation={{
                         required: { value: true },
-                        validate: value => currency.isCrypto ? undefined : IBAN.isValid(value),
+                        validate: value =>currency.isCrypto ? undefined : IBAN.isValid(value),
                     }}
                     render={({ name, className, ref }) => (
                         <input ref={ref} name={name} className={className} placeholder={addressName} />

@@ -7,7 +7,7 @@ import { CURRENCIES } from '../../partials/currencies/currencies';
 import moment from 'moment';
 
 export default function TransactionRow(props) {
-    const { transaction, transactionType, isAdmin, updateStatus } = props;
+    const { transaction, isAdmin, updateStatus } = props;
 
     return (
         <TableRow>
@@ -41,10 +41,10 @@ export default function TransactionRow(props) {
                 {transaction.status === 'rejected' && <span className="text-red-500">rejected</span>}
                 {isAdmin && transaction.status === 'open' && (
                     <div>
-                        <a href="#0" onClick={updateStatus(transactionType, 'approve', transaction._id)}>
+                        <a href="#0" onClick={updateStatus('approve', transaction._id)}>
                             <Checkmark className="text-teal-500" />
                         </a>
-                        <a href="#0" onClick={updateStatus(transactionType, 'reject', transaction._id)}>
+                        <a href="#0" onClick={updateStatus('reject', transaction._id)}>
                             <Clear className="text-red-500" />
                         </a>
                     </div>

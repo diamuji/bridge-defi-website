@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../utils/UserProvider';
 import DropdownMenu from './DropdownMenu';
 
 export default function DashboardHeader(props) {
+    const userContext = useContext(UserContext);
+
     return (
         <header className="sticky top-0 bg-white border-b border-gray-200 z-30">
             <div className="px-4 sm:px-6 lg:px-8">
@@ -164,6 +167,16 @@ export default function DashboardHeader(props) {
                                 </>
                             }
                         >
+                            {userContext.me && (
+                                <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-gray-200">
+                                    <div className="font-medium text-gray-800">
+                                        {userContext.me.firstName} {userContext.me.lastName}
+                                    </div>
+                                    <div className="text-xs text-gray-500">
+                                        {userContext.me.email}
+                                    </div>
+                                </div>
+                            )}
                             <ul style={{ minWidth: 120 }}>
                                 <li>
                                     <Link

@@ -6,14 +6,17 @@ import TableBody from '../../partials/Table/TableBody';
 import TableCell from '../../partials/Table/TableCell';
 import TableHead from '../../partials/Table/TableHead';
 import TableRow from '../../partials/Table/TableRow';
+import SidePanel from '../../utils/SidePanel';
 import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
+import InvestForm from './InvestForm';
 
 export default function PoolList() {
     const [pools, setPools] = useState();
     const history = useHistory();
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
+    const [selectedPool, setSelectedPool] = useState();
 
     const fetchPools = useCallback(async () => {
         const pools = await http({ url: '/pool' });
@@ -23,6 +26,10 @@ export default function PoolList() {
         if (isAdmin) {
             history.push(`/pools/${pool._id}`);
         }
+    };
+    const onSelectPoolClick = (pool) => e => {
+        e.stopPropagation();
+        setSelectedPool(pool);
     };
 
     useEffect(() => {
@@ -39,6 +46,7 @@ export default function PoolList() {
                         <TableCell header>APY Monthly</TableCell>
                         <TableCell header>Available</TableCell>
                         <TableCell header>Sold</TableCell>
+                        <TableCell header className="whitespace-nowrap"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -61,10 +69,26 @@ export default function PoolList() {
                             <TableCell>{pool.apyMonthly}</TableCell>
                             <TableCell>{pool.balanceAvailable}</TableCell>
                             <TableCell>{pool.balanceSold}</TableCell>
+                            <TableCell className="whitespace-nowrap w-px">
+                                <button
+                                    type="submit"
+                                    className="btn text-white bg-teal-500 hover:bg-teal-600 py-2 px-4"
+                                    onClick={onSelectPoolClick(pool)}
+                                >
+                                    Invest
+                                </button>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
+
+            <SidePanel
+                title={`Invest in ${selectedPool?.name}`}
+                isOpen={!!selectedPool}
+                onClose={() => setSelectedPool(undefined)}
+                content={close => <InvestForm pool={selectedPool} close={close} />}
+            />
         </Loading>
     );
 }
