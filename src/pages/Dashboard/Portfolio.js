@@ -26,7 +26,7 @@ export default function Portfolio(props) {
     }, [isAdmin, userId]);
 
     return (
-        <div className={className} style={{ maxWidth: 300 }}>
+        <div className={`w-80 max-w-full ${className}`}>
             <div className="bg-white shadow-lg rounded border border-gray-200 text-gray-600 py-5 px-6">
                 <div className="w-full">
                     <div className="mb-3">

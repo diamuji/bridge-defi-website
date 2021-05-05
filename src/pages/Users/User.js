@@ -84,7 +84,7 @@ function User() {
     return (
         <LoggedPage admin>
             <div>
-                <div className="flex flex-row items-start mb-5">
+                <div className="flex flex-row items-start mb-8">
                     <a onClick={back} className="block cursor-pointer mr-3 mt-2" href="#0">
                         <svg height="24" width="24" viewBox="0 0 24 24" fill="#000000">
                             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
@@ -99,7 +99,7 @@ function User() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5">
-                    <Portfolio userId={id} showConvertLink />
+                    <Portfolio userId={id} showConvertLink className="mx-auto" />
 
                     <div className="col-span-3 bg-white shadow-lg rounded border border-gray-200 text-gray-600 p-5">
                         <div className="grid grid-cols-4 gap-4">

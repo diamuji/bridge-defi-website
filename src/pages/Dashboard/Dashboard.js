@@ -32,9 +32,9 @@ function Dashboard() {
                 </div>
             )}
 
-            <div className="flex flex-col sm:flex-row items-start">
+            <div className="flex flex-col items-center sm:flex-row sm:items-start">
                 <Exchange className="mb-10 sm:mr-10 order-1 sm:order-none" />
-                <Portfolio className="mb-10 sm:flex-grow" />
+                <Portfolio className="mb-10 flex-grow-0" />
             </div>
 
         </LoggedPage>
