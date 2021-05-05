@@ -26,6 +26,7 @@ import Events from './pages/Events';
 import Pools from './pages/Pools/Pools';
 import Pool from './pages/Pools/Pool';
 import Investments from './pages/Investments/Investments';
+import { Convert } from './pages/Users/Convert';
 
 const routes = {
     '/': { component: Home, },
@@ -45,6 +46,7 @@ const routes = {
     '/pools/create': { component: Pool },
     '/pools/:id': { component: Pool },
     '/investments': { component: Investments },
+    '/users/:id/convert': { component: Convert },
     '*': { component: PageNotFound },
 };
 

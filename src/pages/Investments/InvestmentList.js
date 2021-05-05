@@ -22,7 +22,7 @@ export default function InvestmentList() {
             url: isAdmin ? '/investment/list' : '/investment/me'
         });
         setInvestments(investments || []);
-    }, []);
+    }, [isAdmin]);
     const updateStatus = (verb, id) => async e => {
         e.preventDefault();
         await http({

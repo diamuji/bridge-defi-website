@@ -17,12 +17,11 @@ export default function InvestForm(props) {
 
     const onSubmit = async (formData) => {
         try {
-            const res = await http({
+            await http({
                 method: 'POST',
                 url: `/investment/${pool._id}`,
                 form: formData
             });
-            console.log(res);
             toast.success('Investment addedd successfully');
             close();
         } catch (e) {
