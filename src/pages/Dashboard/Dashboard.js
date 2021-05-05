@@ -34,7 +34,7 @@ function Dashboard() {
 
             <div className="flex flex-col sm:flex-row items-start">
                 <Exchange className="mb-10 sm:mr-10 order-1 sm:order-none" />
-                <Portfolio className="mb-10 sm:flex-grow" showConvertLink />
+                <Portfolio className="mb-10 sm:flex-grow" />
             </div>
 
         </LoggedPage>
