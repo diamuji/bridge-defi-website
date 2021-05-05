@@ -70,11 +70,7 @@ export default function PoolList() {
                             <TableCell>{pool.balanceAvailable}</TableCell>
                             <TableCell>{pool.balanceSold}</TableCell>
                             <TableCell className="whitespace-nowrap w-px">
-                                <button
-                                    type="submit"
-                                    className="btn text-white bg-teal-500 hover:bg-teal-600 py-2 px-4"
-                                    onClick={onSelectPoolClick(pool)}
-                                >
+                                <button className="btn text-white bg-blue-500 hover:bg-blue-600 py-1 px-3" onClick={onSelectPoolClick(pool)}>
                                     Invest
                                 </button>
                             </TableCell>

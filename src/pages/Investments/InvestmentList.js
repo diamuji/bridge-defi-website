@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { CURRENCIES } from '../../partials/currencies/currencies';
 import Checkmark from '../../partials/icons/Checkmark';
 import Clear from '../../partials/icons/Clear';
@@ -14,6 +15,7 @@ import { http } from '../../utils/utils';
 
 export default function InvestmentList() {
     const [investments, setInvestments] = useState();
+    const [updatePayback, setUpdatePayback] = useState();
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
 
@@ -31,6 +33,38 @@ export default function InvestmentList() {
         });
         fetchInvestments();
     };
+    const onPaybackClick = investment => async e => {
+        e.preventDefault();
+        setUpdatePayback(investment);
+        try {
+            await http({
+                method: 'PATCH',
+                url: `/investment/request-payback/${investment}`
+            });
+            toast.success('Payback request completed successfully');
+        } catch (e) {
+            console.error(e);
+            toast.error(e?.reason?.error || `${e}`);
+        }
+        setUpdatePayback(undefined);
+        fetchInvestments();
+    };
+    const onConfirmPaybackClick = investment => async e => {
+        e.preventDefault();
+        setUpdatePayback(investment);
+        try {
+            await http({
+                method: 'PATCH',
+                url: `/investment/approve-payback/${investment}`
+            });
+            toast.success('Payback confirmed successfully');
+        } catch (e) {
+            console.error(e);
+            toast.error(e?.reason?.error || `${e}`);
+        }
+        setUpdatePayback(undefined);
+        fetchInvestments();
+    };
 
     useEffect(() => {
         fetchInvestments();
@@ -43,8 +77,9 @@ export default function InvestmentList() {
                     <TableRow>
                         {isAdmin && <TableCell header>User</TableCell>}
                         <TableCell header>Amount</TableCell>
-                        <TableCell header className="w-24">Pool</TableCell>
-                        <TableCell header className="text-center w-24">Status</TableCell>
+                        <TableCell header>Pool</TableCell>
+                        <TableCell header className="text-center">Status</TableCell>
+                        <TableCell header className="whitespace-nowrap"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -58,7 +93,7 @@ export default function InvestmentList() {
                     {(investments || []).map(investment => (
                         <TableRow key={investment._id} className={isAdmin ? `cursor-pointer hover:bg-gray-100` : ''}>
                             {isAdmin && (
-                                <TableCell style={{ maxWidth: '3rem' }}>
+                                <TableCell>
                                     <div className="truncate" title={investment.user}>
                                         {investment.user}
                                     </div>
@@ -80,7 +115,7 @@ export default function InvestmentList() {
                                 </div>
                             </TableCell>
                             <TableCell className="text-center">
-                                {investment.status !== 'approved' && investment.status !== 'rejected' && 'open'}
+                                {investment.status !== 'approved' && investment.status !== 'rejected' && investment.status}
                                 {investment.status === 'approved' && <span className="text-green-500">approved</span>}
                                 {investment.status === 'rejected' && <span className="text-red-500">rejected</span>}
                                 {isAdmin && investment.status === 'open' && (
@@ -92,6 +127,26 @@ export default function InvestmentList() {
                                             <Clear className="text-red-500" />
                                         </a>
                                     </div>
+                                )}
+                            </TableCell>
+                            <TableCell className="whitespace-nowrap w-px">
+                                {investment.status === 'approved' && (
+                                    <button
+                                        className="btn text-white bg-blue-500 hover:bg-blue-600 py-1 px-3"
+                                        onClick={onPaybackClick(investment._id)}
+                                        disabled={updatePayback === investment._id}
+                                    >
+                                        Payback
+                                    </button>
+                                )}
+                                {investment.status === 'paybackRequested' && (
+                                    <button
+                                        className="btn text-white bg-blue-500 hover:bg-blue-600 py-1 px-3"
+                                        onClick={onConfirmPaybackClick(investment._id)}
+                                        disabled={updatePayback === investment._id}
+                                    >
+                                        Confirm
+                                    </button>
                                 )}
                             </TableCell>
                         </TableRow>
