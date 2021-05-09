@@ -22,7 +22,7 @@ export function Convert() {
         try {
             await http({
                 method: 'POST',
-                url: `/portfolio/convert`,
+                url: `/portfolio/convert/${id}`,
                 form: {
                     from: {
                         amount: formData.from_amount,
@@ -35,6 +35,7 @@ export function Convert() {
                 }
             });
             toast.success('Conversion completed successfully');
+            history.push(`/users/${id}`);
         } catch (e) {
             console.error(e);
             toast.error(e?.reason?.error || `${e}`);

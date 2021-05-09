@@ -8,7 +8,7 @@ import { http } from '../../utils/utils';
 export default function Portfolio(props) {
     const { className, userId, showConvertLink } = props;
     const [portfolio, setPortfolio] = useState();
-    const myPortfolio = portfolio?.portfolio || {};
+    const myPortfolio = portfolio || {};
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
 
