@@ -13,11 +13,13 @@ import TableRow from '../../partials/Table/TableRow';
 import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
 
-export default function InvestmentList() {
-    const [investments, setInvestments] = useState();
+export default function InvestmentList(props) {
+    const { userData } = props;
+    const [investments, setInvestments] = useState(userData);
     const [updatePayback, setUpdatePayback] = useState();
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
+    const singleUser = isAdmin && userData;
 
     const fetchInvestments = useCallback(async () => {
         const investments = await http({
@@ -67,15 +69,17 @@ export default function InvestmentList() {
     };
 
     useEffect(() => {
-        fetchInvestments();
-    }, [fetchInvestments]);
+        if (!userData) {
+            fetchInvestments();
+        }
+    }, [userData, fetchInvestments]);
 
     return (
         <Loading if={!investments}>
             <Table title="Investments">
                 <TableHead>
                     <TableRow>
-                        {isAdmin && <TableCell header>User</TableCell>}
+                        {!singleUser && <TableCell header>User</TableCell>}
                         <TableCell header>Amount</TableCell>
                         <TableCell header>Pool</TableCell>
                         <TableCell header className="text-center">Status</TableCell>
@@ -92,7 +96,7 @@ export default function InvestmentList() {
                     )}
                     {(investments || []).map(investment => (
                         <TableRow key={investment._id} className={isAdmin ? `cursor-pointer hover:bg-gray-100` : ''}>
-                            {isAdmin && (
+                            {!singleUser && (
                                 <TableCell>
                                     <div className="truncate" title={investment.user}>
                                         {investment.user}

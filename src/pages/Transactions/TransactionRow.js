@@ -7,11 +7,11 @@ import { CURRENCIES } from '../../partials/currencies/currencies';
 import moment from 'moment';
 
 export default function TransactionRow(props) {
-    const { transaction, isAdmin, updateStatus } = props;
+    const { transaction, isAdmin, updateStatus, singleUser } = props;
 
     return (
         <TableRow>
-            {isAdmin && (
+            {!singleUser && (
                 <TableCell style={{ maxWidth: '3rem' }}>
                     <div className="truncate" title={transaction.user}>
                         {transaction.user}

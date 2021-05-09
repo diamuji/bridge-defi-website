@@ -6,9 +6,9 @@ import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
 
 export default function Portfolio(props) {
-    const { className, userId, showConvertLink } = props;
-    const [portfolio, setPortfolio] = useState();
-    const myPortfolio = portfolio || {};
+    const { className, userId, showConvertLink, userData } = props;
+    const [portfolio, setPortfolio] = useState(userData);
+    const myPortfolio = portfolio?.portfolio || {};
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
 
@@ -17,13 +17,15 @@ export default function Portfolio(props) {
             const result = await http({
                 method: 'GET',
                 url: isAdmin && userId
-                    ? `/admin/portfolio/${userId}`
+                    ? `/admin/full-portfolio/${userId}`
                     : '/portfolio/me'
             });
             setPortfolio(result);
         };
-        fetchData();
-    }, [isAdmin, userId]);
+        if (!userData) {
+            fetchData();
+        }
+    }, [userData, isAdmin, userId]);
 
     return (
         <div className={`w-80 max-w-full ${className}`}>
