@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import LoggedPage from '../../partials/LoggedPage';
 import { UserContext } from '../../utils/UserProvider';
 import Portfolio from './Portfolio';
 import Exchange from './Exchange/Exchange';
 import VerificationBanner from './VerificationBanner';
+import ConversionList from '../Conversions/ConversionList';
+import { http } from '../../utils/utils';
+import Loading from '../../partials/Loading';
 
 function Dashboard() {
     const userContext = useContext(UserContext);
@@ -18,6 +21,15 @@ function Dashboard() {
         && user.verification.document.front
         && user.verification.document.retro
         && user.verification.document.profilePic;
+    const [portfolio, setPortfolio] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const portfolio = await http({ url: '/portfolio/me' });
+            setPortfolio(portfolio);
+        };
+        fetchData();
+    }, []);
 
     return (
         <LoggedPage>
@@ -34,7 +46,12 @@ function Dashboard() {
 
             <div className="flex flex-col items-center sm:flex-row sm:items-start">
                 <Exchange className="mb-10 sm:mr-10 order-1 sm:order-none" />
-                <Portfolio className="mb-10 flex-grow-0" />
+                <div className="flex-grow">
+                    <Portfolio className="mb-10" userData={portfolio} />
+                    <Loading if={!portfolio?.conversion}>
+                        <ConversionList className="mb-10" userData={portfolio?.conversion} />
+                    </Loading>
+                </div>
             </div>
 
         </LoggedPage>

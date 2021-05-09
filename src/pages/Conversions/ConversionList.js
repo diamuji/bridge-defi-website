@@ -29,6 +29,7 @@ export default function ConversionList(props) {
     useEffect(() => {
         if (!userData) {
             fetchConversions();
+            console.log('fetch')
         }
     }, [userData, fetchConversions]);
 
