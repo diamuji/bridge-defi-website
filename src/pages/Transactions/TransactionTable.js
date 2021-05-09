@@ -17,6 +17,7 @@ export default function TransactionsTable(props) {
     const singleUser = isAdmin && userData;
 
     const fetchData = useCallback(async () => {
+        console.log('fetchdata')
         const results = await http({
             method: 'GET',
             url: isAdmin
@@ -35,6 +36,7 @@ export default function TransactionsTable(props) {
     };
 
     useEffect(() => {
+        console.log('useEffect', userData)
         if (!userData) {
             fetchData();
         }
