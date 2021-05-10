@@ -65,7 +65,7 @@ export default function UserForm(props) {
                     <label className="block text-gray-500 text-sm">Admin rights</label>
                     {user.isAdmin ? 'true' : 'false'}
                     <span
-                        className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${toggleAdminDisabled && 'opacity-50'}`}
+                        className={`cursor-pointer text-sm text-lightblue-100 hover:text-lightblue-200 font-bold ml-4 ${toggleAdminDisabled && 'opacity-50'}`}
                         onClick={() => !toggleAdminDisabled && toggleAdmin()}
                     >
                         {user.isAdmin ? 'Remove' : 'Grant'}
@@ -76,7 +76,7 @@ export default function UserForm(props) {
                     <label className="block text-gray-500 text-sm">Enabled</label>
                     <span className={!user.enabled ? 'text-red-500' : ''}>{user.enabled ? 'true' : 'false'}</span>
                     <span
-                        className={`cursor-pointer text-sm text-teal-500 hover:text-teal-400 font-bold ml-4 ${verifyDisabled && 'opacity-50'}`}
+                        className={`cursor-pointer text-sm text-lightblue-100 hover:text-lightblue-200 font-bold ml-4 ${verifyDisabled && 'opacity-50'}`}
                         onClick={() => !verifyDisabled && verify()}
                     >
                         {user.enabled ? 'Disable' : 'Enable'}
@@ -117,13 +117,13 @@ export default function UserForm(props) {
                     <label className="block text-gray-500 text-sm">Profile picture</label>
                     {!profilePicVisible
                         ? (
-                            <div className="cursor-pointer text-teal-500" onClick={() => setProfilePicVisible(!profilePicVisible)}>
+                            <div className="cursor-pointer text-lightblue-100" onClick={() => setProfilePicVisible(!profilePicVisible)}>
                                 Show
                             </div>
                         )
                         : (
                             <div>
-                                <div className="cursor-pointer text-teal-500" onClick={() => setProfilePicVisible(!profilePicVisible)}>
+                                <div className="cursor-pointer text-lightblue-100" onClick={() => setProfilePicVisible(!profilePicVisible)}>
                                     Hide
                                 </div>
                                 {/* eslint-disable-next-line */}
@@ -136,13 +136,13 @@ export default function UserForm(props) {
                     <label className="block text-gray-500 text-sm">Document front</label>
                     {!documentFrontVisible
                         ? (
-                            <div className="cursor-pointer text-teal-500" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
+                            <div className="cursor-pointer text-lightblue-100" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
                                 Show
                             </div>
                         )
                         : (
                             <div>
-                                <div className="cursor-pointer text-teal-500" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
+                                <div className="cursor-pointer text-lightblue-100" onClick={() => setDocumentFrontVisible(!documentFrontVisible)}>
                                     Hide
                                 </div>
                                 {document.front ? <img src={`data:image;base64,${document.front}`} alt="Document front" /> : '-'}
@@ -154,13 +154,13 @@ export default function UserForm(props) {
                     <label className="block text-gray-500 text-sm">Document Retro</label>
                     {!documentRetroVisible
                         ? (
-                            <div className="cursor-pointer text-teal-500" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
+                            <div className="cursor-pointer text-lightblue-100" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
                                 Show
                             </div>
                         )
                         : (
                             <div>
-                                <div className="cursor-pointer text-teal-500" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
+                                <div className="cursor-pointer text-lightblue-100" onClick={() => setDocumentRetroVisible(!documentRetroVisible)}>
                                     Hide
                                 </div>
                                 {document.retro ? <img src={`data:image;base64,${document.retro}`} alt="Document back" /> : '-'}

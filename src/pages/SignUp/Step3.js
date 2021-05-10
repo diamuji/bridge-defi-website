@@ -146,7 +146,7 @@ export function Step3({ formData, onSubmit: onDone }) {
                 />
 
                 <div className="flex flex-wrap mt-6">
-                    <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 w-full">
+                    <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 w-full">
                         Continue
                     </button>
                 </div>

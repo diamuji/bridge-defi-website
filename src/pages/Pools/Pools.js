@@ -19,7 +19,7 @@ function Pools() {
                 {isAdmin && (
                     <button
                         type="submit"
-                        className="btn text-white bg-teal-500 hover:bg-teal-600 px-10"
+                        className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-10"
                         onClick={() => history.push('/pools/create')}
                     >
                         Create new

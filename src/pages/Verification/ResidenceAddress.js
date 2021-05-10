@@ -105,7 +105,7 @@ export default function ResidenceAddress() {
                 </div>
 
                 <div className="flex flex-wrap mt-6">
-                    <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 px-6">
+                    <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-6">
                         Continue
                     </button>
                 </div>

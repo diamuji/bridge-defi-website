@@ -36,7 +36,7 @@ function SignUp() {
                                         Already registered to Bridge DeFi?&nbsp;
                                         <Link
                                             to="/signin"
-                                            className="text-teal-500 hover:text-gray-200 transition duration-150 ease-in-out"
+                                            className="text-lightblue-100 hover:text-gray-200 transition duration-150 ease-in-out"
                                         >
                                             Sign in
                                         </Link>

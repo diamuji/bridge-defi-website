@@ -14,7 +14,7 @@ function Conversions() {
                 <h1 className="text-2xl text-gray-800 font-bold flex-grow">
                     Conversions
                     {isAdmin && (
-                        <span className="text-xs uppercase bg-teal-400 text-white px-2 py-1 rounded font-normal ml-5 align-middle">
+                        <span className="text-xs uppercase bg-lightblue-100 text-white px-2 py-1 rounded font-normal ml-5 align-middle">
                             All users
                         </span>
                     )}

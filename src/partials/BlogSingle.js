@@ -54,13 +54,13 @@ function BlogSingle() {
                 </figure>
                 <h3 className="h4 font-red-hat-display mb-4 text-gray-900 dark:text-gray-100">1. An Ending and a Beginning</h3>
                 <p className="mb-8">
-                  Et leo duis ut diam quam nulla porttitor porttitor lacus luctus accumsan tortor, lorem dolor sed viverra ipsum nunc aliquet bibendum enim eu augue ut <a className="font-medium text-teal-500 hover:underline" href="#0">lectus arcu bibendum</a> at. Non sodales neque sodales ut etiam sit. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.
+                  Et leo duis ut diam quam nulla porttitor porttitor lacus luctus accumsan tortor, lorem dolor sed viverra ipsum nunc aliquet bibendum enim eu augue ut <a className="font-medium text-lightblue-200 hover:underline" href="#0">lectus arcu bibendum</a> at. Non sodales neque sodales ut etiam sit. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.
                         </p>
                 <p className="mb-8">
                   Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat auctor urna nunc id cursus metus aliquam eleifend, arcu <u className="underline">dictum varius duis at consectetur lorem donec</u> massa sapien, sed risus.
                         </p>
                 <p className="mb-8">
-                  <a className="inline-flex items-center font-medium text-teal-500 hover:underline mt-2" href="#0">
+                  <a className="inline-flex items-center font-medium text-lightblue-200 hover:underline mt-2" href="#0">
                     <span>Ultricies tristique nulla aliquet</span>
                     <svg className="w-3 h-3 flex-shrink-0 mt-px ml-2" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path className="fill-current" d="M6.602 11l-.875-.864L9.33 6.534H0v-1.25h9.33L5.727 1.693l.875-.875 5.091 5.091z" />
@@ -92,7 +92,7 @@ function BlogSingle() {
                   <li><strong className="font-medium text-gray-900 dark:text-gray-100">Prioritize the balance</strong>. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</li>
                   <li><strong className="font-medium text-gray-900 dark:text-gray-100">Focus on one thing</strong>. Non sodales neque sodales ut etiam sit. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</li>
                 </ul>
-                <blockquote className="italic pl-4 border-l-2 border-teal-500 dark:border-gray-400 mb-8">
+                <blockquote className="italic pl-4 border-l-2 border-lightblue-200 dark:border-gray-400 mb-8">
                   “It’s really hard, but fundamentally, one of the hardest decisions you’re going to ever have to make is what you’re not going to do.”
                         </blockquote>
                 <h3 className="h4 font-red-hat-display mb-4 text-gray-900 dark:text-gray-100">4. Final Thoughts</h3>
@@ -109,7 +109,7 @@ function BlogSingle() {
                   <form>
                     <div className="relative flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-sm sm:px-4">
                       <input type="email" className="form-input w-full px-4 py-2 mb-2 sm:mb-0 sm:mr-2" placeholder="Your email" aria-label="Your email" />
-                      <a className="btn-sm text-white bg-teal-500 hover:bg-teal-400 flex-shrink-0" href="#0">Subscribe</a>
+                      <a className="btn-sm text-white bg-lightblue-100 hover:bg-lightblue-200 flex-shrink-0" href="#0">Subscribe</a>
                       <svg className="hidden sm:block absolute left-full -mt-3" width="42" height="44" viewBox="0 0 42 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path className="fill-current text-gray-600" d="M6.226 39.073l9.71 2.172-.436 1.951-13.436-3.004-1.735-.388 1.232-1.281 9.545-9.923 1.441 1.387-6.898 7.171 7.737-2.329C25.946 29.254 34.831 17.909 40.043.71l1.914.58c-5.378 17.746-14.651 29.572-27.818 35.393l-.117.043-7.796 2.347z" />
                       </svg>

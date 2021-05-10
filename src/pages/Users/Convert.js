@@ -105,7 +105,7 @@ export function Convert() {
                                                     key={key}
                                                     className={`
                                                         flex flex-row border first:rounded-t last:rounded-b py-2 px-4 relative -m-px
-                                                        ${field?.value === symbol && 'border-teal-500 bg-gray-100 z-10'}
+                                                        ${field?.value === symbol && 'border-lightblue-100 bg-gray-100 z-10'}
                                                         ${disabled ? 'opacity-50' : 'hover:bg-gray-100 cursor-pointer'}
                                                     `}
                                                 >
@@ -174,7 +174,7 @@ export function Convert() {
                                                     key={key}
                                                     className={`
                                                         flex flex-row border first:rounded-t last:rounded-b py-2 px-4 relative -m-px
-                                                        ${field?.value === symbol && 'border-teal-500 bg-gray-100 z-10'}
+                                                        ${field?.value === symbol && 'border-lightblue-100 bg-gray-100 z-10'}
                                                         ${disabled ? 'opacity-50' : 'hover:bg-gray-100 cursor-pointer'}
                                                     `}
                                                 >
@@ -205,7 +205,7 @@ export function Convert() {
                     </div>
 
                     <div className="text-center">
-                        <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 text-center mx-6 px-10">
+                        <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 text-center mx-6 px-10">
                             Confirm
                         </button>
                         <a href="#0" onClick={back} className="px-10">

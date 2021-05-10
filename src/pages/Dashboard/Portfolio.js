@@ -51,7 +51,7 @@ export default function Portfolio(props) {
 
             {showConvertLink && (
                 <div className="mt-4 text-right mx-3">
-                    <Link to={`/users/${userId}/convert`} className="text-sm text-teal-500">
+                    <Link to={`/users/${userId}/convert`} className="text-sm text-lightblue-100">
                         Convert
                         <svg className="ml-2 w-3 h-3 fill-current inline" viewBox="0 0 12 12">
                             <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" />

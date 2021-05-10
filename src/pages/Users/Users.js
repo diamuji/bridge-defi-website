@@ -85,7 +85,7 @@ function Users() {
                             {users.map((user, key) => (
                                 <li key={key} className="border-b border-gray-800">
                                     <div
-                                        className={`cursor-pointer py-2 px-3 group text-gray-400 leading-4 ${selectedUserId === user._id ? 'text-teal-500' : 'hover:text-gray-100'}`}
+                                        className={`cursor-pointer py-2 px-3 group text-gray-400 leading-4 ${selectedUserId === user._id ? 'text-lightblue-100' : 'hover:text-gray-100'}`}
                                         onClick={() => setSelectedUserId(user._id)}
                                     >
                                         {user.firstName} {user.lastName}

@@ -208,7 +208,7 @@ export default function Pool() {
                                     <span className="flex-grow">Details</span>
                                     <button
                                         type="button"
-                                        className="float-right btn btn-sm bg-teal-500 px-3 py-1 text-white"
+                                        className="float-right btn btn-sm bg-lightblue-100 px-3 py-1 text-white"
                                         onClick={() => setNumDetails(numDetails + 1)}
                                     >
                                         add
@@ -261,7 +261,7 @@ export default function Pool() {
                         </div>
 
                         <div className="mt-6">
-                            <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 px-20">
+                            <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-20">
                                 Continue
                             </button>
                         </div>

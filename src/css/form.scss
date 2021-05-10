@@ -1,9 +1,14 @@
 .form-input, .form-checkbox, button {
     &:focus {
         outline: none !important;
-        box-shadow: 0 0 5px theme('colors.teal.500') !important;
+        box-shadow: 0 0 5px theme('colors.lightblue.100') !important;
     }
     &:disabled {
         opacity: 0.5;
     }
+}
+
+.dark .form-input {
+    background: #203b5a;
+    border-color: #384b6a;
 }

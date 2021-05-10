@@ -60,7 +60,7 @@ export default function VerificationBanner() {
                         Verify your identity to start trading.
                         This procedure is to guarantee you a safe experience in compliance with European regulations.
                     </p>
-                    <Link to="/verification" className="btn text-white bg-teal-500 hover:bg-teal-600 px-6">
+                    <Link to="/verification" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-6">
                         Verify your account
                     </Link>
                 </div>

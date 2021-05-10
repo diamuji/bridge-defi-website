@@ -42,7 +42,7 @@ export default function TransactionRow(props) {
                 {isAdmin && transaction.status === 'open' && (
                     <div>
                         <a href="#0" onClick={updateStatus('approve', transaction._id)}>
-                            <Checkmark className="text-teal-500" />
+                            <Checkmark className="text-lightblue-100" />
                         </a>
                         <a href="#0" onClick={updateStatus('reject', transaction._id)}>
                             <Clear className="text-red-500" />

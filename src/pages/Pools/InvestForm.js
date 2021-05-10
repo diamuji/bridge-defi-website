@@ -78,7 +78,7 @@ export default function InvestForm(props) {
                                     key={key}
                                     className={`
                                         flex flex-row border first:rounded-t last:rounded-b py-2 px-4 relative -m-px
-                                        ${field?.value === symbol && 'border-teal-500 bg-gray-100 z-10'}
+                                        ${field?.value === symbol && 'border-lightblue-100 bg-gray-100 z-10'}
                                         ${ALLOWED_CURRENCIES.indexOf(symbol) < 0 ? 'opacity-50' : 'hover:bg-gray-100 cursor-pointer'}`}
                                 >
                                     {image()}
@@ -104,7 +104,7 @@ export default function InvestForm(props) {
                     )}
                 </div>
             
-                <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 w-full text-center mb-2">
+                <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 w-full text-center mb-2">
                     Confirm
                 </button>
                 <div className="text-center mb-4 text-gray-600 text-sm">

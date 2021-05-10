@@ -53,7 +53,7 @@ export default function ExchangeForm(props) {
                     </div>
                     <a
                         href="#0"
-                        className="text-teal-600"
+                        className="text-lightblue-200"
                         onClick={e => {
                             e.preventDefault();
                             setSent(false);
@@ -82,7 +82,7 @@ export default function ExchangeForm(props) {
                                 required: { value: true, message: 'You must select a currency' },
                             }}
                             render={(field) => CURRENCIES.map(({ image, name, symbol }, key) => (
-                                <label key={key} className={`flex flex-row border first:rounded-t last:rounded-b py-2 px-4 hover:bg-gray-100 cursor-pointer relative -m-px ${field?.value === symbol && 'border-teal-500 bg-gray-100 z-10'}`}>
+                                <label key={key} className={`flex flex-row border first:rounded-t last:rounded-b py-2 px-4 hover:bg-gray-100 cursor-pointer relative -m-px ${field?.value === symbol && 'border-lightblue-200 bg-gray-100 z-10'}`}>
                                     {image()}
                                     <div className="leading-5">
                                         <b>{symbol}</b>
@@ -149,7 +149,7 @@ export default function ExchangeForm(props) {
                         <input ref={ref} name={name} className={className} placeholder={addressName} />
                     )}
                 />
-                <button type="submit" className="btn text-white bg-teal-500 hover:bg-teal-600 px-6 w-full">
+                <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-6 w-full">
                     Confirm
                 </button>
             </fieldset>

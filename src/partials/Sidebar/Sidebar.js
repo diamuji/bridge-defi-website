@@ -74,7 +74,7 @@ export default function Sidebar(props) {
                                         }
                                     }}
                                 >
-                                    <span className={`flex flex-grow ${page.indexOf(item.url) === 0 && 'text-teal-500'}`}>
+                                    <span className={`flex flex-grow ${page.indexOf(item.url) === 0 && 'text-lightblue-100'}`}>
                                         {item.icon(page.indexOf(item.url) === 0)}
                                         <span className="text-sm font-medium">{item.label}</span>
                                     </span>

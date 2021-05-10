@@ -67,6 +67,14 @@ module.exports = {
           800: '#97266D',
           900: '#702459',
         },
+        lightblue: {
+          100: '#33bdfe',
+          200: '#0e8fcc',
+          300: '#126890',
+        },
+        darkblue: {
+          100: '#000b22'
+        }
       },
       outline: {
         blue: '2px solid rgba(0, 112, 244, 0.5)',

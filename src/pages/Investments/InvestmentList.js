@@ -125,7 +125,7 @@ export default function InvestmentList(props) {
                                 {isAdmin && investment.status === 'open' && (
                                     <div>
                                         <a href="#0" onClick={updateStatus('approve', investment._id)}>
-                                            <Checkmark className="text-teal-500" />
+                                            <Checkmark className="text-lightblue-100" />
                                         </a>
                                         <a href="#0" onClick={updateStatus('reject', investment._id)}>
                                             <Clear className="text-red-500" />
