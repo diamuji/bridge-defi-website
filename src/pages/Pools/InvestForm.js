@@ -13,7 +13,9 @@ export default function InvestForm(props) {
     const form = useForm({ defaultValues: {
         amountType: firstCurrency.symbol,
     } });
-    const { formState, handleSubmit, errors, control } = form;
+    const { formState, handleSubmit, errors, control, watch, getValues } = form;
+
+    watch('amountType')
 
     const onSubmit = async (formData) => {
         try {
@@ -47,7 +49,15 @@ export default function InvestForm(props) {
                         required: { value: true, message: 'You must enter an amount' },
                     }}
                     render={({ name, className, ref, label }) => (
-                        <input ref={ref} name={name} type="number" step="0.01" className={className} placeholder={label} autoFocus />
+                        <input
+                            ref={ref}
+                            name={name}
+                            type="number"
+                            step={getValues('amountType') === 'EUR' ? '0.01' : '0.00000000000001'}
+                            className={className}
+                            placeholder={label}
+                            autoFocus
+                        />
                     )}
                 />
 

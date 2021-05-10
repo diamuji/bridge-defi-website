@@ -74,7 +74,15 @@ export function Convert() {
                                     required: { value: true, message: 'You must enter an amount' },
                                 }}
                                 render={({ name, className, ref, label }) => (
-                                    <input ref={ref} name={name} type="number" step="0.01" className={className} placeholder={label} autoFocus />
+                                    <input
+                                        ref={ref}
+                                        name={name}
+                                        type="number"
+                                        step={getValues('from_amountType') === 'EUR' ? '0.01' : '0.00000000000001'}
+                                        className={className}
+                                        placeholder={label}
+                                        autoFocus
+                                    />
                                 )}
                             />
 
@@ -136,7 +144,14 @@ export function Convert() {
                                     required: { value: true, message: 'You must enter an amount' },
                                 }}
                                 render={({ name, className, ref, label }) => (
-                                    <input ref={ref} name={name} type="number" step="0.01" className={className} placeholder={label} />
+                                    <input
+                                        ref={ref}
+                                        name={name}
+                                        type="number"
+                                        step={getValues('to_amountType') === 'EUR' ? '0.01' : '0.00000000000001'}
+                                        className={className}
+                                        placeholder={label}
+                                    />
                                 )}
                             />
 

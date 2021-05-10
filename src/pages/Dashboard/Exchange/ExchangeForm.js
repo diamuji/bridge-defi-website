@@ -11,7 +11,7 @@ export default function ExchangeForm(props) {
     const form = useForm();
     const { formState, handleSubmit, errors, control, setValue, getValues, watch } = form;
     const [sent, setSent] = useState(false);
-    const currency = !form.getValues('amountType')
+    const currency = !getValues('amountType')
         ? {}
         : CURRENCIES.filter(currency => currency.symbol === getValues('amountType'))[0];
     const address = type === 'deposit' ? 'source' : 'destination';
@@ -111,7 +111,14 @@ export default function ExchangeForm(props) {
                             required: { value: true, message: 'You must enter an amount' },
                         }}
                         render={({ name, className, ref, label }) => (
-                            <input ref={ref} name={name} type="number" step="0.01" className={className} placeholder={label} />
+                            <input
+                                ref={ref}
+                                name={name}
+                                type="number"
+                                step={getValues('amountType') === 'EUR' ? '0.01' : '0.00000000000001'}
+                                className={className}
+                                placeholder={label}
+                            />
                         )}
                     />
                     <FormInput

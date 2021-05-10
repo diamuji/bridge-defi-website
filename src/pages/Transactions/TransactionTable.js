@@ -17,7 +17,6 @@ export default function TransactionsTable(props) {
     const singleUser = isAdmin && userData;
 
     const fetchData = useCallback(async () => {
-        console.log('fetchdata')
         const results = await http({
             method: 'GET',
             url: isAdmin
