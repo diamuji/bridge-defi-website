@@ -76,8 +76,8 @@ export default function PoolList() {
                                         {pool.active ? 'active' : 'not active'}
                                     </div>
                                 </TableCell>
-                                <TableCell>{pool.apyYearly}</TableCell>
-                                <TableCell>{pool.apyMonthly}</TableCell>
+                                <TableCell>{pool.apyYearly} %</TableCell>
+                                <TableCell>{pool.apyMonthly} %</TableCell>
                                 <TableCell>{pool.balanceAvailable}</TableCell>
                                 <TableCell>{pool.balanceSold}</TableCell>
                                 <TableCell className="whitespace-nowrap w-px">
