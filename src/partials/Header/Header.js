@@ -50,7 +50,7 @@ function Header(props) {
                         <div className="flex-shrink-0 mr-5">
                             {/* Logo */}
                             <Link to={loggedIn ? '/dashboard' : '/'} className="block">
-                                <Logo className="w-8 h-8" />
+                                <Logo className="h-8" />
                             </Link>
                         </div>
 
