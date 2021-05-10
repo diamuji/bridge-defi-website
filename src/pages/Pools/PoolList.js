@@ -73,7 +73,9 @@ export default function PoolList() {
                                 <TableCell>
                                     {pool.name}
                                     <div className={`text-xs ${pool.active ? 'text-green-500' : 'text-red-500'}`}>
-                                        {pool.active ? 'active' : 'not active'}
+                                        {isAdmin
+                                            ? pool.active ? 'active' : 'not active'
+                                            : ''}
                                     </div>
                                 </TableCell>
                                 <TableCell>{pool.apyYearly} %</TableCell>
