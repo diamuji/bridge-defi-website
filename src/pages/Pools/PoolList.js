@@ -88,8 +88,8 @@ export default function PoolList() {
                             </TableRow>
                             {visibleRows.indexOf(pool._id) >= 0 && (
                                 <TableRow className="bg-gray-50">
-                                    <TableCell colSpan="6" className="whitespace-normal">
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 whitespace-normal">
+                                    <TableCell colSpan="6">
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 whitespace-normal break-words">
                                             <div className="col-span-1 md:col-span-3">
                                                 <span className="text-xs tracking-wide uppercase text-gray-500">Description</span>
                                                 <div className="text-sm overflow-hidden whitespace-normal">
