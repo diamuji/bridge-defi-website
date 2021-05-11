@@ -113,7 +113,7 @@ export default function InvestmentList(props) {
                                 </div>
                             </TableCell>
                             <TableCell className="overflow-clip small">
-                                {investment.pool}
+                                {investment.pool.name}
                                 <div className="text-xs text-gray-500">
                                     {investment.createdAt ? moment(investment.createdAt).format('LL') : '-'}
                                 </div>
