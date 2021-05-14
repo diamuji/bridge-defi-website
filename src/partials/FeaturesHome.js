@@ -79,7 +79,7 @@ function FeaturesHome() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src={require('../images/defi.png')} width="500" height="500" alt="Features bg" />
+                    <img className="md:max-w-none mx-auto rounded" src={require('../images/02.jpg')} width="500" height="500" alt="Features bg" />
                   </div>
                 </Transition>
 
