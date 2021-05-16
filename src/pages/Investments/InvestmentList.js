@@ -98,10 +98,10 @@ export default function InvestmentList(props) {
                         <TableRow key={investment._id} className={isAdmin ? `cursor-pointer hover:bg-gray-100` : ''}>
                             {!singleUser && (
                                 <TableCell>
-                                    {investment.user?.firstName}
-                                    {investment.user?.lastName}
-                                    <div className="truncate text-xs" title={investment.user}>
-                                        {investment.user?._id || investment.user}
+                                    {investment.userData?.firstName}
+                                    {investment.userData?.lastName}
+                                    <div className="truncate text-xs" title={investment.userData}>
+                                        {investment.userData?.email || investment.user}
                                     </div>
                                 </TableCell>
                             )}
