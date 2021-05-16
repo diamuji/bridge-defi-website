@@ -51,9 +51,9 @@ function Events() {
                 <Table title={
                     <div className="flex flex-row items-center">
                         <span className="flex-grow">
-                            Page {page + 1} of {Math.ceil(total / NUM_EVENTS)} events
+                            Page {page + 1} of {Math.ceil(total / NUM_EVENTS)}
                         </span>
-                        <span className="float-right text-gray-400 text-xs">
+                        <span className="text-gray-400 text-xs">
                             {NUM_EVENTS} events/page
                         </span>
                     </div>
