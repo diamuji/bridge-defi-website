@@ -11,7 +11,7 @@ import TableHead from '../partials/Table/TableHead';
 import TableRow from '../partials/Table/TableRow';
 import { http } from '../utils/utils';
 
-const NUM_EVENTS = 50;
+const NUM_EVENTS = 20;
 
 function Events() {
     const [page, setPage] = useState(0);
@@ -22,15 +22,15 @@ function Events() {
 
     useEffect(() => {
         const fetchData = async () => {
+            setEvents(undefined);
             const { events, total } = await http({ url: `/events?skip=${page * NUM_EVENTS}&limit=${NUM_EVENTS}` });
-            const filteredEvents = events.reverse().slice(0, NUM_EVENTS);
             const actions = [];
-            for (const event of filteredEvents) {
+            for (const event of events) {
                 if (actions.indexOf(event.name) < 0) {
                     actions.push(event.name);
                 }
             }
-            setEvents(filteredEvents);
+            setEvents(events);
             setActions(actions);
             setTotal(total);
         };
@@ -48,7 +48,16 @@ function Events() {
             </div>
 
             <Loading if={!events}>
-                <Table title={`Last ${page + 1}-${Math.max((page + 2) * NUM_EVENTS, total)} events`}>
+                <Table title={
+                    <div className="flex flex-row items-center">
+                        <span className="flex-grow">
+                            Page {page + 1} of {Math.ceil(total / NUM_EVENTS)} events
+                        </span>
+                        <span className="float-right text-gray-400 text-xs">
+                            {NUM_EVENTS} events/page
+                        </span>
+                    </div>
+                }>
                     <TableHead>
                         <TableRow>
                             <TableCell header>
