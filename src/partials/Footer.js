@@ -203,7 +203,16 @@ function Footer() {
               </div>
             </div>
           </div>
-        </div>
+
+          <div className="text-center my-2 text-gray-500 text-xs">
+            Bridge S.r.l. -
+            Via Carlo Pisacane, 25 -
+            Pero (Mi) -
+            20016 -
+            P. IVA / C.F.: 11745840964 -
+            Tel: <a href="tel:+390249405818">02 49405818</a> -&nbsp;
+            <a href="mailto:bridgedefi.finance@pec.it">bridgedefi.finance@pec.it</a>
+          </div></div>
       </div>
     </footer>
   );
