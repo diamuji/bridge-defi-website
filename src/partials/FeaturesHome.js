@@ -3,7 +3,7 @@ import Transition from '../utils/Transition.js';
 
 function FeaturesHome() {
 
-  const [tab, setTab] = useState(1);
+  const [tab] = useState(1);
 
   const tabs = useRef(null);
 

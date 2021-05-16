@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Loading from '../partials/Loading';
 import LoggedPage from '../partials/LoggedPage';
+import Pagination from '../partials/Table/Paging';
 import Table from '../partials/Table/Table';
 import TableBody from '../partials/Table/TableBody';
 import TableCell from '../partials/Table/TableCell';
@@ -10,16 +11,18 @@ import TableHead from '../partials/Table/TableHead';
 import TableRow from '../partials/Table/TableRow';
 import { http } from '../utils/utils';
 
-const NUM_EVENTS = 100;
+const NUM_EVENTS = 50;
 
 function Events() {
+    const [page, setPage] = useState(0);
+    const [total, setTotal] = useState(0);
     const [events, setEvents] = useState();
     const [actions, setActions] = useState([]);
     const [selectedAction, setSelectedAction] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
-            const events = await http({ url: '/events' });
+            const { events, total } = await http({ url: `/events?skip=${page * NUM_EVENTS}&limit=${NUM_EVENTS}` });
             const filteredEvents = events.reverse().slice(0, NUM_EVENTS);
             const actions = [];
             for (const event of filteredEvents) {
@@ -29,9 +32,10 @@ function Events() {
             }
             setEvents(filteredEvents);
             setActions(actions);
+            setTotal(total);
         };
         fetchData();
-    }, []);
+    }, [page]);
 
     return (
         <LoggedPage admin>
@@ -44,7 +48,7 @@ function Events() {
             </div>
 
             <Loading if={!events}>
-                <Table title={`Last ${NUM_EVENTS} events`}>
+                <Table title={`Last ${page + 1}-${Math.max((page + 2) * NUM_EVENTS, total)} events`}>
                     <TableHead>
                         <TableRow>
                             <TableCell header>
@@ -101,6 +105,13 @@ function Events() {
                         })}
                     </TableBody>
                 </Table>
+                <Pagination
+                    skip={page * NUM_EVENTS}
+                    limit={NUM_EVENTS}
+                    total={total}
+                    prev={() => setPage(page - 1)}
+                    next={() => setPage(page + 1)}
+                />
             </Loading>
         </LoggedPage>
     );
