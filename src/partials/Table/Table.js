@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Table(props) {
     return (
-        <div className="bg-white shadow-lg rounded-sm border border-gray-200 text-gray-600">
+        <div className="bg-darkblue-200 text-gray-200 shadow-lg rounded-sm overflow-hidden">
             {props.title && (
                 <header className="px-5 py-4">
-                    <h2 className="font-semibold text-gray-800">
+                    <h2 className="font-semibold text-gray-200">
                         {props.title}
                     </h2>
                 </header>

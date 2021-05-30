@@ -67,7 +67,6 @@ export default function AppRoot() {
         window.scroll({ top: 0 });
         document.querySelector('html').style.scrollBehavior = '';
         focusHandling('outline');
-        document.documentElement.classList.add('dark');
     }, [location.pathname]); // triggered on route change
 
     return (

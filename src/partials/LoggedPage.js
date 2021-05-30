@@ -11,15 +11,6 @@ export default function LoggedPage(props) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            document.documentElement.classList.remove('dark');
-        });
-        return () => {
-            clearTimeout(timeout);
-        };
-    }, []);
-
-    useEffect(() => {
         if (!userContext.fetching) {
             if (!userContext.me || (props.admin === true && !userContext.me.isAdmin)) {
                 history.push('/');
@@ -37,15 +28,15 @@ export default function LoggedPage(props) {
     }
 
     return (
-        <div className="flex h-screen overflow-hidden bg-gray-100">
+        <div className="flex h-screen overflow-hidden">
             <Sidebar open={sidebarOpen} toggle={() => setSidebarOpen(!sidebarOpen)} />
 
             {/* Content area */}
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 {/* Site header */}
-                <DashboardHeader onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
+                <DashboardHeader title={props.title} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
 
-                <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+                <div className="px-4 sm:px-8 lg:px-10 pt-0 pb-8 w-full max-w-9xl mx-auto">
                     {props.children}
                 </div>
             </div>

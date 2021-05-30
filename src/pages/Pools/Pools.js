@@ -10,22 +10,22 @@ function Pools() {
     const isAdmin = userContext.me?.isAdmin;
 
     return (
-        <LoggedPage>
-            <div className={`flex flex-row mb-8`}>
-                <h1 className="text-2xl text-gray-800 font-bold flex-grow">
+        <LoggedPage title={(
+            <>
+                <span className="flex-grow">
                     Pools
-                </h1>
-
+                </span>
                 {isAdmin && (
                     <button
                         type="submit"
-                        className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-10"
+                        className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 px-3 py-2 text-sm"
                         onClick={() => history.push('/pools/create')}
                     >
                         Create new
                     </button>
                 )}
-            </div>
+            </>
+        )}>
 
             <PoolList />
 

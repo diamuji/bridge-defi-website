@@ -38,15 +38,7 @@ function Events() {
     }, [page]);
 
     return (
-        <LoggedPage admin>
-            <div className="sm:flex sm:justify-between sm:items-center mb-8">
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-2xl text-gray-800 font-bold">
-                        Events
-                    </h1>
-                </div>
-            </div>
-
+        <LoggedPage title="Events" admin>
             <Loading if={!events}>
                 <Table title={
                     <div className="flex flex-row items-center">

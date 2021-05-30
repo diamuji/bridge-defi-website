@@ -35,7 +35,7 @@ export default function Portfolio(props) {
                         <h1 className="text-2xl text-gray-800 font-bold">Portfolio</h1>
                     </div>
 
-                    <Loading if={!portfolio} className="py-5">
+                    <Loading if={!portfolio} className="pb-5">
                         {portfolio && CURRENCIES.map(currency => (
                             <div key={currency.symbol} className="flex flex-row items-center py-2 border-b border-gray-200 last:border-b-0">
                                 {currency.image()}

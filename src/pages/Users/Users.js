@@ -29,21 +29,9 @@ function Users() {
     }, [page]);
 
     return (
-        <LoggedPage admin>
-            {/* Page header */}
-            <div className="sm:flex sm:justify-between sm:items-center mb-8">
+        <LoggedPage admin title="Users">
 
-                {/* Left: Title */}
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-2xl text-gray-800 font-bold">Users</h1>
-                </div>
-
-                {/* Right: Actions */}
-                {/* <%= require('html-loader!./partials/table-actions.html') %> */}
-
-            </div>
-
-            <Loading if={!users?.length} className="py-5">
+            <Loading if={!users?.length} className="pb-5">
                 <Table title="Users">
                     <TableHead>
                         <TableRow>
@@ -76,31 +64,6 @@ function Users() {
                     </TableBody>
                 </Table>
             </Loading>
-
-            {/* <div className="flex flex-col md:flex-row">
-                <aside className="md:w-1/3 mb-16 md:mb-0 md:mr-10 md:flex-shrink-0" data-aos="fade-up" data-aos-delay="200">
-                    <h4 className="text-lg font-medium px-3 pb-3 border-b border-gray-800">Users</h4>
-                    <nav>
-                        <ul className="overflow-auto h-96">
-                            {users.map((user, key) => (
-                                <li key={key} className="border-b border-gray-800">
-                                    <div
-                                        className={`cursor-pointer py-2 px-3 group text-gray-400 leading-4 ${selectedUserId === user._id ? 'text-lightblue-100' : 'hover:text-gray-100'}`}
-                                        onClick={() => setSelectedUserId(user._id)}
-                                    >
-                                        {user.firstName} {user.lastName}
-                                        <div className="text-xs opacity-75">{user.email}</div>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </aside>
-
-                <main className="md:flex-auto order-1" data-aos="fade-up">
-                    {selectedUserId && <User id={selectedUserId} />}
-                </main>
-            </div> */}
         </LoggedPage>
     );
 }

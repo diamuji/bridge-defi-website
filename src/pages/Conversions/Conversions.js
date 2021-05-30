@@ -9,17 +9,16 @@ function Conversions() {
     const isAdmin = userContext.me?.isAdmin;
 
     return (
-        <LoggedPage>
-            <div className={`flex flex-row mb-8`}>
-                <h1 className="text-2xl text-gray-800 font-bold flex-grow">
-                    Conversions
-                    {isAdmin && (
-                        <span className="text-xs uppercase bg-lightblue-100 text-white px-2 py-1 rounded font-normal ml-5 align-middle">
-                            All users
-                        </span>
-                    )}
-                </h1>
-            </div>
+        <LoggedPage title={(
+            <>
+                Conversions
+                {isAdmin && (
+                    <span className="text-xs uppercase bg-lightblue-100 text-white px-2 py-1 rounded font-normal ml-5 align-middle">
+                        All users
+                    </span>
+                )}
+            </>
+        )}>
 
             <ConversionList />
 
