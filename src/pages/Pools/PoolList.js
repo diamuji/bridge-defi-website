@@ -10,7 +10,8 @@ import SidePanel from '../../utils/SidePanel';
 import { UserContext } from '../../utils/UserProvider';
 import { http } from '../../utils/utils';
 import InvestForm from './InvestForm';
-import { ComposedChart, Line, XAxis, YAxis, CartesianGrid, Label, ResponsiveContainer, Area } from 'recharts';
+import { ResponsiveLine } from '@nivo/line';
+import { linearGradientDef } from '@nivo/core';
 import { RATES } from './data';
 import moment from 'moment';
 
@@ -125,58 +126,81 @@ export default function PoolList() {
                                                     ))}
                                                 </ul>
                                             </div>
-                                            <div className="col-span-6 row-span-3" style={{ maxHeight: 300 }}>
-                                                <ResponsiveContainer width="100%" height="100%">
-                                                    <ComposedChart data={RATES}>
-                                                        <defs>
-                                                            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                                                                <stop offset="5%" stopColor="#5e6f8d" stopOpacity={0.6}/>
-                                                                <stop offset="95%" stopColor="#203a59" stopOpacity={0.6}/>
-                                                            </linearGradient>
-                                                        </defs>
-                                                        <CartesianGrid
-                                                            vertical
-                                                            horizontal
-                                                            stroke="#203a59"
-                                                            strokeDasharray="3 3"
-                                                        />
-                                                        <YAxis
-                                                            type="number"
-                                                            tickLine={false}
-                                                            stroke="#fff"
-                                                            unit="%"
-                                                            domain={[ 0, 20 ]}
-                                                        >
-                                                            <Label position="left" />
-                                                        </YAxis>
-                                                        <XAxis
-                                                            tickLine={false}
-                                                            stroke="#fff"
-                                                            dataKey="date"
-                                                            padding={{ left: 20, top: 20 }}
-                                                            allowDataOverflow={true}
-                                                            tickFormatter={value => moment(value).format('D MMM')}
-                                                        />
-                                                        <Area
-                                                            type="linear"
-                                                            dataKey="value"
-                                                            isAnimationActive={false}
-                                                            strokeWidth={2}
-                                                            fillOpacity={1}
-                                                            fill="url(#colorUv)"
-                                                        />
-                                                        <Line
-                                                            type="linear"
-                                                            isAnimationActive={false}
-                                                            dataKey="value"
-                                                            stroke="#a8b0c6"
-                                                            strokeWidth="3"
-                                                            dot={({ cx, cy, key }) => (
-                                                                <rect key={key} x={cx - 4} y={cy - 4} width="7" height="9" fill="#fff" />
-                                                            )}
-                                                        />
-                                                    </ComposedChart>
-                                                </ResponsiveContainer>
+                                            <div className="col-span-6 row-span-3" style={{ maxHeight: 400 }}>
+                                                <ResponsiveLine
+                                                    data={[
+                                                        {
+                                                            id: 'data',
+                                                            data: RATES.map(point => ({
+                                                                x: point.date,
+                                                                y: point.value
+                                                            }))
+                                                        }
+                                                    ]}
+                                                    margin={{ top: 5, left: 40, right: 5, bottom: 50 }}
+                                                    xScale={{ type: 'time', min: '2021-02-26', format: '%Y-%m-%d', precision: 'day' }}
+                                                    yScale={{ type: 'linear', min: 0, max: 20, stacked: true, reverse: false }}
+                                                    yFormat=" >-.2f"
+                                                    enableArea
+                                                    areaOpacity={1}
+                                                    axisTop={null}
+                                                    axisRight={null}
+                                                    axisLeft={{
+                                                        orient: 'left',
+                                                        format: value => value ? `${value} %` : '',
+                                                        tickValues: 10,
+                                                        tickSize: 0,
+                                                        tickPadding: 10,
+                                                        tickRotation: 0,
+                                                    }}
+                                                    axisBottom={{
+                                                        orient: 'bottom',
+                                                        format: value => {
+                                                            const date = moment(value);
+                                                            return date.isBefore('2021-03-01') ? '' : date.format('D MMM').toLowerCase();
+                                                        },
+                                                        tickValues: RATES
+                                                            .filter((v, index) => index % 3 === 0)
+                                                            .map(point => new Date(point.date)),
+                                                        tickSize: 0,
+                                                        tickPadding: 10,
+                                                        tickRotation: -90,
+                                                    }}
+                                                    enableGridX={true}
+                                                    enableGridY={true}
+                                                    gridYValues={[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]}
+                                                    gridXValues={RATES
+                                                        .filter((v, index) => index % 3 === 0)
+                                                        .map(point => new Date(point.date))}
+                                                    pointSymbol={() => <rect x="-2" y="-2" width="5" height="5" fill="#fff" />}
+                                                    colors="#a8b0c6"
+                                                    theme={{
+                                                        textColor: '#fff',
+                                                        axis: {
+                                                            domain: {
+                                                                line: {
+                                                                    stroke: '#fff',
+                                                                    strokeWidth: 1,
+                                                                }
+                                                            }
+                                                        },
+                                                        grid: {
+                                                            line: {
+                                                                stroke: '#203a59',
+                                                                strokeWidth: 1,
+                                                                strokeDasharray: '1 1',
+                                                            }
+                                                        }
+                                                    }}
+                                                    defs={[
+                                                        linearGradientDef('gradientA', [
+                                                            { offset: 0, color: '#a8b0c6', opacity: 0.8 },
+                                                            { offset: 40, color: '#a8b0c6', opacity: 0.5 },
+                                                            { offset: 100, color: '#a8b0c6', opacity: 0.1 },
+                                                        ]),
+                                                    ]}
+                                                    fill={[{ match: '*', id: 'gradientA' }]}
+                                                />
                                             </div>
                                             <div className="col-span-3 row-span-2">
                                                 <div className="tracking-wide uppercase text-white mb-2 font-medium">Details</div>
