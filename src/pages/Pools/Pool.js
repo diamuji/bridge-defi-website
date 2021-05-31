@@ -10,7 +10,7 @@ import { http } from '../../utils/utils';
 export default function Pool() {
     const { id } = useParams();
     const form = useForm({ defaultValues: { active: true } });
-    const { formState, handleSubmit, errors, getValues, reset } = form;
+    const { formState, handleSubmit, errors, getValues, reset, watch } = form;
     const [numDetails, setNumDetails] = useState(1);
     const history = useHistory();
     const [ready, setReady] = useState(false);
@@ -77,22 +77,20 @@ export default function Pool() {
         else fetchData();
     }, [id, reset]);
 
+    watch('name');
+
     return (
-        <LoggedPage admin>
-            <Loading if={!ready} title={(
-                <>
-                    <a onClick={back} className="block cursor-pointer mr-3 mt-2" href="#0">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="#000000">
-                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-                        </svg>
-                    </a>
-                    <div className="mb-4 sm:mb-0">
-                        <h1 className="text-2xl text-gray-800 font-bold">
-                            {id ? 'Create pool' : 'Pool'}
-                        </h1>
-                    </div>
-                </>
-            )}>
+        <LoggedPage admin title={(
+            <>
+                <a onClick={back} className="block cursor-pointer mr-3" href="#0">
+                    <svg height="24" width="24" viewBox="0 0 24 24" fill="currentcolor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                    </svg>
+                </a>
+                {!id ? 'Create pool' : 'Pool'}
+            </>
+        )}>
+            <Loading if={!ready}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <fieldset disabled={formState.isSubmitting}>
                         <div className="grid grid-flow-row xs:grid-flow-col sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -215,7 +213,7 @@ export default function Pool() {
                                     </button>
                                 </label>
                                 {numDetails > 0 && Array.from({ length: numDetails }).map((v, index) => (
-                                    <div key={index} className="mb-4 border rounded px-4 py-2">
+                                    <div key={index} className="mb-4 border border-gray-500 rounded px-4 py-2">
                                         <div className="flex flex-col md:flex-row md:-mx-2">
                                             <FormInput
                                                 className="md:w-2/4 md:mx-2"

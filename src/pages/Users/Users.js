@@ -43,10 +43,10 @@ function Users() {
                     </TableHead>
                     <TableBody>
                         {users.map(user => (
-                            <TableRow key={user._id} className="hover:bg-gray-50 cursor-pointer" onClick={() => goToUserPage(user._id)}>
+                            <TableRow key={user._id} className="hover:bg-lightblue-400 cursor-pointer" onClick={() => goToUserPage(user._id)}>
                                 <TableCell>
                                     <div>
-                                        <div className="font-medium text-gray-800">{user.firstName} {user.lastName}</div>
+                                        <div className="font-medium text-gray-200">{user.firstName} {user.lastName}</div>
                                         <div className="text-xs">{user.email}</div>
                                     </div>
                                 </TableCell>

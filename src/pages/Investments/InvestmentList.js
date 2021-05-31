@@ -95,7 +95,7 @@ export default function InvestmentList(props) {
                         </TableRow>
                     )}
                     {(investments || []).map(investment => (
-                        <TableRow key={investment._id} className={isAdmin ? `cursor-pointer hover:bg-gray-100` : ''}>
+                        <TableRow key={investment._id}>
                             {!singleUser && (
                                 <TableCell>
                                     {investment.userData?.firstName}
@@ -106,8 +106,8 @@ export default function InvestmentList(props) {
                                 </TableCell>
                             )}
                             <TableCell>
-                                <div className="font-medium text-gray-800">
-                                    <span className="text-gray-600">{investment.amountType}</span>&nbsp;
+                                <div className="font-medium text-gray-200">
+                                    <span className="text-gray-400">{investment.amountType}</span>&nbsp;
                                     <b>{investment.amount}</b>
                                 </div>
                                 <div className="text-xs">

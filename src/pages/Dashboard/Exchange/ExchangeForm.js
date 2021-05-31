@@ -85,7 +85,7 @@ export default function ExchangeForm(props) {
                                 <label key={key} className={`flex flex-row border first:rounded-t last:rounded-b py-2 px-4 hover:bg-gray-100 cursor-pointer relative -m-px ${field?.value === symbol && 'border-lightblue-200 bg-gray-100 z-10'}`}>
                                     {image()}
                                     <div className="leading-5">
-                                        <b>{symbol}</b>
+                                        <b className="text-gray-800">{symbol}</b>
                                         <div className="text-sm text-gray-600">{name}</div>
                                         <input type="radio" className="opacity-0 absolute top-0 left-0" {...field} value={symbol} />
                                     </div>
@@ -126,7 +126,7 @@ export default function ExchangeForm(props) {
                         label="&nbsp;"
                         className="ml-4"
                         render={({ className }) => (
-                            <div className={`${className} border-none px-0`}>
+                            <div className={`${className} border-none px-0 bg-none text-gray-500`}>
                                 {currency.symbol}
                             </div>
                         )}

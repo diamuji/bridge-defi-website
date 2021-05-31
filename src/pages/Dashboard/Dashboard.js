@@ -32,7 +32,7 @@ function Dashboard() {
     }, []);
 
     return (
-        <LoggedPage>
+        <LoggedPage title="Dashboard">
             {!verified && !user.isAdmin && <VerificationBanner />}
 
             {verified && (

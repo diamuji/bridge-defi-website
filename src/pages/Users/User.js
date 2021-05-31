@@ -42,17 +42,12 @@ function User() {
     return (
         <LoggedPage admin title={(
             <>
-                <a onClick={back} className="block cursor-pointer mr-3 mt-2" href="#0">
-                    <svg height="24" width="24" viewBox="0 0 24 24" fill="#000000">
+                <a onClick={back} className="block cursor-pointer mr-3" href="#0">
+                    <svg height="24" width="24" viewBox="0 0 24 24" fill="currentcolor">
                         <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
                     </svg>
                 </a>
-                <div className="leading-3">
-                    <h1 className="text-2xl text-gray-800 font-bold">
-                        {user.firstName} {user.lastName}
-                    </h1>
-                    <p className="text-gray-400">{user.email}</p>
-                </div>
+                {user.firstName} {user.lastName}
             </>
         )}>
             <div>

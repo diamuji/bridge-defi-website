@@ -11,7 +11,7 @@ export default function Exchange(props) {
 
     return (
         <div className={`bg-white rounded-lg shadow-lg p-6 w-full ${props.className}`} style={{ maxWidth: 400 }}>
-            <div className="flex flex-row text-center -mt-2 -mx-6 mb-6 shadow-sm">
+            <div className="flex flex-row text-center -mt-2 -mx-6 mb-6 shadow-sm text-gray-800">
                 <a
                     className={`outline-none flex-grow py-3 cursor-pointer ${verb === 'deposit' && 'border-b-2 border-lightblue-100'}`}
                     href="#0"

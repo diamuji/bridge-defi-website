@@ -49,16 +49,12 @@ export function Convert() {
     return (
         <LoggedPage title={(
             <>
-                <a onClick={back} className="block cursor-pointer mr-3 mt-2" href="#0">
-                    <svg height="24" width="24" viewBox="0 0 24 24" fill="#000000">
+                <a onClick={back} className="block cursor-pointer mr-3" href="#0">
+                    <svg height="24" width="24" viewBox="0 0 24 24" fill="currentcolor">
                         <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
                     </svg>
                 </a>
-                <div className="leading-3">
-                    <h1 className="text-2xl text-gray-800 font-bold">
-                        Convert
-                    </h1>
-                </div>
+                Convert
             </>
         )}>
 
@@ -105,6 +101,7 @@ export function Convert() {
                                                 <label
                                                     key={key}
                                                     className={`
+                                                        bg-white
                                                         flex flex-row border first:rounded-t last:rounded-b py-2 px-4 relative -m-px
                                                         ${field?.value === symbol && 'border-lightblue-100 bg-gray-100 z-10'}
                                                         ${disabled ? 'opacity-50' : 'hover:bg-gray-100 cursor-pointer'}
@@ -112,7 +109,7 @@ export function Convert() {
                                                 >
                                                     {image()}
                                                     <div className="leading-5">
-                                                        <b>{symbol}</b>
+                                                        <b className="text-gray-800">{symbol}</b>
                                                         <div className="text-sm text-gray-600">{name}</div>
                                                         <input
                                                             type="radio"
@@ -174,6 +171,7 @@ export function Convert() {
                                                 <label
                                                     key={key}
                                                     className={`
+                                                    bg-white
                                                         flex flex-row border first:rounded-t last:rounded-b py-2 px-4 relative -m-px
                                                         ${field?.value === symbol && 'border-lightblue-100 bg-gray-100 z-10'}
                                                         ${disabled ? 'opacity-50' : 'hover:bg-gray-100 cursor-pointer'}
@@ -181,7 +179,7 @@ export function Convert() {
                                                 >
                                                     {image()}
                                                     <div className="leading-5">
-                                                        <b>{symbol}</b>
+                                                        <b className="text-gray-800">{symbol}</b>
                                                         <div className="text-sm text-gray-600">{name}</div>
                                                         <input
                                                             type="radio"

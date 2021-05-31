@@ -26,7 +26,7 @@ export default function DashboardHeader(props) {
                         </button>
                     </div>
 
-                    <h1 className="flex-grow text-2xl text-gray-200 font-bold flex flex-row">
+                    <h1 className="flex-grow text-2xl text-gray-200 font-bold flex flex-row items-center">
                         {props.title || <>&nbsp;</>}
                     </h1>
 

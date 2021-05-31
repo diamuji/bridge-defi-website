@@ -53,7 +53,7 @@ function Events() {
                     <TableHead>
                         <TableRow>
                             <TableCell header>
-                                <select value={selectedAction} onChange={e => setSelectedAction(e.target.value)}>
+                                <select className="form-input" value={selectedAction} onChange={e => setSelectedAction(e.target.value)}>
                                     <option value="">All actions</option>
                                     {actions.map(action => (
                                         <option key={action}>{action}</option>
@@ -79,7 +79,7 @@ function Events() {
                                     <TableRow key={event._id}>
                                         <TableCell>
                                             <div>
-                                                <div className="font-medium text-gray-800">
+                                                <div className="font-medium text-gray-200">
                                                     {event.name}
                                                 </div>
                                                 <div className="text-xs">

@@ -20,8 +20,8 @@ export default function TransactionRow(props) {
             )}
             <TableCell>
                 <div>
-                    <div className="font-medium text-gray-800">
-                        <span className="text-gray-600">{transaction.amountType}</span>&nbsp;
+                    <div className="font-medium text-gray-200">
+                        <span className="text-gray-400">{transaction.amountType}</span>&nbsp;
                         <b>{transaction.amount}</b>
                     </div>
                     <div className="text-xs">

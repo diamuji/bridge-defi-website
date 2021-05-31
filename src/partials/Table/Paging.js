@@ -6,12 +6,11 @@ export default function Pagination(props) {
     const nextDisabled = skip + limit >= total;
     const onClickPrev = e => {
         e.preventDefault();
-        if (prev) prev();
+        if (prev && !prevDisabled) prev();
     };
     const onClickNext = e => {
         e.preventDefault();
-        if (next) next();
-        console.log('click next');
+        if (next && !nextDisabled) next();
     };
 
     return (

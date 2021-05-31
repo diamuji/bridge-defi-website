@@ -15,7 +15,7 @@ export default function InvestForm(props) {
     } });
     const { formState, handleSubmit, errors, control, watch, getValues } = form;
 
-    watch('amountType')
+    watch('amountType');
 
     const onSubmit = async (formData) => {
         try {
