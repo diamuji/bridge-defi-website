@@ -77,13 +77,14 @@ export default function InvestForm(props) {
                                 <label
                                     key={key}
                                     className={`
+                                        bg-white
                                         flex flex-row border first:rounded-t last:rounded-b py-2 px-4 relative -m-px
                                         ${field?.value === symbol && 'border-lightblue-100 bg-gray-100 z-10'}
                                         ${ALLOWED_CURRENCIES.indexOf(symbol) < 0 ? 'opacity-50' : 'hover:bg-gray-100 cursor-pointer'}`}
                                 >
                                     {image()}
                                     <div className="leading-5">
-                                        <b>{symbol}</b>
+                                        <b className="text-gray-800">{symbol}</b>
                                         <div className="text-sm text-gray-600">{name}</div>
                                         <input
                                             type="radio"
@@ -107,7 +108,7 @@ export default function InvestForm(props) {
                 <button type="submit" className="btn text-white bg-lightblue-100 hover:bg-lightblue-200 w-full text-center mb-2">
                     Confirm
                 </button>
-                <div className="text-center mb-4 text-gray-600 text-sm">
+                <div className="text-center mb-4 text-gray-400 text-sm">
                     <a href="#0" onClick={cancel}>
                         Cancel
                     </a>
