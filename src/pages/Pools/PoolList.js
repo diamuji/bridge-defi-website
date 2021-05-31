@@ -14,6 +14,7 @@ import { ResponsiveLine } from '@nivo/line';
 import { linearGradientDef } from '@nivo/core';
 import { RATES } from './data';
 import moment from 'moment';
+import { CoinList } from './CoinList';
 
 export default function PoolList() {
     const [pools, setPools] = useState();
@@ -119,14 +120,16 @@ export default function PoolList() {
                                                 <ul>
                                                     {(pool.description.features || []).map((feature, index) => (
                                                         <li key={index} className="text-darkblue-400 mb-1">
-                                                            <Linkify className="text-lightblue-100">
-                                                                {feature}
-                                                            </Linkify>
+                                                            <CoinList content={feature}>
+                                                                <Linkify className="text-lightblue-100">
+                                                                    {feature}
+                                                                </Linkify>
+                                                            </CoinList>
                                                         </li>
                                                     ))}
                                                 </ul>
                                             </div>
-                                            <div className="col-span-6 row-span-3" style={{ maxHeight: 400 }}>
+                                            <div className="col-span-6 row-span-3 md:pt-4" style={{ maxHeight: 400 }}>
                                                 <ResponsiveLine
                                                     data={[
                                                         {
