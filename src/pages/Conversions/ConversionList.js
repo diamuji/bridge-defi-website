@@ -15,7 +15,7 @@ export default function ConversionList(props) {
     const [conversions, setConversions] = useState(userData);
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
-    const singleUser = !isAdmin && userData;
+    const singleUser = userData;
 
     const fetchConversions = useCallback(async () => {
         const conversions = await http({

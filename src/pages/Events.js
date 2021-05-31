@@ -100,7 +100,7 @@ function Events() {
                                                     {event.message}
                                                 </pre>
                                             )}
-                                            <div className="truncate text-xs mt-1 text-gray-600" title={event.user}>
+                                            <div className="truncate text-xs mt-1 text-gray-400" title={event.user}>
                                                 User: {event.user}
                                             </div>
                                         </TableCell>
