@@ -53,7 +53,11 @@ function Events() {
                     <TableHead>
                         <TableRow>
                             <TableCell header>
-                                <select className="form-input" value={selectedAction} onChange={e => setSelectedAction(e.target.value)}>
+                                <select
+                                    className="form-input text-sm py-1 pl-2 pr-7"
+                                    value={selectedAction}
+                                    onChange={e => setSelectedAction(e.target.value)}
+                                >
                                     <option value="">All actions</option>
                                     {actions.map(action => (
                                         <option key={action}>{action}</option>
@@ -79,10 +83,10 @@ function Events() {
                                     <TableRow key={event._id}>
                                         <TableCell>
                                             <div>
-                                                <div className="font-medium text-gray-200">
+                                                <div className="font-medium">
                                                     {event.name}
                                                 </div>
-                                                <div className="text-xs">
+                                                <div className="text-xs text-gray-400">
                                                     {event.createdAt ? moment(event.createdAt).format('LLL') : '-'}
                                                 </div>
                                             </div>
@@ -90,13 +94,13 @@ function Events() {
                                         <TableCell>
                                             {event.message && (
                                                 <pre
-                                                    className="bg-gray-100 px-5 py-4 border rounded"
+                                                    className="bg-gray-900 px-5 py-4 rounded border border-lightblue-400"
                                                     style={{ maxWidth: 600, maxHeight: 200, overflow: 'auto' }}
                                                 >
                                                     {event.message}
                                                 </pre>
                                             )}
-                                            <div className="truncate text-xs mt-1 text-gray-500" title={event.user}>
+                                            <div className="truncate text-xs mt-1 text-gray-600" title={event.user}>
                                                 User: {event.user}
                                             </div>
                                         </TableCell>

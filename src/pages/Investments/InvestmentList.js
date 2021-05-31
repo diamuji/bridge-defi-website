@@ -100,23 +100,23 @@ export default function InvestmentList(props) {
                                 <TableCell>
                                     {investment.userData?.firstName}
                                     {investment.userData?.lastName}
-                                    <div className="truncate text-xs" title={investment.userData}>
+                                    <div className="truncate text-xs text-gray-400" title={investment.userData}>
                                         {investment.userData?.email || investment.user}
                                     </div>
                                 </TableCell>
                             )}
                             <TableCell>
-                                <div className="font-medium text-gray-200">
+                                <div className="font-medium">
                                     <span className="text-gray-400">{investment.amountType}</span>&nbsp;
                                     <b>{investment.amount}</b>
                                 </div>
-                                <div className="text-xs">
+                                <div className="text-xs text-gray-400">
                                     {CURRENCIES.filter(currency => currency.symbol === investment.amountType)[0].name}
                                 </div>
                             </TableCell>
                             <TableCell className="overflow-clip small">
                                 {investment.pool.name}
-                                <div className="text-xs text-gray-500">
+                                <div className="text-xs text-gray-400">
                                     {investment.createdAt ? moment(investment.createdAt).format('LL') : '-'}
                                 </div>
                             </TableCell>

@@ -20,18 +20,18 @@ export default function TransactionRow(props) {
             )}
             <TableCell>
                 <div>
-                    <div className="font-medium text-gray-200">
+                    <div className="font-medium">
                         <span className="text-gray-400">{transaction.amountType}</span>&nbsp;
                         <b>{transaction.amount}</b>
                     </div>
-                    <div className="text-xs">
+                    <div className="text-xs text-gray-400">
                         {CURRENCIES.filter(currency => currency.symbol === transaction.amountType)[0].name}
                     </div>
                 </div>
             </TableCell>
             <TableCell className="overflow-clip small">
                 {transaction.source || transaction.destination || transaction.iban}
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-400">
                     {transaction.createdAt ? moment(transaction.createdAt).format('LL') : '-'}
                 </div>
             </TableCell>

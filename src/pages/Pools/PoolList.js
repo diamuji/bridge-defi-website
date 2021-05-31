@@ -23,6 +23,8 @@ export default function PoolList() {
     const isAdmin = userContext.me?.isAdmin;
     const [selectedPool, setSelectedPool] = useState();
     const [visibleRows, setVisibleRows] = useState([]);
+    const firstDate = moment(RATES[0].date);
+    const xStepWidth = 3;
 
     const fetchPools = useCallback(async () => {
         const pools = await http({ url: '/pool' });
@@ -141,9 +143,13 @@ export default function PoolList() {
                                                         }
                                                     ]}
                                                     margin={{ top: 5, left: 40, right: 5, bottom: 50 }}
-                                                    xScale={{ type: 'time', min: '2021-02-26', format: '%Y-%m-%d', precision: 'day' }}
-                                                    yScale={{ type: 'linear', min: 0, max: 20, stacked: true, reverse: false }}
-                                                    yFormat=" >-.2f"
+                                                    xScale={{
+                                                        type: 'time',
+                                                        min: firstDate.subtract(xStepWidth, 'days').format('YYYY-MM-DD'),
+                                                        format: '%Y-%m-%d',
+                                                        precision: 'day',
+                                                    }}
+                                                    yScale={{ type: 'linear', min: 0, max: 20 }}
                                                     enableArea
                                                     areaOpacity={1}
                                                     axisTop={null}
@@ -160,10 +166,10 @@ export default function PoolList() {
                                                         orient: 'bottom',
                                                         format: value => {
                                                             const date = moment(value);
-                                                            return date.isBefore('2021-03-01') ? '' : date.format('D MMM').toLowerCase();
+                                                            return date.isBefore(firstDate) ? '' : date.format('D MMM').toLowerCase();
                                                         },
                                                         tickValues: RATES
-                                                            .filter((v, index) => index % 3 === 0)
+                                                            .filter((v, index) => index % xStepWidth === 0)
                                                             .map(point => new Date(point.date)),
                                                         tickSize: 0,
                                                         tickPadding: 10,
@@ -173,7 +179,7 @@ export default function PoolList() {
                                                     enableGridY={true}
                                                     gridYValues={[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]}
                                                     gridXValues={RATES
-                                                        .filter((v, index) => index % 3 === 0)
+                                                        .filter((v, index) => index % xStepWidth === 0)
                                                         .map(point => new Date(point.date))}
                                                     pointSymbol={() => <rect x="-2" y="-2" width="5" height="5" fill="#fff" />}
                                                     colors="#a8b0c6"

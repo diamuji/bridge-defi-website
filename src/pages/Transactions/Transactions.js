@@ -11,9 +11,7 @@ function Transactions() {
     return (
         <LoggedPage title={(
             <>
-                <span className="flex-grow">
-                    Transactions
-                </span>
+                Transactions
                 {isAdmin && (
                     <span className="text-xs uppercase bg-lightblue-100 text-white px-2 py-1 rounded font-normal ml-5 align-middle">
                         All users

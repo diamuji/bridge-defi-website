@@ -15,7 +15,7 @@ export default function ConversionList(props) {
     const [conversions, setConversions] = useState(userData);
     const userContext = useContext(UserContext);
     const isAdmin = userContext.me?.isAdmin;
-    const singleUser = isAdmin && userData;
+    const singleUser = !isAdmin && userData;
 
     const fetchConversions = useCallback(async () => {
         const conversions = await http({
@@ -65,20 +65,20 @@ export default function ConversionList(props) {
                                 {conversion.createdAt ? moment(conversion.createdAt).format('LL') : '-'}
                             </TableCell>
                             <TableCell>
-                                <div className="font-medium text-gray-800">
-                                    <span className="text-gray-600">{conversion.from.amountType}</span>&nbsp;
+                                <div className="font-medium">
+                                    <span className="text-gray-400">{conversion.from.amountType}</span>&nbsp;
                                     <b>{conversion.from.amount}</b>
                                 </div>
-                                <div className="text-xs">
+                                <div className="text-xs text-gray-400">
                                     {CURRENCIES.filter(currency => currency.symbol === conversion.from.amountType)[0].name}
                                 </div>
                             </TableCell>
                             <TableCell>
-                                <div className="font-medium text-gray-800">
-                                    <span className="text-gray-600">{conversion.to.amountType}</span>&nbsp;
+                                <div className="font-medium">
+                                    <span className="text-gray-400">{conversion.to.amountType}</span>&nbsp;
                                     <b>{conversion.to.amount}</b>
                                 </div>
-                                <div className="text-xs">
+                                <div className="text-xs text-gray-400">
                                     {CURRENCIES.filter(currency => currency.symbol === conversion.to.amountType)[0].name}
                                 </div>
                             </TableCell>
