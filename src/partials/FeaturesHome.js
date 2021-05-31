@@ -31,7 +31,7 @@ function FeaturesHome() {
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
             <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                 <h3 className="h3 mb-3">Why Bridge</h3>
-                <p className="text-xl text-gray-400">Bridge provides an easy and secure way to select investments and get exposure to DeFi new opportunities</p>
+                <p className="text-xl text-gray-400">Bridge provides an easy and secure way to select investments and get a structured exposure to DeFi new opportunities</p>
               </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">

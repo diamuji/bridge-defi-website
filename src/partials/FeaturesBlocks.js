@@ -8,7 +8,7 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-12">
-            <h2 className="h2 mb-4">Bridge makes investing in DeFi simple</h2>
+            <h2 className="h2 mb-4">Bridge makes investing in DeFi simple and professional</h2>
             <p className="text-xl text-gray-400">Join the Financial Revolution. Start earning now.</p>
           </div>
 
@@ -17,16 +17,16 @@ function FeaturesBlocks() {
 
             {/* 1st item */}
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]">
-              <img className="mb-4 w-16" src={require('../images/Bridge_Icons_01.jpg')} width="240" height="240" alt="Subscribe & Deposit" />
-              <h4 className="h4 mb-2">1. Subscribe & Deposit</h4>
-              <p className="text-lg text-gray-400 text-center">Major currencies and payment methods are supported.</p>
+              <img className="mb-4 w-16" src={require('../images/Bridge_Icons_01.jpg')} width="240" height="240" alt="Onboarding" />
+              <h4 className="h4 mb-2">1. Onboarding</h4>
+              <p className="text-lg text-gray-400 text-center">Get an easy access to DeFi world with your wallet.</p>
             </div>
 
             {/* 2nd item */}
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="100" data-aos-anchor="[data-aos-id-blocks]">
               <img className="mb-4 w-16" src={require('../images/Bridge_Icons_02.jpg')} width="240" height="240" alt="Invest" />
               <h4 className="h4 mb-2">2. Invest</h4>
-              <p className="text-lg text-gray-400 text-center">Select among the most trusted and liquid DeFi investment pools.</p>
+              <p className="text-lg text-gray-400 text-center">Select among the most trusted and profitable DeFi investment strategies.</p>
             </div>
 
             {/* 3rd item */}
